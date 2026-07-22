@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK_2026"
+run/main_scene="uid://tkut1lxq82o5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/Andre/Documents/gmtk-2026/videos/DebugTest.avi"
 
 [input]
 
