@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://tkut1lxq82o5"]
 
 [ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Sandboxes/AndrewSandbox/MouseControl.gd" id="1_dtwem"]
+[ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Sandboxes/AndrewSandbox/SlashLine.tscn" id="2_d7045"]
 
 [node name="MouseControlCanvas" type="CanvasLayer" unique_id=549195944]
 
-[node name="MouseControl" type="MarginContainer" parent="." unique_id=1426232428]
+[node name="MouseControl" type="MarginContainer" parent="." unique_id=1426232428 node_paths=PackedStringArray("mouse_start_position")]
 process_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,8 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_dtwem")
+mouse_start_position = NodePath("MouseStartPosition")
+slash_line = ExtResource("2_d7045")
 debug = true
 
 [node name="MouseStartPosition" type="ColorRect" parent="MouseControl" unique_id=1296350390]

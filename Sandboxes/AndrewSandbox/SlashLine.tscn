@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dlnk2kmeyb1yd"]
+
+[ext_resource type="Script" uid="uid://cn5exxrqtyo60" path="res://Sandboxes/AndrewSandbox/SlashLine.gd" id="1_ou4ys"]
+
+[node name="Slash" type="Line2D" unique_id=54443482]
+points = PackedVector2Array(0, 0, 0, 0)
+script = ExtResource("1_ou4ys")
