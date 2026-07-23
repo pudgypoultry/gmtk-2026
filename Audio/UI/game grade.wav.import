@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ggjf6g7h04ob"
+path="res://.godot/imported/game grade.wav-7618b7d2f62042caf63f02886d00b788.sample"
+
+[deps]
+
+source_file="res://Audio/UI/game grade.wav"
+dest_files=["res://.godot/imported/game grade.wav-7618b7d2f62042caf63f02886d00b788.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

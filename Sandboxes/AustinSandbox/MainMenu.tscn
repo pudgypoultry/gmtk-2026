@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bfco87nsxn837"]
+
+[ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="1_ul6mk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muas2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qu4c1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x17xm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjydv"]
+
+[sub_resource type="AudioStream" id="AudioStream_gjydv"]
+
+[node name="MainMenu" type="Control" unique_id=876885599]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=365110438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="darkback" type="ColorRect" parent="." unique_id=1219147016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.53000003)
+
+[node name="DRAW" type="Label" parent="." unique_id=2080978377]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22800002
+anchor_right = 0.76400006
+anchor_bottom = 0.224
+offset_left = 0.34399414
+offset_right = -0.12805176
+offset_bottom = -0.15200806
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.79769665, 0.19691208, 0.18545094, 1)
+theme_override_fonts/font = ExtResource("1_ul6mk")
+theme_override_font_sizes/font_size = 64
+text = "DRAW"
+horizontal_alignment = 1
+
+[node name="menubuttons" type="VBoxContainer" parent="." unique_id=2089368412]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058
+anchor_top = 0.361
+anchor_right = 0.475
+anchor_bottom = 0.81500006
+offset_left = 0.023986816
+offset_top = 0.31199646
+offset_right = 0.21594238
+offset_bottom = -0.12005615
+theme_override_constants/separation = 55
+
+[node name="play" type="Button" parent="menubuttons" unique_id=1308658692]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.88, 0.052800003, 0.052800003, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_ul6mk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_muas2")
+text = "PLAY"
+
+[node name="settings" type="Button" parent="menubuttons" unique_id=314641725]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.88, 0.052800003, 0.052800003, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_ul6mk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qu4c1")
+text = "SETTINGS
+"
+
+[node name="quit" type="Button" parent="menubuttons" unique_id=865500501]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.88, 0.052800003, 0.052800003, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_ul6mk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x17xm")
+text = "QUIT
+"
+
+[node name="credits" type="Button" parent="menubuttons" unique_id=1641355526]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.052800003, 0.052800003, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_ul6mk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gjydv")
+text = "CREDITS"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1892723012]
+stream = SubResource("AudioStream_gjydv")
