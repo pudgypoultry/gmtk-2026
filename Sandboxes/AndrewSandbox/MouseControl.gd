@@ -141,11 +141,21 @@ func find_direction(from, to):
 	return (to - from) / abs(to - from)
 
 
-func handle_mouse_entered_start():
+func handle_mouse_entered_start() -> void:
 	if current_state == State.PREPARING:
 		current_state = State.READY
+		print("READY")
 
 
-func handle_mouse_exited_start():
+func handle_mouse_exited_start() -> void:
 	if current_state == State.READY:
 		current_state = State.RECORDING
+		print("RECORDING")
+
+
+func _on_start_pos_mouse_entered() -> void:
+	handle_mouse_entered_start()
+
+
+func _on_start_pos_mouse_exited() -> void:
+	handle_mouse_exited_start()

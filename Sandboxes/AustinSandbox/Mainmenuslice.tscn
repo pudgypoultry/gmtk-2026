@@ -1,27 +1,33 @@
 [gd_scene format=3 uid="uid://bp3vrki61iv53"]
 
 [ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="1_67nio"]
+[ext_resource type="Script" uid="uid://dom2vfqabt2bm" path="res://Sandboxes/AndrewSandbox/CameraSlicer.gd" id="2_qftof"]
+[ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Sandboxes/AndrewSandbox/MouseControl.gd" id="3_8gepf"]
+[ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Sandboxes/AndrewSandbox/SlashLine.tscn" id="4_p8owb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_muas2"]
 size = Vector3(1.0841255, 1.0274658, 0.84020996)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qu4c1"]
 
-[node name="MainMenu3D" type="Node3D" unique_id=1401067214]
+[sub_resource type="BoxShape3D" id="BoxShape3D_muas2"]
+size = Vector3(0.9375, 0.001, 0.79589844)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=319641749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+[node name="MainMenu3D" type="Node3D" unique_id=1401067214]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1691445575]
 transform = Transform3D(0.90630776, 0.24240388, -0.34618863, 0, 0.81915206, 0.57357645, 0.42261827, -0.5198368, 0.74240386, 0, 0, 0)
 
+[node name="Camera3D" type="Camera3D" parent="DirectionalLight3D" unique_id=319641749]
+transform = Transform3D(0.9063078, 0, 0.4226183, 0.24240391, 0.8191521, -0.51983684, -0.34618866, 0.57357645, 0.7424039, 3.3809464, -4.1586947, 5.9392314)
+
 [node name="Playoption" type="Node3D" parent="." unique_id=249422525]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Playoption" unique_id=1446105488]
+[node name="ButtonMesh" type="MeshInstance3D" parent="Playoption" unique_id=1446105488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010825604, 0.020150527, 0.14331317)
 mesh = SubResource("BoxMesh_muas2")
 
-[node name="Label3D" type="Label3D" parent="Playoption" unique_id=1976590618]
+[node name="ButtonText" type="Label3D" parent="Playoption" unique_id=1976590618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11)
 no_depth_test = true
 modulate = Color(1, 0, 0, 1)
@@ -29,8 +35,48 @@ text = "PLAY"
 font = ExtResource("1_67nio")
 font_size = 80
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Playoption" unique_id=1165768049]
+[node name="HitBox" type="StaticBody3D" parent="Playoption" unique_id=1165768049]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Playoption/StaticBody3D" unique_id=98846497]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Playoption/HitBox" unique_id=98846497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.4, 0.2)
 shape = SubResource("BoxShape3D_qu4c1")
+
+[node name="CameraSlicer" type="Node3D" parent="." unique_id=1840314729 node_paths=PackedStringArray("slicer", "slicer_area", "rigidbody_parent", "camera")]
+script = ExtResource("2_qftof")
+slicer = NodePath("Slicer")
+slicer_area = NodePath("Slicer/SlicerArea")
+rigidbody_parent = NodePath("../RigidbodyPArent")
+camera = NodePath("../DirectionalLight3D/Camera3D")
+metadata/_custom_type_script = "uid://dom2vfqabt2bm"
+
+[node name="Slicer" type="Node3D" parent="CameraSlicer" unique_id=524912444]
+
+[node name="SlicerArea" type="Area3D" parent="CameraSlicer/Slicer" unique_id=808207019]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraSlicer/Slicer/SlicerArea" unique_id=1167622375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 20, 0.1)
+shape = SubResource("BoxShape3D_muas2")
+
+[node name="MouseControl" type="CanvasLayer" parent="." unique_id=1344106026 node_paths=PackedStringArray("mouse_start_position", "margin_child", "camera_slicer")]
+script = ExtResource("3_8gepf")
+mouse_start_position = NodePath("MarginChild/StartPos")
+slash_line = ExtResource("4_p8owb")
+margin_child = NodePath("MarginChild")
+camera_slicer = NodePath("../CameraSlicer")
+metadata/_custom_type_script = "uid://cmuruwaxgftck"
+
+[node name="MarginChild" type="MarginContainer" parent="MouseControl" unique_id=139656653]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StartPos" type="Panel" parent="MouseControl/MarginChild" unique_id=1975477863]
+layout_mode = 2
+
+[node name="RigidbodyPArent" type="Node3D" parent="." unique_id=1244092784]
+
+[connection signal="mouse_entered" from="MouseControl/MarginChild/StartPos" to="MouseControl" method="_on_start_pos_mouse_entered"]
+[connection signal="mouse_exited" from="MouseControl/MarginChild/StartPos" to="MouseControl" method="_on_start_pos_mouse_exited"]

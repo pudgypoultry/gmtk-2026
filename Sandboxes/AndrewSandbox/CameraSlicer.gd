@@ -10,7 +10,7 @@ class_name CameraSlicer
 @export var rigidbody_parent : Node3D
 
 
-@onready var camera : Camera3D = get_parent()
+@export var camera: Camera3D
 
 
 var cross_section_material = preload("res://addons/concave mesh slicer/Example/cross_section_material.tres")
