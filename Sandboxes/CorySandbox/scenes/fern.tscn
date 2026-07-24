@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://by0nfireqxjgo"]
+
+[ext_resource type="PackedScene" uid="uid://dtph1adxf3ych" path="res://Sandboxes/CorySandbox/blender_assets/fern.glb" id="1_pogl7"]
+
+[node name="Fern" type="Node3D" unique_id=378496362]
+
+[node name="fern" parent="." unique_id=1269721659 instance=ExtResource("1_pogl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5204576, 0, -0.00022745132)

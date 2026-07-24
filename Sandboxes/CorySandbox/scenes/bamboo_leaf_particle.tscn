@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bd1e3su8e237b"]
+
+[ext_resource type="ArrayMesh" uid="uid://4lgtphsoh35i" path="res://Sandboxes/CorySandbox/scenes/mesh_bamboo_leaf.res" id="1_01pyq"]
+
+[node name="BambooLeafParticle" type="Node3D" unique_id=1365383321]
+
+[node name="bamboo_leaf2" type="Node3D" parent="." unique_id=1951035500]
+
+[node name="bamboo_leaf" type="MeshInstance3D" parent="bamboo_leaf2" unique_id=895970528]
+mesh = ExtResource("1_01pyq")
