@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dx6gip0gj2oxm"]
+
+[ext_resource type="PackedScene" uid="uid://dr57cnp6qb16y" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_stairs.glb" id="1_31ps8"]
+[ext_resource type="PackedScene" uid="uid://btk7vd0t0s1a1" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_platform.glb" id="2_i4ycw"]
+[ext_resource type="PackedScene" uid="uid://csk6j2qwloo7p" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_roof.glb" id="3_n7jnk"]
+[ext_resource type="PackedScene" uid="uid://bjpsga48dr2hu" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_stairs_railing.glb" id="4_oagxl"]
+[ext_resource type="PackedScene" uid="uid://ct30cse2ax22d" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_railing_large.glb" id="5_o4yx4"]
+[ext_resource type="PackedScene" uid="uid://bl3ebmxmoosyn" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_railing_small.glb" id="6_ajgvb"]
+
+[node name="Gazebo" type="Node3D" unique_id=410663548]
+
+[node name="gazebo_stairs2" parent="." unique_id=1434411451 instance=ExtResource("1_31ps8")]
+
+[node name="gazebo_platform" parent="." unique_id=66826571 instance=ExtResource("2_i4ycw")]
+
+[node name="gazebo_roof" parent="." unique_id=1469264446 instance=ExtResource("3_n7jnk")]
+
+[node name="gazebo_stairs_railing" parent="." unique_id=1444082911 instance=ExtResource("4_oagxl")]
+
+[node name="gazebo_stairs3" parent="." unique_id=8501364 instance=ExtResource("1_31ps8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="gazebo_stairs_railing2" parent="." unique_id=1238685341 instance=ExtResource("4_oagxl")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="gazebo_railing_large" parent="." unique_id=1955511943 instance=ExtResource("5_o4yx4")]
+
+[node name="gazebo_railing_large2" parent="." unique_id=2123766557 instance=ExtResource("5_o4yx4")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="gazebo_railing_small" parent="." unique_id=176470081 instance=ExtResource("6_ajgvb")]
+
+[node name="gazebo_railing_small2" parent="." unique_id=1588759429 instance=ExtResource("6_ajgvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2990441)
+
+[node name="gazebo_railing_small3" parent="." unique_id=700409005 instance=ExtResource("6_ajgvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="gazebo_railing_small4" parent="." unique_id=356585888 instance=ExtResource("6_ajgvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.299044)
+
+[node name="gazebo_railing_small5" parent="." unique_id=387648863 instance=ExtResource("6_ajgvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.260669, 0, 0)
+
+[node name="gazebo_railing_small6" parent="." unique_id=1948993656 instance=ExtResource("6_ajgvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.260669, 0, -3.2990441)
+
+[node name="gazebo_railing_small7" parent="." unique_id=1010511733 instance=ExtResource("6_ajgvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.260669, 0, -11)
+
+[node name="gazebo_railing_small8" parent="." unique_id=1005341308 instance=ExtResource("6_ajgvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.260669, 0, -14.299044)

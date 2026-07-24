@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://tm4wqirr45yy"]
+
+[ext_resource type="PackedScene" uid="uid://dsmfj2stj47xp" path="res://Sandboxes/CorySandbox/blender_assets/paper_screen.glb" id="1_1xus8"]
+
+[node name="Paper_screen_set" type="Node3D" unique_id=437333854]
+
+[node name="paper_screen2" parent="." unique_id=978620879 instance=ExtResource("1_1xus8")]
+transform = Transform3D(0.70559424, 0, 0.7086159, 0, 1, 0, -0.7086159, 0, 0.70559424, -3.9530704, -1.1523243, 0.089791626)
+
+[node name="paper_screen3" parent="." unique_id=308179925 instance=ExtResource("1_1xus8")]
+transform = Transform3D(0.70861584, 0, -0.7055943, 0, 1, 0, 0.7055943, 0, 0.70861584, -1.8416612, -1.1523243, -0.61476415)
+
+[node name="paper_screen4" parent="." unique_id=193664379 instance=ExtResource("1_1xus8")]
+transform = Transform3D(0.70559424, 0, 0.7086159, 0, 1, 0, -0.7086159, 0, 0.70559424, 1.1596029, -1.1523243, 0.035638954)
+
+[node name="paper_screen5" parent="." unique_id=1669923653 instance=ExtResource("1_1xus8")]
+transform = Transform3D(0.70861584, 0, -0.7055943, 0, 1, 0, 0.7055943, 0, 0.70861584, 3.2710123, -1.1523243, -0.6689169)
