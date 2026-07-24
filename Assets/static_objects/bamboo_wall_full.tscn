@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdxyllha2jejb"]
 
-[ext_resource type="PackedScene" uid="uid://c4451bqpnxufk" path="res://Sandboxes/CorySandbox/blender_assets/bamboo_wall_main.glb" id="1_py7jh"]
-[ext_resource type="PackedScene" uid="uid://dlsc4aw0hm241" path="res://Sandboxes/CorySandbox/blender_assets/bamboo_wall_fill.glb" id="2_cas1b"]
+[ext_resource type="PackedScene" uid="uid://c4451bqpnxufk" path="res://GLB_Resorces/bamboo_wall_main.glb" id="1_py7jh"]
+[ext_resource type="PackedScene" uid="uid://dlsc4aw0hm241" path="res://GLB_Resorces/bamboo_wall_fill.glb" id="2_cas1b"]
 
 [node name="BambooWallFull" type="Node3D" unique_id=2067654600]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tm4wqirr45yy"]
 
-[ext_resource type="PackedScene" uid="uid://dsmfj2stj47xp" path="res://Sandboxes/CorySandbox/blender_assets/paper_screen.glb" id="1_1xus8"]
+[ext_resource type="PackedScene" uid="uid://dsmfj2stj47xp" path="res://GLB_Resorces/paper_screen.glb" id="1_1xus8"]
 
 [node name="Paper_screen_set" type="Node3D" unique_id=437333854]
 

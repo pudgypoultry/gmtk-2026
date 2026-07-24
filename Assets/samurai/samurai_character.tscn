@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://dw0qk0mqi5s7c"]
 
-[ext_resource type="Script" uid="uid://c48sigbag5dd1" path="res://Sandboxes/CorySandbox/scenes/samurai/scripts/samurai_character.gd" id="1_4oinx"]
-[ext_resource type="ArrayMesh" uid="uid://4jc03vbu0p2p" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_hair.res" id="1_cfivn"]
-[ext_resource type="ArrayMesh" uid="uid://sq1tr66exqx0" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_eyebrows.res" id="2_4oinx"]
-[ext_resource type="ArrayMesh" uid="uid://dbff820e6t54g" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_eyes_01.res" id="3_hi051"]
-[ext_resource type="ArrayMesh" uid="uid://bu1g3vf8codnc" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_eyes_02.res" id="4_5s8p3"]
-[ext_resource type="PackedScene" uid="uid://b5dv7eraofhgq" path="res://Sandboxes/CorySandbox/blender_assets/katana_blade.glb" id="5_820np"]
-[ext_resource type="ArrayMesh" uid="uid://dvcdctwnlgv4p" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_eyes_03.res" id="5_qb6ww"]
-[ext_resource type="PackedScene" uid="uid://dynhf4ys50ro" path="res://Sandboxes/CorySandbox/blender_assets/katana_sheeth.glb" id="6_j7rd0"]
-[ext_resource type="ArrayMesh" uid="uid://c8yy0y0cope08" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_beard.res" id="6_pmp6p"]
-[ext_resource type="ArrayMesh" uid="uid://cmnfl0fqw700o" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_mustash.res" id="7_1n8wr"]
-[ext_resource type="ArrayMesh" uid="uid://bi3yhnav3b7y4" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_mouth.res" id="8_3hgw3"]
-[ext_resource type="ArrayMesh" uid="uid://x37kene7onab" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_robe_01.res" id="9_c30gq"]
-[ext_resource type="ArrayMesh" uid="uid://dksdjagtn7gt0" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_robe_02.res" id="10_oohu3"]
-[ext_resource type="ArrayMesh" uid="uid://cn35uj3dh4ngx" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_skin.res" id="11_w5i57"]
-[ext_resource type="ArrayMesh" uid="uid://dtpypai58v11r" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_lips.res" id="12_xsj2r"]
-[ext_resource type="ArrayMesh" uid="uid://cu1356fcixi4g" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_teeth.res" id="13_g2c45"]
-[ext_resource type="ArrayMesh" uid="uid://ce4jl6fl7u4rf" path="res://Sandboxes/CorySandbox/scenes/samurai/resources/mesh_belt.res" id="14_in8vy"]
+[ext_resource type="Script" uid="uid://c48sigbag5dd1" path="res://Assets/samurai/scripts/samurai_character.gd" id="1_4oinx"]
+[ext_resource type="ArrayMesh" uid="uid://4jc03vbu0p2p" path="res://Assets/samurai/resources/mesh_hair.res" id="1_cfivn"]
+[ext_resource type="ArrayMesh" uid="uid://sq1tr66exqx0" path="res://Assets/samurai/resources/mesh_eyebrows.res" id="2_4oinx"]
+[ext_resource type="ArrayMesh" uid="uid://dbff820e6t54g" path="res://Assets/samurai/resources/mesh_eyes_01.res" id="3_hi051"]
+[ext_resource type="ArrayMesh" uid="uid://bu1g3vf8codnc" path="res://Assets/samurai/resources/mesh_eyes_02.res" id="4_5s8p3"]
+[ext_resource type="PackedScene" uid="uid://b5dv7eraofhgq" path="res://GLB_Resorces/katana_blade.glb" id="5_820np"]
+[ext_resource type="ArrayMesh" uid="uid://dvcdctwnlgv4p" path="res://Assets/samurai/resources/mesh_eyes_03.res" id="5_qb6ww"]
+[ext_resource type="PackedScene" uid="uid://dynhf4ys50ro" path="res://GLB_Resorces/katana_sheeth.glb" id="6_j7rd0"]
+[ext_resource type="ArrayMesh" uid="uid://c8yy0y0cope08" path="res://Assets/samurai/resources/mesh_beard.res" id="6_pmp6p"]
+[ext_resource type="ArrayMesh" uid="uid://cmnfl0fqw700o" path="res://Assets/samurai/resources/mesh_mustash.res" id="7_1n8wr"]
+[ext_resource type="ArrayMesh" uid="uid://bi3yhnav3b7y4" path="res://Assets/samurai/resources/mesh_mouth.res" id="8_3hgw3"]
+[ext_resource type="ArrayMesh" uid="uid://x37kene7onab" path="res://Assets/samurai/resources/mesh_robe_01.res" id="9_c30gq"]
+[ext_resource type="ArrayMesh" uid="uid://dksdjagtn7gt0" path="res://Assets/samurai/resources/mesh_robe_02.res" id="10_oohu3"]
+[ext_resource type="ArrayMesh" uid="uid://cn35uj3dh4ngx" path="res://Assets/samurai/resources/mesh_skin.res" id="11_w5i57"]
+[ext_resource type="ArrayMesh" uid="uid://dtpypai58v11r" path="res://Assets/samurai/resources/mesh_lips.res" id="12_xsj2r"]
+[ext_resource type="ArrayMesh" uid="uid://cu1356fcixi4g" path="res://Assets/samurai/resources/mesh_teeth.res" id="13_g2c45"]
+[ext_resource type="ArrayMesh" uid="uid://ce4jl6fl7u4rf" path="res://Assets/samurai/resources/mesh_belt.res" id="14_in8vy"]
 
 [sub_resource type="Skin" id="Skin_60b2o"]
 resource_name = "Skin"
@@ -2388,7 +2388,7 @@ bones/53/rotation = Quaternion(0.7790321, -0.6224755, 0.03039756, 0.068624444)
 bones/53/scale = Vector3(0.99999994, 0.99999994, 1)
 
 [node name="DEF_head" type="BoneAttachment3D" parent="samurai/m_armature_full_002/Skeleton3D" unique_id=833958606]
-transform = Transform3D(-0.99642944, -0.02536729, 0.08052888, 0.079749525, 0.030369997, 0.99635214, -0.02772057, 0.99921674, -0.028238542, 0.115275115, 1.3316264, 0.11038023)
+transform = Transform3D(-0.98522645, -0.15114155, 0.08052883, 0.07526991, 0.04020895, 0.99635214, -0.1538283, 0.9876939, -0.028238505, 0.115275115, 1.3316264, 0.11038023)
 bone_name = "DEF_head"
 bone_idx = 6
 

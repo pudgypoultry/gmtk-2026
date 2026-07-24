@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deatftti06hkk"
-path="res://.godot/imported/grass.glb-de532c01f6634fef7962671dbdd21447.scn"
+uid="uid://bl3ebmxmoosyn"
+path="res://.godot/imported/gazebo_railing_small.glb-0ef254623af0f791c476eaa3c5ca01bf.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/grass.glb"
-dest_files=["res://.godot/imported/grass.glb-de532c01f6634fef7962671dbdd21447.scn"]
+source_file="res://GLB_Resorces/gazebo_railing_small.glb"
+dest_files=["res://.godot/imported/gazebo_railing_small.glb-0ef254623af0f791c476eaa3c5ca01bf.scn"]
 
 [params]
 

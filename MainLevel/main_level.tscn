@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ckv2nv4ldnj1"]
+
+[ext_resource type="PackedScene" uid="uid://j2v6okfdislb" path="res://MainLevel/static_env_assets.tscn" id="1_vhvtb"]
+[ext_resource type="PackedScene" uid="uid://dw0qk0mqi5s7c" path="res://Assets/samurai/samurai_character.tscn" id="2_ftpy6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ntr6p"]
+sky_top_color = Color(0.077026285, 0.19024187, 0.36220393, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.25031734, 0.2559968, 0.26736796, 1)
+ground_curve = 0.01569167
+sun_angle_max = 20.65
+energy_multiplier = 4.2
+
+[sub_resource type="Sky" id="Sky_qu5ej"]
+sky_material = SubResource("ProceduralSkyMaterial_ntr6p")
+
+[sub_resource type="Environment" id="Environment_dqdbx"]
+background_mode = 2
+background_color = Color(0.41259876, 0.5747015, 0.7288381, 1)
+sky = SubResource("Sky_qu5ej")
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_energy = 1.19
+fog_sun_scatter = 0.05
+fog_density = 1.0
+
+[node name="MainLevel" type="Node3D" unique_id=757367379]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2147431309]
+environment = SubResource("Environment_dqdbx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1585839717]
+transform = Transform3D(-0.9613007, -0.27546296, -0.0046189427, -0.2686459, 0.93353033, 0.23738305, -0.061078332, 0.22943729, -0.9714052, 1.1386852, 4.585823, -0.6597986)
+light_color = Color(1.9749014, 0.29982248, 0, 1)
+light_energy = 5.023
+light_indirect_energy = 0.821
+shadow_enabled = true
+
+[node name="static_env_assets" parent="." unique_id=577821834 instance=ExtResource("1_vhvtb")]
+
+[node name="Camera-Perspective" type="Camera3D" parent="." unique_id=1443317079]
+transform = Transform3D(1, -5.635208e-09, -3.3616692e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, 0, 2.758, 5.531)
+size = 21.54
+
+[node name="Camera-Orthogonal" type="Camera3D" parent="." unique_id=921902181]
+transform = Transform3D(1, -5.6352065e-09, -3.361669e-09, 5.764867e-09, 0.9992035, 0.039905515, 3.1341154e-09, -0.03990552, 0.99920344, 0, 2.463, 5.545)
+projection = 1
+size = 4.784
+near = 0.019
+
+[node name="Samurai_Character" parent="." unique_id=1621081143 instance=ExtResource("2_ftpy6")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.29858297, 0.12807393, 3.0393088)

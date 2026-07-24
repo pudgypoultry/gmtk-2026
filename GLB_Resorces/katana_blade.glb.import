@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ct30cse2ax22d"
-path="res://.godot/imported/gazebo_railing_large.glb-191929df3d9567c4f319594fec13ee80.scn"
+uid="uid://b5dv7eraofhgq"
+path="res://.godot/imported/katana_blade.glb-eb715aed09ad709b164faead124841a0.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/gazebo_railing_large.glb"
-dest_files=["res://.godot/imported/gazebo_railing_large.glb-191929df3d9567c4f319594fec13ee80.scn"]
+source_file="res://GLB_Resorces/katana_blade.glb"
+dest_files=["res://.godot/imported/katana_blade.glb-eb715aed09ad709b164faead124841a0.scn"]
 
 [params]
 

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dx6gip0gj2oxm"]
 
-[ext_resource type="PackedScene" uid="uid://dr57cnp6qb16y" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_stairs.glb" id="1_31ps8"]
-[ext_resource type="PackedScene" uid="uid://btk7vd0t0s1a1" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_platform.glb" id="2_i4ycw"]
-[ext_resource type="PackedScene" uid="uid://csk6j2qwloo7p" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_roof.glb" id="3_n7jnk"]
-[ext_resource type="PackedScene" uid="uid://bjpsga48dr2hu" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_stairs_railing.glb" id="4_oagxl"]
-[ext_resource type="PackedScene" uid="uid://ct30cse2ax22d" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_railing_large.glb" id="5_o4yx4"]
-[ext_resource type="PackedScene" uid="uid://bl3ebmxmoosyn" path="res://Sandboxes/CorySandbox/blender_assets/gazebo_railing_small.glb" id="6_ajgvb"]
+[ext_resource type="PackedScene" uid="uid://dr57cnp6qb16y" path="res://GLB_Resorces/gazebo_stairs.glb" id="1_31ps8"]
+[ext_resource type="PackedScene" uid="uid://btk7vd0t0s1a1" path="res://GLB_Resorces/gazebo_platform.glb" id="2_i4ycw"]
+[ext_resource type="PackedScene" uid="uid://csk6j2qwloo7p" path="res://GLB_Resorces/gazebo_roof.glb" id="3_n7jnk"]
+[ext_resource type="PackedScene" uid="uid://bjpsga48dr2hu" path="res://GLB_Resorces/gazebo_stairs_railing.glb" id="4_oagxl"]
+[ext_resource type="PackedScene" uid="uid://ct30cse2ax22d" path="res://GLB_Resorces/gazebo_railing_large.glb" id="5_o4yx4"]
+[ext_resource type="PackedScene" uid="uid://bl3ebmxmoosyn" path="res://GLB_Resorces/gazebo_railing_small.glb" id="6_ajgvb"]
 
 [node name="Gazebo" type="Node3D" unique_id=410663548]
 

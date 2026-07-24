@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dlsc4aw0hm241"
-path="res://.godot/imported/bamboo_wall_fill.glb-3695627ed18c3cd4e2787443d10d4955.scn"
+uid="uid://c4451bqpnxufk"
+path="res://.godot/imported/bamboo_wall_main.glb-a80b0f23df90d8a17c2d5fd76b1e82e3.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/bamboo_wall_fill.glb"
-dest_files=["res://.godot/imported/bamboo_wall_fill.glb-3695627ed18c3cd4e2787443d10d4955.scn"]
+source_file="res://GLB_Resorces/bamboo_wall_main.glb"
+dest_files=["res://.godot/imported/bamboo_wall_main.glb-a80b0f23df90d8a17c2d5fd76b1e82e3.scn"]
 
 [params]
 

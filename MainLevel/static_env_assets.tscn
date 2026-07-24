@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://j2v6okfdislb"]
+
+[ext_resource type="PackedScene" uid="uid://h2km65dffln5" path="res://GLB_Resorces/bamboo_forest_clearing_ground.glb" id="1_0mp82"]
+[ext_resource type="PackedScene" uid="uid://cdxyllha2jejb" path="res://Assets/static_objects/bamboo_wall_full.tscn" id="2_x5eju"]
+[ext_resource type="PackedScene" uid="uid://dlsc4aw0hm241" path="res://GLB_Resorces/bamboo_wall_fill.glb" id="3_b552f"]
+[ext_resource type="PackedScene" uid="uid://by0nfireqxjgo" path="res://Assets/static_objects/fern.tscn" id="4_jbb04"]
+[ext_resource type="PackedScene" uid="uid://de3sus680vgkw" path="res://Assets/vfx/leaf_fall_system.tscn" id="5_q4k6c"]
+[ext_resource type="PackedScene" uid="uid://dx6gip0gj2oxm" path="res://Assets/static_objects/gazebo.tscn" id="6_56jyu"]
+[ext_resource type="PackedScene" uid="uid://tm4wqirr45yy" path="res://Assets/static_objects/paper_screen_set.tscn" id="7_0v5hf"]
+[ext_resource type="PackedScene" uid="uid://ccvw027o8hygs" path="res://GLB_Resorces/stone_floor.glb" id="8_v1ee6"]
+
+[node name="static_env_assets" type="Node3D" unique_id=577821834]
+
+[node name="bamboo_forest_clearing_ground" parent="." unique_id=960937089 instance=ExtResource("1_0mp82")]
+
+[node name="BambooWallFull" parent="." unique_id=2067654600 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.89488745, 0, -0.44629192, 0, 1, 0, 0.44629192, 0, 0.89488745, 9.398572, 0, -21.475431)
+
+[node name="BambooWallFull3" parent="." unique_id=2065440848 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.56732, 0, -0.8234975, 0, 1, 0, 0.8234975, 0, 0.56732, 14.297861, 0, -14.445326)
+
+[node name="BambooWallFull4" parent="." unique_id=708828951 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.20034921, 0, -0.9797246, 0, 1, 0, 0.9797246, 0, 0.20034921, 17.150885, 0, -5.3885155)
+
+[node name="BambooWallFull5" parent="." unique_id=1597661116 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.21444416, 0, -0.97673625, 0, 1, 0, 0.97673625, 0, 0.21444416, 17.419868, -3.8146973e-06, 6.4951143)
+
+[node name="BambooWallFull6" parent="." unique_id=627021717 instance=ExtResource("2_x5eju")]
+transform = Transform3D(-0.10927844, 0, 0.9940113, 0, 1, 0, -0.9940113, 0, -0.10927844, -17.219036, -3.8146973e-06, -0.8741627)
+
+[node name="BambooWallFull7" parent="." unique_id=462632587 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.28790286, 0, 0.95765936, 0, 1, 0, -0.95765936, 0, 0.28790286, -15.438989, -3.8146973e-06, -10.20138)
+
+[node name="BambooWallFull2" parent="." unique_id=553373909 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.7943624, 0, 0.60744417, 0, 1, 0, -0.60744417, 0, 0.7943624, -9.141542, 1.9073486e-06, -19.727161)
+
+[node name="BambooWallFull8" parent="." unique_id=1095588070 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.16853169, 0, 0.9856963, 0, 1, 0, -0.9856963, 0, 0.16853169, -6.7870784, 1.9073486e-06, -30.64786)
+
+[node name="BambooWallFull9" parent="." unique_id=1972805773 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.14550632, 0, -0.9893574, 0, 1, 0, 0.9893574, 0, 0.14550632, 10.667557, 1.9073486e-06, -34.111214)
+
+[node name="BambooWallFull10" parent="." unique_id=1407218805 instance=ExtResource("2_x5eju")]
+transform = Transform3D(-0.10386726, 0, 0.99459124, 0, 1, 0, -0.99459124, 0, -0.10386726, -5.9119415, 1.9073486e-06, -43.750786)
+
+[node name="BambooWallFull11" parent="." unique_id=92963750 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.14550632, 0, -0.9893574, 0, 1, 0, 0.9893574, 0, 0.14550632, 10.667557, 1.9073486e-06, -47.21414)
+
+[node name="BambooWallFull12" parent="." unique_id=1505582515 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.41109017, 0, -0.91159475, 0, 1, 0, 0.91159475, 0, 0.41109017, 9.691912, 5.811901, -58.17748)
+
+[node name="BambooWallFull13" parent="." unique_id=351895960 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.49757078, 0, -0.8674234, 0, 1, 0, 0.8674234, 0, 0.49757078, 5.2966037, 9.665846, -67.77074)
+
+[node name="BambooWallFull14" parent="." unique_id=220160964 instance=ExtResource("2_x5eju")]
+transform = Transform3D(0.49969527, 0, -0.86620134, 0, 1, 0, 0.86620134, 0, 0.49969527, 1.7034969, 9.665846, -78.18023)
+
+[node name="bamboo_wall_fill2" parent="." unique_id=1539949259 instance=ExtResource("3_b552f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.768581, 1.6674881, -18.1362)
+
+[node name="Fern" parent="." unique_id=378496362 instance=ExtResource("4_jbb04")]
+transform = Transform3D(0.8092449, 0, 0.5874714, 0, 1, 0, -0.5874714, 0, 0.8092449, -2.243159, 0.15826368, -25.978483)
+
+[node name="Fern2" parent="." unique_id=1324816425 instance=ExtResource("4_jbb04")]
+transform = Transform3D(0.8092449, 0, 0.5874714, 0, 1, 0, -0.5874714, 0, 0.8092449, 3.5728772, 0.15826368, -25.895456)
+
+[node name="Fern4" parent="." unique_id=1944600106 instance=ExtResource("4_jbb04")]
+transform = Transform3D(-0.123651475, 0, 0.9923258, 0, 1, 0, -0.9923258, 0, -0.123651475, -8.426091, 0.15826225, -11.413766)
+
+[node name="Fern5" parent="." unique_id=1303127692 instance=ExtResource("4_jbb04")]
+transform = Transform3D(-1.1104828, 0, 1.1348813, 0, 1.5878059, 0, -1.1348813, 0, -1.1104828, -7.2249317, 0.15826225, -12.493363)
+
+[node name="Fern6" parent="." unique_id=1041130378 instance=ExtResource("4_jbb04")]
+transform = Transform3D(-0.699382, 0, 0.71474814, 0, 1, 0, -0.71474814, 0, -0.699382, -9.187114, 0.15826225, -12.933457)
+
+[node name="Fern7" parent="." unique_id=1183137515 instance=ExtResource("4_jbb04")]
+transform = Transform3D(1.5656327, 0, -0.01212126, 0, 1.5656796, 0, 0.01212126, 0, 1.5656327, 9.119687, 0.15826225, -11.438197)
+
+[node name="Fern8" parent="." unique_id=340513093 instance=ExtResource("4_jbb04")]
+transform = Transform3D(-0.28824946, 0, -0.9575554, 0, 1, 0, 0.9575554, 0, -0.28824946, 10.954399, 0.15826225, -15.494608)
+
+[node name="Fern10" parent="." unique_id=2111105030 instance=ExtResource("4_jbb04")]
+transform = Transform3D(-0.28824946, 0, -0.9575554, 0, 1, 0, 0.9575554, 0, -0.28824946, 8.580559, 0.15826225, -13.513053)
+
+[node name="Fern9" parent="." unique_id=655585632 instance=ExtResource("4_jbb04")]
+transform = Transform3D(1.4498564, 0, 0.87558997, 0, 1.6937358, 0, -0.87558997, 0, 1.4498564, 10.248819, 0.15826225, -13.237511)
+
+[node name="Fern3" parent="." unique_id=1568475710 instance=ExtResource("4_jbb04")]
+transform = Transform3D(0.80454093, 0, -1.6532891, 0, 1.8386545, 0, 1.6532891, 0, 0.80454093, 4.4227886, 0.15826416, -24.502748)
+
+[node name="LeafFallSystem" parent="." unique_id=1555977874 instance=ExtResource("5_q4k6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.237766, 15.766457, -3.912219)
+
+[node name="LeafFallSystem3" parent="." unique_id=1374413772 instance=ExtResource("5_q4k6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33525753, 15.766457, -16.961693)
+
+[node name="LeafFallSystem5" parent="." unique_id=1991412142 instance=ExtResource("5_q4k6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.407795, 15.766457, -4.7743225)
+
+[node name="LeafFallSystem6" parent="." unique_id=1574387102 instance=ExtResource("5_q4k6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8601902, 15.766457, -32.639492)
+
+[node name="Gazebo" parent="." unique_id=410663548 instance=ExtResource("6_56jyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.923632, 0, -2.5315824)
+
+[node name="Gazebo2" parent="." unique_id=346967358 instance=ExtResource("6_56jyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.076368, 0, -2.5315824)
+
+[node name="Paper_screen_set" parent="." unique_id=437333854 instance=ExtResource("7_0v5hf")]
+transform = Transform3D(-0.04528003, 0, 0.9989743, 0, 1, 0, -0.9989743, 0, -0.04528003, -11.015965, 1.0010662, 0.026782513)
+
+[node name="Paper_screen_set2" parent="." unique_id=2039244874 instance=ExtResource("7_0v5hf")]
+transform = Transform3D(-0.11148301, 0, 0.9937663, 0, 1, 0, -0.9937663, 0, -0.11148301, 12.883007, 1.0010662, -5.6444364)
+
+[node name="stone_floor" parent="." unique_id=1493675257 instance=ExtResource("8_v1ee6")]
+transform = Transform3D(0.85636747, 0, 0, 0, 0.85636747, 0, 0, 0, 0.85636747, 0.25052318, -0.112362385, -2.041824)

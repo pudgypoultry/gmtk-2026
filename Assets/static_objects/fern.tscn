@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://by0nfireqxjgo"]
 
-[ext_resource type="PackedScene" uid="uid://dtph1adxf3ych" path="res://Sandboxes/CorySandbox/blender_assets/fern.glb" id="1_pogl7"]
+[ext_resource type="PackedScene" uid="uid://dtph1adxf3ych" path="res://GLB_Resorces/fern.glb" id="1_pogl7"]
 
 [node name="Fern" type="Node3D" unique_id=378496362]
 

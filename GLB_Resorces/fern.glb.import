@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://csk6j2qwloo7p"
-path="res://.godot/imported/gazebo_roof.glb-bd2e4565d9c46f01e14205350579fe59.scn"
+uid="uid://dtph1adxf3ych"
+path="res://.godot/imported/fern.glb-86d9aac782a5346d306e6d2dcf2b2223.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/gazebo_roof.glb"
-dest_files=["res://.godot/imported/gazebo_roof.glb-bd2e4565d9c46f01e14205350579fe59.scn"]
+source_file="res://GLB_Resorces/fern.glb"
+dest_files=["res://.godot/imported/fern.glb-86d9aac782a5346d306e6d2dcf2b2223.scn"]
 
 [params]
 

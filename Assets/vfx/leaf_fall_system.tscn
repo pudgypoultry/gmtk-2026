@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://de3sus680vgkw"]
 
-[ext_resource type="ArrayMesh" uid="uid://4lgtphsoh35i" path="res://Sandboxes/CorySandbox/scenes/mesh_bamboo_leaf.res" id="1_othok"]
+[ext_resource type="ArrayMesh" uid="uid://4lgtphsoh35i" path="res://Assets/vfx/mesh_bamboo_leaf.res" id="1_othok"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gboho"]
 lifetime_randomness = 0.34

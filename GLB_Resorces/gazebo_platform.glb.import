@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://h2km65dffln5"
-path="res://.godot/imported/bamboo_forest_clearing_ground.glb-cc1b0e000039e6217bfee171002d5b0a.scn"
+uid="uid://btk7vd0t0s1a1"
+path="res://.godot/imported/gazebo_platform.glb-d05a5636771cd6b8fa001a26b2ec6f32.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/bamboo_forest_clearing_ground.glb"
-dest_files=["res://.godot/imported/bamboo_forest_clearing_ground.glb-cc1b0e000039e6217bfee171002d5b0a.scn"]
+source_file="res://GLB_Resorces/gazebo_platform.glb"
+dest_files=["res://.godot/imported/gazebo_platform.glb-d05a5636771cd6b8fa001a26b2ec6f32.scn"]
 
 [params]
 

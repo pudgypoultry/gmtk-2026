@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmycgnn62pvoe"
-path="res://.godot/imported/samurai.glb-ace3335640cc534a7d3aa4b314d62602.scn"
+uid="uid://c7ga0xesuqjb3"
+path="res://.godot/imported/bamboo_leaf.glb-50cadbc4f6ccdf9fbb85ff4bdc4149b0.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/samurai.glb"
-dest_files=["res://.godot/imported/samurai.glb-ace3335640cc534a7d3aa4b314d62602.scn"]
+source_file="res://GLB_Resorces/bamboo_leaf.glb"
+dest_files=["res://.godot/imported/bamboo_leaf.glb-50cadbc4f6ccdf9fbb85ff4bdc4149b0.scn"]
 
 [params]
 

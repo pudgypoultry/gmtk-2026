@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dynhf4ys50ro"
-path="res://.godot/imported/katana_sheeth.glb-7ba5776fceef475a5e675450bc30123a.scn"
+uid="uid://dlsc4aw0hm241"
+path="res://.godot/imported/bamboo_wall_fill.glb-016f5d057fe3a14874e50f5cec191672.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/katana_sheeth.glb"
-dest_files=["res://.godot/imported/katana_sheeth.glb-7ba5776fceef475a5e675450bc30123a.scn"]
+source_file="res://GLB_Resorces/bamboo_wall_fill.glb"
+dest_files=["res://.godot/imported/bamboo_wall_fill.glb-016f5d057fe3a14874e50f5cec191672.scn"]
 
 [params]
 

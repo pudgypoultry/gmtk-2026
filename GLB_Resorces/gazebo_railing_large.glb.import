@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c0f7anc3k52rc"
-path="res://.godot/imported/bamboo.glb-c4170b3adb166938618408b6ec5e113b.scn"
+uid="uid://ct30cse2ax22d"
+path="res://.godot/imported/gazebo_railing_large.glb-9c9004e799777fdc228dd5066f75e6c4.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/bamboo.glb"
-dest_files=["res://.godot/imported/bamboo.glb-c4170b3adb166938618408b6ec5e113b.scn"]
+source_file="res://GLB_Resorces/gazebo_railing_large.glb"
+dest_files=["res://.godot/imported/gazebo_railing_large.glb-9c9004e799777fdc228dd5066f75e6c4.scn"]
 
 [params]
 

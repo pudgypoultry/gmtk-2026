@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5dv7eraofhgq"
-path="res://.godot/imported/katana_blade.glb-db75c5d7d174af99cf969719cc55c74a.scn"
+uid="uid://deatftti06hkk"
+path="res://.godot/imported/grass.glb-6d20570482cba5651dc9dcd60bb1f35d.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/katana_blade.glb"
-dest_files=["res://.godot/imported/katana_blade.glb-db75c5d7d174af99cf969719cc55c74a.scn"]
+source_file="res://GLB_Resorces/grass.glb"
+dest_files=["res://.godot/imported/grass.glb-6d20570482cba5651dc9dcd60bb1f35d.scn"]
 
 [params]
 

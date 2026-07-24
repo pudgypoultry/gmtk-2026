@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btk7vd0t0s1a1"
-path="res://.godot/imported/gazebo_platform.glb-70ece7c96045b5ced7c7978f9ec7f2e8.scn"
+uid="uid://dynhf4ys50ro"
+path="res://.godot/imported/katana_sheeth.glb-6adf2bcf66220f7c033bcf55b56c2d6e.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/gazebo_platform.glb"
-dest_files=["res://.godot/imported/gazebo_platform.glb-70ece7c96045b5ced7c7978f9ec7f2e8.scn"]
+source_file="res://GLB_Resorces/katana_sheeth.glb"
+dest_files=["res://.godot/imported/katana_sheeth.glb-6adf2bcf66220f7c033bcf55b56c2d6e.scn"]
 
 [params]
 

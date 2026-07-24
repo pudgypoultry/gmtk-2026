@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ccvw027o8hygs"
-path="res://.godot/imported/stone_floor.glb-9f0abb3025a9e28674fc364e592b19f1.scn"
+uid="uid://dmycgnn62pvoe"
+path="res://.godot/imported/samurai.glb-cb3baf6da3539c116b72201fa3434b06.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/stone_floor.glb"
-dest_files=["res://.godot/imported/stone_floor.glb-9f0abb3025a9e28674fc364e592b19f1.scn"]
+source_file="res://GLB_Resorces/samurai.glb"
+dest_files=["res://.godot/imported/samurai.glb-cb3baf6da3539c116b72201fa3434b06.scn"]
 
 [params]
 

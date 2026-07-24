@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjpsga48dr2hu"
-path="res://.godot/imported/gazebo_stairs_railing.glb-e48afe2d78c6ab6c463b9f39b30fede5.scn"
+uid="uid://ccvw027o8hygs"
+path="res://.godot/imported/stone_floor.glb-f34106c28e169c15abd6f46adc0ae4d1.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/gazebo_stairs_railing.glb"
-dest_files=["res://.godot/imported/gazebo_stairs_railing.glb-e48afe2d78c6ab6c463b9f39b30fede5.scn"]
+source_file="res://GLB_Resorces/stone_floor.glb"
+dest_files=["res://.godot/imported/stone_floor.glb-f34106c28e169c15abd6f46adc0ae4d1.scn"]
 
 [params]
 
