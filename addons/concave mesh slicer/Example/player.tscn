@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dy6iypllg83j3"]
+
+[ext_resource type="Script" uid="uid://1j2ijwjhc0ds" path="res://addons/concave mesh slicer/Example/Player.gd" id="1_yjv46"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_drsii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmii7"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_xgqxu"]
+material = SubResource("StandardMaterial3D_cmii7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g26l8"]
+size = Vector3(11.437378, 1, 0.01)
+
+[node name="Player" type="CharacterBody3D" unique_id=66383502]
+floor_stop_on_slope = false
+floor_block_on_wall = false
+floor_max_angle = 0.349066
+script = ExtResource("1_yjv46")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=599036084]
+shape = SubResource("CapsuleShape3D_drsii")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1823009191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565756, 0)
+
+[node name="Slicer" type="Node3D" parent="Camera3D" unique_id=61695841]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.443504, -0.237657, -2.03263)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Slicer" unique_id=1237587067]
+mesh = SubResource("QuadMesh_xgqxu")
+skeleton = NodePath("../../..")
+
+[node name="Area3D" type="Area3D" parent="Camera3D/Slicer" unique_id=1963156615]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Slicer/Area3D" unique_id=511693070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.218689, 0, 0)
+shape = SubResource("BoxShape3D_g26l8")

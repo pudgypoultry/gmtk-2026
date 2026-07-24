@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dww4wp00jtn0h"]
+
+[ext_resource type="Script" uid="uid://dom2vfqabt2bm" path="res://Sandboxes/AndrewSandbox/CameraSlicer.gd" id="1_jjv6k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5w2h"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_jjv6k"]
+material = SubResource("StandardMaterial3D_e5w2h")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbof0"]
+size = Vector3(39.512177, 14.5390625, 0.01)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pxqgl"]
+radius = 0.19824219
+height = 0.95007324
+
+[node name="CameraSlicer" type="Node3D" unique_id=1777482211 node_paths=PackedStringArray("slicer", "slicer_area")]
+script = ExtResource("1_jjv6k")
+depth = 0.1
+slicer = NodePath("Slicer")
+slicer_area = NodePath("Slicer/Area3D")
+
+[node name="Slicer" type="Node3D" parent="." unique_id=1855049699]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slicer" unique_id=701755799]
+mesh = SubResource("QuadMesh_jjv6k")
+skeleton = NodePath("../../..")
+
+[node name="Area3D" type="Area3D" parent="Slicer" unique_id=573982942]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slicer/Area3D" unique_id=264677206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.256088, 0.041992113, -2.9802322e-08)
+shape = SubResource("BoxShape3D_xbof0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Slicer" unique_id=756003060]
+transform = Transform3D(0.020868411, 0.9997822, -4.279921e-08, -0.9997822, 0.020868411, -4.3701878e-08, -4.279921e-08, 4.3701878e-08, 1, 0.4388821, 0.3741616, 2.9802322e-08)
+mesh = SubResource("CapsuleMesh_pxqgl")

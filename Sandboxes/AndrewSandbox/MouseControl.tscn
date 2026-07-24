@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Sandboxes/AndrewSandbox/MouseControl.gd" id="1_dtwem"]
 [ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Sandboxes/AndrewSandbox/SlashLine.tscn" id="2_d7045"]
+[ext_resource type="Script" uid="uid://cp0opfp1nc6bx" path="res://Sandboxes/AndrewSandbox/DebugDraw.gd" id="2_sfg5k"]
 
-[node name="MouseControlCanvas" type="CanvasLayer" unique_id=549195944]
+[node name="MouseControlCanvas" type="CanvasLayer" unique_id=549195944 node_paths=PackedStringArray("mouse_start_position", "margin_child")]
+script = ExtResource("1_dtwem")
+mouse_start_position = NodePath("MouseControl/MouseStartPosition")
+slash_line = ExtResource("2_d7045")
+margin_child = NodePath("MouseControl")
+debug = true
 
-[node name="MouseControl" type="MarginContainer" parent="." unique_id=1426232428 node_paths=PackedStringArray("mouse_start_position")]
+[node name="MouseControl" type="MarginContainer" parent="." unique_id=1426232428]
 process_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,16 +20,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-script = ExtResource("1_dtwem")
-mouse_start_position = NodePath("MouseStartPosition")
-slash_line = ExtResource("2_d7045")
-debug = true
+script = ExtResource("2_sfg5k")
 
 [node name="MouseStartPosition" type="ColorRect" parent="MouseControl" unique_id=1296350390]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
-[connection signal="mouse_entered" from="MouseControl/MouseStartPosition" to="MouseControl" method="handle_mouse_entered_start"]
-[connection signal="mouse_exited" from="MouseControl/MouseStartPosition" to="MouseControl" method="handle_mouse_exited_start"]
+[connection signal="mouse_entered" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_entered_start"]
+[connection signal="mouse_exited" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_exited_start"]

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cbmargax77fks"]
+
+[ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Sandboxes/AndrewSandbox/MouseControl.tscn" id="2_4306q"]
+[ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Sandboxes/AndrewSandbox/CameraSlicer.tscn" id="3_qqcbp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4306q"]
+albedo_color = Color(0, 0.2700305, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pxqgl"]
+material = SubResource("StandardMaterial3D_4306q")
+size = Vector3(20, 0.25, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rojf5"]
+size = Vector3(20, 0.25, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rojf5"]
+albedo_color = Color(0.9691367, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pxqgl"]
+material = SubResource("StandardMaterial3D_rojf5")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pxqgl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytoc7"]
+albedo_color = Color(0, 1, 0.27952433, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hh20u"]
+material = SubResource("StandardMaterial3D_ytoc7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxqgl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
+sky_top_color = Color(0.286275, 0.411765, 0.823529, 1)
+sky_horizon_color = Color(0.580392, 0.678431, 0.678431, 1)
+ground_horizon_color = Color(0.584314, 0.67451, 0.686275, 1)
+
+[sub_resource type="Sky" id="Sky_h6djc"]
+sky_material = SubResource("ProceduralSkyMaterial_4306q")
+
+[sub_resource type="Environment" id="Environment_qqcbp"]
+background_mode = 2
+sky = SubResource("Sky_h6djc")
+
+[node name="Sandbox" type="Node3D" unique_id=1130912265]
+
+[node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("2_4306q")]
+camera_slicer = NodePath("../Camera3D/CameraSlicer")
+debug = false
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=419158298]
+transform = Transform3D(1, 0, 0, 0, 0.9859668, 0.1669415, 0, -0.1669415, 0.9859668, 0, 3.2698877, 7.171626)
+projection = 1
+size = 9.095
+near = 0.03
+
+[node name="CameraSlicer" parent="Camera3D" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent") instance=ExtResource("3_qqcbp")]
+rigidbody_parent = NodePath("../../StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=179645054]
+transform = Transform3D(1, 0, 0, 0, 0.99960726, -0.028023003, 0, 0.028023003, 0.99960726, 0, -1.430098, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="StaticBody3D" unique_id=1704622130]
+mesh = SubResource("BoxMesh_pxqgl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=402361433]
+shape = SubResource("BoxShape3D_rojf5")
+
+[node name="SliceTestSphere" type="StaticBody3D" parent="StaticBody3D" unique_id=946363852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0378048, 1.3912772, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="SliceableMesh" type="MeshInstance3D" parent="StaticBody3D/SliceTestSphere" unique_id=1062748044]
+mesh = SubResource("SphereMesh_pxqgl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/SliceTestSphere" unique_id=429936289]
+shape = SubResource("SphereShape3D_pxqgl")
+
+[node name="SliceTestBox" type="StaticBody3D" parent="StaticBody3D" unique_id=1408559134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1301847, 2.0505736, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="SliceableMesh" type="MeshInstance3D" parent="StaticBody3D/SliceTestBox" unique_id=1451667231]
+mesh = SubResource("BoxMesh_hh20u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/SliceTestBox" unique_id=1881716681]
+shape = SubResource("BoxShape3D_pxqgl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1576296643]
+environment = SubResource("Environment_qqcbp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=631996476]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_energy = 2.0
+light_indirect_energy = 2.0
+
+[editable path="MouseControlCanvas"]
