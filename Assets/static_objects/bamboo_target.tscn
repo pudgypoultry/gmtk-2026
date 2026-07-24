@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bnkw3aosoevtr"]
+
+[ext_resource type="PackedScene" uid="uid://c0f7anc3k52rc" path="res://GLB_Resorces/bamboo.glb" id="1_naukt"]
+
+[node name="BambooTarget" type="Node3D" unique_id=480863414]
+
+[node name="bamboo" parent="." unique_id=2112606983 instance=ExtResource("1_naukt")]

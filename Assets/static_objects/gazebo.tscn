@@ -14,6 +14,7 @@
 [node name="gazebo_platform" parent="." unique_id=66826571 instance=ExtResource("2_i4ycw")]
 
 [node name="gazebo_roof" parent="." unique_id=1469264446 instance=ExtResource("3_n7jnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84788465, 0)
 
 [node name="gazebo_stairs_railing" parent="." unique_id=1444082911 instance=ExtResource("4_oagxl")]
 
