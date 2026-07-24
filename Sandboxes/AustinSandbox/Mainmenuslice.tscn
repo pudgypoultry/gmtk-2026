@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bp3vrki61iv53"]
+
+[ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="1_67nio"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_muas2"]
+size = Vector3(1.0841255, 1.0274658, 0.84020996)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qu4c1"]
+
+[node name="MainMenu3D" type="Node3D" unique_id=1401067214]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=319641749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1691445575]
+transform = Transform3D(0.90630776, 0.24240388, -0.34618863, 0, 0.81915206, 0.57357645, 0.42261827, -0.5198368, 0.74240386, 0, 0, 0)
+
+[node name="Playoption" type="Node3D" parent="." unique_id=249422525]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Playoption" unique_id=1446105488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010825604, 0.020150527, 0.14331317)
+mesh = SubResource("BoxMesh_muas2")
+
+[node name="Label3D" type="Label3D" parent="Playoption" unique_id=1976590618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11)
+no_depth_test = true
+modulate = Color(1, 0, 0, 1)
+text = "PLAY"
+font = ExtResource("1_67nio")
+font_size = 80
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Playoption" unique_id=1165768049]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Playoption/StaticBody3D" unique_id=98846497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.4, 0.2)
+shape = SubResource("BoxShape3D_qu4c1")
