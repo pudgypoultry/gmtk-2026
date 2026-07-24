@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://car6osq51em5k"]
+
+[ext_resource type="PackedScene" uid="uid://dw0qk0mqi5s7c" path="res://Sandboxes/CorySandbox/scenes/samurai/samurai_character.tscn" id="1_tn5f0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qwee8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_lxo7o"]
+sky_material = SubResource("ProceduralSkyMaterial_qwee8")
+
+[sub_resource type="Environment" id="Environment_v6hnx"]
+background_mode = 2
+sky = SubResource("Sky_lxo7o")
+glow_enabled = true
+
+[node name="TestScene" type="Node3D" unique_id=230751176]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1261579070]
+environment = SubResource("Environment_v6hnx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1503190294]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1727793434]
+transform = Transform3D(0.65791345, 0, 0.7530936, 0, 1, 0, -0.7530936, 0, 0.65791345, 1.0513269, 0.9360172, 1.401899)
+
+[node name="Samurai_Character" parent="." unique_id=1621081143 instance=ExtResource("1_tn5f0")]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://nq2bub6inlbt"
-path="res://.godot/imported/skeleton_samurai.glb-0ee34c37f02ad13e988c71131d46060c.scn"
+uid="uid://dynhf4ys50ro"
+path="res://.godot/imported/katana_sheeth.glb-7ba5776fceef475a5e675450bc30123a.scn"
 
 [deps]
 
-source_file="res://Sandboxes/CorySandbox/blender_assets/skeleton_samurai.glb"
-dest_files=["res://.godot/imported/skeleton_samurai.glb-0ee34c37f02ad13e988c71131d46060c.scn"]
+source_file="res://Sandboxes/CorySandbox/blender_assets/katana_sheeth.glb"
+dest_files=["res://.godot/imported/katana_sheeth.glb-7ba5776fceef475a5e675450bc30123a.scn"]
 
 [params]
 
