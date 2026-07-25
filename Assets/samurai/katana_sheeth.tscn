@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c67mfye16krfb"]
+
+[ext_resource type="PackedScene" uid="uid://dynhf4ys50ro" path="res://GLB_Resorces/katana_sheeth.glb" id="1_glwm6"]
+
+[node name="katana_sheeth" unique_id=2099546828 instance=ExtResource("1_glwm6")]
+
+[node name="katana_sheeth_003" parent="." index="0" unique_id=1161790180]
+layers = 2
+
+[node name="katana_sheeth_004" parent="." index="1" unique_id=1659493757]
+layers = 2

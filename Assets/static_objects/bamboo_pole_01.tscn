@@ -8,15 +8,19 @@
 [node name="bamboo_pole_01" type="Node3D" unique_id=294628015]
 
 [node name="bamboo_01" type="MeshInstance3D" parent="." unique_id=734349120]
+layers = 2
 mesh = ExtResource("1_fsak1")
 
 [node name="bamboo_01_rings" type="MeshInstance3D" parent="." unique_id=1224076120]
+layers = 2
 mesh = ExtResource("2_xqtjs")
 
 [node name="bamboo_steam_049" type="MeshInstance3D" parent="." unique_id=407308737]
 transform = Transform3D(0.21913117, 0.1363588, -0.08074666, 0.01252311, 0.11465509, 0.26061288, 0.15475261, -0.20236365, 0.09324835, 0.003689289, 1.1191764, 0.031187057)
+layers = 2
 mesh = ExtResource("3_ubpa4")
 
 [node name="bamboo_steam_051" type="MeshInstance3D" parent="." unique_id=825793941]
 transform = Transform3D(0.21913117, 0.1363588, -0.08074666, 0.01252311, 0.11465509, 0.26061288, 0.15475261, -0.20236365, 0.09324835, 0.003689289, 1.1191764, 0.031187057)
+layers = 2
 mesh = ExtResource("4_kpp5c")

@@ -4,8 +4,8 @@
 [ext_resource type="Material" uid="uid://d2bqrpktar03i" path="res://Assets/samurai/materials/white_hair.tres" id="3_bplx5"]
 [ext_resource type="ArrayMesh" uid="uid://sq1tr66exqx0" path="res://Assets/samurai/resources/mesh_eyebrows.res" id="3_koy6a"]
 [ext_resource type="ArrayMesh" uid="uid://esssq42t31yi" path="res://Assets/samurai/resources/mesh_samurai_master_full.res" id="4_3u5jo"]
-[ext_resource type="PackedScene" uid="uid://b5dv7eraofhgq" path="res://GLB_Resorces/katana_blade.glb" id="16_vv4x6"]
-[ext_resource type="PackedScene" uid="uid://dynhf4ys50ro" path="res://GLB_Resorces/katana_sheeth.glb" id="17_qox7t"]
+[ext_resource type="PackedScene" uid="uid://dkl7tf67tf4ds" path="res://Assets/samurai/katana_blade.tscn" id="5_3u5jo"]
+[ext_resource type="PackedScene" uid="uid://c67mfye16krfb" path="res://Assets/samurai/katana_sheeth.tscn" id="6_u28qi"]
 [ext_resource type="AnimationLibrary" uid="uid://bfjuye8epw86e" path="res://Assets/samurai/resources/SamuraiAnimationLibrary.res" id="18_klg0g"]
 
 [sub_resource type="Skin" id="Skin_6ybg6"]
@@ -564,16 +564,18 @@ bones/53/rotation = Quaternion(0.7129887, -0.7011393, -0.0050030653, 0.005088075
 bones/53/scale = Vector3(0.99999994, 0.99999994, 1)
 
 [node name="DEF_head" type="BoneAttachment3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=100962445]
-transform = Transform3D(-0.90900224, 0.4167913, 1.280592e-07, -0.06555962, -0.14298278, 0.9875515, 0.41160288, 0.8976865, 0.15729624, 1.509958e-07, 1.4565074, -0.02528871)
+transform = Transform3D(-0.90900224, 0.41679123, 1.1315804e-07, -0.0655596, -0.14298266, 0.98755145, 0.4116028, 0.89768654, 0.15729624, 1.509958e-07, 1.4565074, -0.02528871)
 bone_name = "DEF_head"
 bone_idx = 6
 
 [node name="m_eyebrows_006" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D/DEF_head" unique_id=528788076]
 transform = Transform3D(-1, 1.9937304e-29, 1.9937304e-29, 1.9937304e-29, 0, 1, 1.9937304e-29, 1, 0, -0.0020939228, 0.025288703, -1.4545299)
+layers = 2
 mesh = ExtResource("3_koy6a")
 surface_material_override/0 = ExtResource("3_bplx5")
 
 [node name="m_mesh_master_027" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=2010705811]
+layers = 2
 mesh = ExtResource("4_3u5jo")
 skin = SubResource("Skin_6ybg6")
 skeleton = NodePath("..")
@@ -650,14 +652,14 @@ bone_idx = 2
 [node name="sheeth_location" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment" unique_id=61005922]
 transform = Transform3D(0.19847074, 0.960412, 0.19549811, 0.7957412, -0.27434888, 0.5399342, 0.5721936, 0.0484035, -0.81869006, 0.24524315, 0.13865656, -0.0116482675)
 
-[node name="katana_sheeth" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location" unique_id=2099546828 instance=ExtResource("17_qox7t")]
-transform = Transform3D(0.59963626, 0.6678642, -0.44090518, 0.60440063, -0.7390537, -0.29749152, -0.5245363, -0.08809739, -0.8468195, 0.040008366, -0.09683655, -0.07146323)
-
-[node name="katana_blade" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location" unique_id=694371302 instance=ExtResource("16_vv4x6")]
-transform = Transform3D(0.5751668, 0.6702296, -0.46901408, 0.57712823, -0.73879457, -0.34800065, -0.5797456, -0.07052156, -0.8117383, 0.050904393, -0.11292495, -0.07086003)
+[node name="katana_blade" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location" unique_id=694371302 instance=ExtResource("5_3u5jo")]
+transform = Transform3D(0.5751669, 0.6702296, -0.46901408, 0.57712823, -0.73879457, -0.34800068, -0.57974565, -0.07052153, -0.8117384, 0.050904393, -0.11292494, -0.07086)
 
 [node name="KatanaTipMarker" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location/katana_blade" unique_id=1640778678]
-transform = Transform3D(1, -2.9802322e-08, 2.9802322e-08, 2.9802322e-08, 1, 1.3411045e-07, 0, -5.9604645e-08, 1, -0.10648164, -0.69759125, 0.0004581213)
+transform = Transform3D(1, -5.9604645e-08, 2.9802322e-08, 2.9802322e-08, 1, 1.3411045e-07, 0, -1.4901161e-07, 1, -0.10648164, -0.6975913, 0.0004582405)
+
+[node name="katana_sheeth" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location" unique_id=2099546828 instance=ExtResource("6_u28qi")]
+transform = Transform3D(0.59963626, 0.6678643, -0.44090515, 0.60440063, -0.7390537, -0.29749152, -0.5245363, -0.08809739, -0.8468195, 0.040008426, -0.09683655, -0.07146323)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="samurai" unique_id=379972173]
 libraries/SamuraiAnimationLibrary = ExtResource("18_klg0g")

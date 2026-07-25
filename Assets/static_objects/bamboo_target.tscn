@@ -41,4 +41,5 @@ transform = Transform3D(-0.9999882, 0, 0.0048589706, 0, 1, 0, -0.0048589706, 0, 
 
 [node name="MeshBelt" type="MeshInstance3D" parent="." unique_id=261740561]
 transform = Transform3D(0.85645384, 0, 1.1728692, 0, 1.2281257, 0, -1.1109641, 0, 0.904177, 0.45298165, -1.1920929e-07, -0.06299654)
+layers = 2
 mesh = ExtResource("3_iod63")

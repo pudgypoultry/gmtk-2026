@@ -7,8 +7,10 @@
 
 [node name="bamboo_02" type="MeshInstance3D" parent="." unique_id=995968173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010322928, 0, 0)
+layers = 2
 mesh = ExtResource("1_kwk1h")
 
 [node name="bamboo_02_rings" type="MeshInstance3D" parent="." unique_id=402108107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010322928, 0, 0)
+layers = 2
 mesh = ExtResource("2_gyixp")
