@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cuygobdir8hhx" path="res://Assets/samurai/teacher_character.tscn" id="3_quqm4"]
 [ext_resource type="PackedScene" uid="uid://bnkw3aosoevtr" path="res://Assets/static_objects/bamboo_target.tscn" id="4_ji6h3"]
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
+[ext_resource type="PackedScene" uid="uid://bp3vrki61iv53" path="res://Sandboxes/AustinSandbox/Mainmenuslice.tscn" id="6_vv641"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ntr6p"]
 sky_top_color = Color(0.077026285, 0.19024187, 0.36220393, 1)
@@ -46,15 +47,18 @@ shadow_enabled = true
 [node name="static_env_assets" parent="." unique_id=577821834 instance=ExtResource("1_vkcfv")]
 
 [node name="Camera-Perspective" type="Camera3D" parent="." unique_id=1443317079]
-transform = Transform3D(1, -5.6352074e-09, -3.3616692e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, 0.43679667, 1.8637383, 1.2469524)
+transform = Transform3D(1, -5.6352074e-09, -3.3616692e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, -0.47261715, 14.894799, -25.903305)
 cull_mask = 1048573
 size = 21.54
+
+[node name="MainMenu3D" parent="Camera-Perspective" unique_id=1401067214 instance=ExtResource("6_vv641")]
+transform = Transform3D(1, -9.992007e-16, -8.881784e-16, -1.3877788e-16, 0.9999999, 0, 2.220446e-16, 0, 0.9999999, -5.9604645e-08, 0.00025367737, -4.2987022)
 
 [node name="Camera-Orthogonal" type="Camera3D" parent="." unique_id=921902181]
 transform = Transform3D(1, -5.6352065e-09, -3.361669e-09, 5.764867e-09, 0.9992035, 0.039905515, 3.1341154e-09, -0.03990552, 0.99920344, 0, 2.463, 5.545)
 cull_mask = 2
 projection = 1
-size = 4.784
+size = 5.346
 near = 0.019
 
 [node name="BambooTarget" parent="." unique_id=480863414 instance=ExtResource("4_ji6h3")]
@@ -65,3 +69,9 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.09
 
 [node name="Samurai_Master" parent="." unique_id=1068258326 instance=ExtResource("3_quqm4")]
 transform = Transform3D(0.54090524, 0, -0.8410835, 0, 1, 0, 0.8410835, 0, 0.54090524, 1.7294848, 0.08958048, -1.9853969)
+
+[node name="CameraLoc_ActiveGame" type="Marker3D" parent="." unique_id=937865072]
+transform = Transform3D(1, -5.6352074e-09, -3.3616694e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, 0.43679667, 1.8637383, 1.2469524)
+
+[node name="CameraLoc_Menu" type="Marker3D" parent="." unique_id=1788632415]
+transform = Transform3D(1, -5.6352074e-09, -3.3616694e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, -0.47261715, 14.894799, -25.903305)

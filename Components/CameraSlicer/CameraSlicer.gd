@@ -10,6 +10,7 @@ class_name CameraSlicer
 @export var rigidbody_parent : Node3D
 @export var audio_player : AudioStreamPlayer3D
 @export var camera: Camera3D
+signal sliced_obj(name:String)
 
 
 var cross_section_material = preload("res://addons/concave mesh slicer/Example/cross_section_material.tres")
@@ -77,6 +78,7 @@ func perform_slice(start_point: Vector2, end_point: Vector2):
 	for body in slicer_area.get_overlapping_bodies().duplicate():
 		if body is RigidBody3D:
 			print("	Currently slicing: ", body)
+			sliced_obj.emit(body.name)
 			#The convert the slicer's transform to be relative/local to the meshinstance.
 			#Get all meshinstance3d nodes, for loop over each of them
 			var meshinstance:MeshInstance3D 
