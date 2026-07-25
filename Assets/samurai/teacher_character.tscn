@@ -1,28 +1,14 @@
 [gd_scene format=3 uid="uid://cuygobdir8hhx"]
 
 [ext_resource type="Script" uid="uid://c48sigbag5dd1" path="res://Assets/samurai/scripts/samurai_character.gd" id="1_n4c2q"]
-[ext_resource type="ArrayMesh" uid="uid://4jc03vbu0p2p" path="res://Assets/samurai/resources/mesh_hair.res" id="2_klg0g"]
 [ext_resource type="Material" uid="uid://d2bqrpktar03i" path="res://Assets/samurai/materials/white_hair.tres" id="3_bplx5"]
 [ext_resource type="ArrayMesh" uid="uid://sq1tr66exqx0" path="res://Assets/samurai/resources/mesh_eyebrows.res" id="3_koy6a"]
-[ext_resource type="ArrayMesh" uid="uid://dbff820e6t54g" path="res://Assets/samurai/resources/mesh_eyes_01.res" id="4_bplx5"]
-[ext_resource type="ArrayMesh" uid="uid://bu1g3vf8codnc" path="res://Assets/samurai/resources/mesh_eyes_02.res" id="5_3vbnd"]
-[ext_resource type="ArrayMesh" uid="uid://dvcdctwnlgv4p" path="res://Assets/samurai/resources/mesh_eyes_03.res" id="6_a4c4n"]
-[ext_resource type="ArrayMesh" uid="uid://c8yy0y0cope08" path="res://Assets/samurai/resources/mesh_beard.res" id="7_1vvvr"]
-[ext_resource type="ArrayMesh" uid="uid://cmnfl0fqw700o" path="res://Assets/samurai/resources/mesh_mustash.res" id="8_x223v"]
-[ext_resource type="ArrayMesh" uid="uid://bi3yhnav3b7y4" path="res://Assets/samurai/resources/mesh_mouth.res" id="9_wloej"]
-[ext_resource type="ArrayMesh" uid="uid://x37kene7onab" path="res://Assets/samurai/resources/mesh_robe_01.res" id="10_jm111"]
-[ext_resource type="ArrayMesh" uid="uid://dksdjagtn7gt0" path="res://Assets/samurai/resources/mesh_robe_02.res" id="11_k6jou"]
-[ext_resource type="Material" uid="uid://cj3ji2bos15ep" path="res://Assets/samurai/materials/alt_robe_01.tres" id="12_3vbnd"]
-[ext_resource type="ArrayMesh" uid="uid://cn35uj3dh4ngx" path="res://Assets/samurai/resources/mesh_skin.res" id="12_8v3ue"]
-[ext_resource type="ArrayMesh" uid="uid://dtpypai58v11r" path="res://Assets/samurai/resources/mesh_lips.res" id="13_oq7x6"]
-[ext_resource type="Material" uid="uid://bdr5jjh8wlhw1" path="res://Assets/samurai/materials/alt_robe_02.tres" id="14_a4c4n"]
-[ext_resource type="ArrayMesh" uid="uid://cu1356fcixi4g" path="res://Assets/samurai/resources/mesh_teeth.res" id="14_vk0af"]
-[ext_resource type="ArrayMesh" uid="uid://ce4jl6fl7u4rf" path="res://Assets/samurai/resources/mesh_belt.res" id="15_x8u3n"]
+[ext_resource type="ArrayMesh" uid="uid://esssq42t31yi" path="res://Assets/samurai/resources/mesh_samurai_master_full.res" id="4_3u5jo"]
 [ext_resource type="PackedScene" uid="uid://b5dv7eraofhgq" path="res://GLB_Resorces/katana_blade.glb" id="16_vv4x6"]
 [ext_resource type="PackedScene" uid="uid://dynhf4ys50ro" path="res://GLB_Resorces/katana_sheeth.glb" id="17_qox7t"]
 [ext_resource type="AnimationLibrary" uid="uid://bfjuye8epw86e" path="res://Assets/samurai/resources/SamuraiAnimationLibrary.res" id="18_klg0g"]
 
-[sub_resource type="Skin" id="Skin_60b2o"]
+[sub_resource type="Skin" id="Skin_6ybg6"]
 resource_name = "Skin"
 bind_count = 54
 bind/0/name = &"DEF_slot01"
@@ -193,11 +179,11 @@ script = ExtResource("1_n4c2q")
 look_marker = NodePath("samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location/katana_blade/KatanaTipMarker")
 default_animation = 0
 
-[node name="samurai" type="Node3D" parent="." unique_id=1779427654]
+[node name="samurai" type="Node3D" parent="." unique_id=1832327442]
 
-[node name="m_armature_full" type="Node3D" parent="samurai" unique_id=722338321]
+[node name="m_armature_full" type="Node3D" parent="samurai" unique_id=416352947]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="samurai/m_armature_full" unique_id=421125605]
+[node name="Skeleton3D" type="Skeleton3D" parent="samurai/m_armature_full" unique_id=1053791906]
 bones/0/name = "DEF_slot01"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.105427e-15, 2.3841854e-07, -7.1054274e-15, 0.99999994, 5.9604645e-08, -2.3841855e-07, -5.9604645e-08, 0.99999994, -1, 0, 0)
@@ -280,126 +266,126 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(-3.5762787e-07, 0.565837, 0.82451713, 8.940697e-08, 0.82451713, -0.565837, -1, -1.1920929e-07, -3.5762787e-07, -5.4834013e-09, 0.15611835, -5.4379434e-10)
 bones/11/enabled = true
 bones/11/position = Vector3(-5.4834013e-09, 0.15611835, -5.4379434e-10)
-bones/11/rotation = Quaternion(0.36207724, 0.7584818, -0.5178981, 0.15933314)
+bones/11/rotation = Quaternion(0.45975018, 0.7406501, -0.48246437, 0.08541235)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "DEF_arm_lower.R"
 bones/12/parent = 11
 bones/12/rest = Transform3D(1, 2.0421966e-09, -6.230382e-08, -2.0421966e-09, 1, -2.656428e-15, 6.230382e-08, 2.7836647e-15, 1, 1.0896566e-09, 0.2784606, 1.0732331e-07)
 bones/12/enabled = true
 bones/12/position = Vector3(1.0896566e-09, 0.2784606, 1.0732331e-07)
-bones/12/rotation = Quaternion(-0.06318316, -0.065600716, 0.7250716, 0.6826241)
+bones/12/rotation = Quaternion(-0.03489922, -0.08412854, 0.42609754, 0.90008074)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "DEF_hand.R"
 bones/13/parent = 12
 bones/13/rest = Transform3D(-0.99423844, -0.1071903, -0.00021840553, -0.10703579, 0.9926923, 0.055729747, -0.005756878, 0.05543205, -0.9984458, 6.0506267e-10, 0.27846053, 1.4395971e-09)
 bones/13/enabled = true
 bones/13/position = Vector3(6.0506267e-10, 0.27846053, 1.4395971e-09)
-bones/13/rotation = Quaternion(-0.023379713, 0.99473023, 0.029200817, -0.09545963)
+bones/13/rotation = Quaternion(-0.21601765, 0.9121581, -0.22651331, 0.26456717)
 bones/13/scale = Vector3(0.99999994, 1.0000002, 0.99999994)
 bones/14/name = "DEF_middle_finger_01.R"
 bones/14/parent = 13
 bones/14/rest = Transform3D(-0.025158167, 0.06424533, -0.99761695, 0.23137215, 0.9712112, 0.05671001, 0.97254, -0.22939408, -0.039298467, 0.008605488, 0.076226175, -0.00017955192)
 bones/14/enabled = true
-bones/14/position = Vector3(0.008264931, 0.07652268, -0.00022299794)
-bones/14/rotation = Quaternion(-0.06475177, -0.71654224, 0.16228813, 0.6753052)
+bones/14/position = Vector3(0.008132896, 0.07659234, -0.00019039445)
+bones/14/rotation = Quaternion(-0.06473809, -0.71655667, 0.16220376, 0.67531145)
 bones/14/scale = Vector3(1, 1.0000001, 0.99999994)
 bones/15/name = "DEF_middle_finger_02.R"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0.96312404, -0.26813674, -0.022248857, 0.2652373, 0.9600814, -0.08884328, 0.045182858, 0.07966587, 0.9957971, -5.962787e-08, 0.041703686, 1.7229468e-08)
 bones/15/enabled = true
 bones/15/position = Vector3(-5.962787e-08, 0.041703686, 1.7229468e-08)
-bones/15/rotation = Quaternion(0.17444809, -0.002206927, 0.67696047, 0.7150437)
+bones/15/rotation = Quaternion(0.17444822, -0.0022068024, 0.6769614, 0.7150429)
 bones/15/scale = Vector3(1.0000001, 1.0000001, 1)
 bones/16/name = "DEF_middle_finger_03.R"
 bones/16/parent = 15
 bones/16/rest = Transform3D(0.9990038, -0.04438716, -0.0046024774, 0.04447232, 0.99880165, 0.020432428, 0.0036900248, -0.020616759, 0.9997806, -1.7888817e-07, 0.030327227, -7.1595423e-09)
 bones/16/enabled = true
 bones/16/position = Vector3(-1.7888817e-07, 0.030327227, -7.1595423e-09)
-bones/16/rotation = Quaternion(0.07899768, 0.0067075593, 0.47210598, 0.8779695)
+bones/16/rotation = Quaternion(0.07899787, 0.006707606, 0.47210708, 0.8779689)
 bones/16/scale = Vector3(1, 1, 0.99999994)
 bones/17/name = "DEF_pointer_finger_01.R"
 bones/17/parent = 13
 bones/17/rest = Transform3D(-0.03104055, 0.22090094, -0.9748022, 0.28596485, 0.93646735, 0.20310794, 0.95773727, -0.27245453, -0.092238374, 0.030923326, 0.07117258, -0.00072008616)
 bones/17/enabled = true
-bones/17/position = Vector3(0.03058291, 0.07146889, -0.00076351664)
-bones/17/rotation = Quaternion(-0.027246961, -0.71247464, 0.09470481, 0.6947435)
+bones/17/position = Vector3(0.030450812, 0.07153859, -0.0007309197)
+bones/17/rotation = Quaternion(-0.027240142, -0.7124822, 0.094628304, 0.69474643)
 bones/17/scale = Vector3(1, 0.9999999, 1)
 bones/18/name = "DEF_pointer_finger_02.R"
 bones/18/parent = 17
 bones/18/rest = Transform3D(0.9815068, -0.18563126, -0.04674809, 0.18136467, 0.9798927, -0.0831701, 0.061247077, 0.07315357, 0.9954383, 1.8338868e-07, 0.039064176, -7.450581e-09)
 bones/18/enabled = true
 bones/18/position = Vector3(1.8338868e-07, 0.039064176, -7.450581e-09)
-bones/18/rotation = Quaternion(0.21747717, -0.01659359, 0.5753406, 0.7882966)
+bones/18/rotation = Quaternion(0.21747473, -0.016593803, 0.57533365, 0.7883024)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "DEF_pointer_finger_03.R"
 bones/19/parent = 18
 bones/19/rest = Transform3D(0.9925661, -0.11893416, -0.025831286, 0.11802206, 0.99241656, -0.034357812, 0.029721705, 0.031053739, 0.99907583, 5.9360943e-08, 0.029177733, -1.1175871e-08)
 bones/19/enabled = true
 bones/19/position = Vector3(5.9360943e-08, 0.029177733, -1.1175871e-08)
-bones/19/rotation = Quaternion(0.20450705, -0.0071364613, 0.54965323, 0.8099427)
+bones/19/rotation = Quaternion(0.20450427, -0.007136681, 0.5496459, 0.80994856)
 bones/19/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/20/name = "DEF_index_finger_01.R"
 bones/20/parent = 13
 bones/20/rest = Transform3D(-0.025297761, -0.14514212, -0.9890874, 0.2326657, 0.9613791, -0.14702694, 0.97222775, -0.23384614, 0.009448886, -0.010565063, 0.07409552, 0.0023491636)
 bones/20/enabled = true
-bones/20/position = Vector3(-0.010905545, 0.07439204, 0.0023057184)
-bones/20/rotation = Quaternion(-0.09784217, -0.6183895, 0.36519775, 0.68894994)
+bones/20/position = Vector3(-0.011037547, 0.07446158, 0.0023383528)
+bones/20/rotation = Quaternion(-0.097812474, -0.61842394, 0.36512375, 0.6889624)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "DEF_index_finger_02.R"
 bones/21/parent = 20
 bones/21/rest = Transform3D(0.9514764, -0.30705494, -0.02024534, 0.3074589, 0.9458872, 0.103762634, -0.01271102, -0.10495234, 0.9943959, -1.7634243e-07, 0.039609637, -3.7252903e-09)
 bones/21/enabled = true
 bones/21/position = Vector3(-1.7634243e-07, 0.039609637, -3.7252903e-09)
-bones/21/rotation = Quaternion(-0.16043447, -0.011688933, 0.59069335, 0.7906994)
+bones/21/rotation = Quaternion(-0.16043593, -0.011689227, 0.5907005, 0.7906938)
 bones/21/scale = Vector3(0.99999994, 1.0000001, 0.9999999)
 bones/22/name = "DEF_index_finger_03.R"
 bones/22/parent = 21
 bones/22/rest = Transform3D(0.99482477, -0.101496935, -0.0047189174, 0.10138645, 0.9946536, -0.019618882, 0.0066849473, 0.019038916, 0.9997962, -8.338874e-10, 0.02288437, -2.3283064e-09)
 bones/22/enabled = true
 bones/22/position = Vector3(-8.338874e-10, 0.02288437, -2.3283064e-09)
-bones/22/rotation = Quaternion(-0.061993614, -0.011255705, 0.4443572, 0.8936312)
+bones/22/rotation = Quaternion(-0.061995037, -0.011255887, 0.44436476, 0.89362735)
 bones/22/scale = Vector3(1.0000001, 0.99999994, 0.9999998)
 bones/23/name = "DEF_small_finger_01.R"
 bones/23/parent = 13
 bones/23/rest = Transform3D(-0.013235333, -0.26870373, -0.9631321, 0.12073944, 0.9557391, -0.26830032, 0.99259615, -0.11983905, 0.019793607, -0.02975992, 0.063429914, 0.0025928193)
 bones/23/enabled = true
-bones/23/position = Vector3(-0.030100338, 0.06372633, 0.0025494243)
-bones/23/rotation = Quaternion(-0.06727957, -0.7087849, 0.40982866, 0.57020867)
+bones/23/position = Vector3(-0.030232463, 0.063796, 0.0025820443)
+bones/23/rotation = Quaternion(-0.06727093, -0.7088248, 0.409736, 0.5702267)
 bones/23/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/24/name = "DEF_small_finger_02.R"
 bones/24/parent = 23
 bones/24/rest = Transform3D(0.8900067, -0.450339, 0.0712943, 0.4497182, 0.89280796, 0.025444992, -0.075110994, 0.009416129, 0.99713075, -5.4393333e-08, 0.034761075, 1.1175871e-08)
 bones/24/enabled = true
 bones/24/position = Vector3(-5.4393333e-08, 0.034761075, 1.1175871e-08)
-bones/24/rotation = Quaternion(-0.020265395, 0.03350787, 0.6345434, 0.77189445)
+bones/24/rotation = Quaternion(-0.020266037, 0.03350763, 0.63455635, 0.77188396)
 bones/24/scale = Vector3(1, 0.99999994, 1)
 bones/25/name = "DEF_small_finger_03.R"
 bones/25/parent = 24
 bones/25/rest = Transform3D(0.99988705, 0.014888775, -0.0021207705, -0.0148540735, 0.999769, 0.015533931, 0.0023515623, -0.015500674, 0.999877, -9.004742e-08, 0.022404883, -1.4901161e-08)
 bones/25/enabled = true
 bones/25/position = Vector3(-9.004742e-08, 0.022404883, -1.4901161e-08)
-bones/25/rotation = Quaternion(-0.040416192, 0.0018612833, 0.29670212, 0.95411265)
+bones/25/rotation = Quaternion(-0.040417526, 0.001861354, 0.29671517, 0.95410854)
 bones/25/scale = Vector3(1.0000001, 0.99999994, 0.9999999)
 bones/26/name = "DEF_thumb_01.R"
 bones/26/parent = 12
 bones/26/rest = Transform3D(-0.2798317, -0.90975714, -0.30665314, -0.9556225, 0.29458812, -0.0019248427, 0.09208754, 0.29250595, -0.95181936, 6.0506267e-10, 0.27846053, 1.4395971e-09)
 bones/26/enabled = true
 bones/26/position = Vector3(6.0506267e-10, 0.27846053, 1.4395971e-09)
-bones/26/rotation = Quaternion(-0.5087322, 0.73008037, 0.23142776, -0.39321175)
+bones/26/rotation = Quaternion(-0.5946217, 0.7317118, -0.22625452, -0.24460554)
 bones/26/scale = Vector3(1.0000001, 0.99999994, 0.99999994)
 bones/27/name = "DEF_thumb_02.R"
 bones/27/parent = 26
 bones/27/rest = Transform3D(0.83579814, -0.5441904, -0.07278854, 0.5480503, 0.8189873, 0.17000148, -0.032900296, -0.18197866, 0.9827519, 6.0535967e-09, 0.050322756, -7.0314854e-08)
 bones/27/enabled = true
 bones/27/position = Vector3(6.0535967e-09, 0.050322756, -7.0314854e-08)
-bones/27/rotation = Quaternion(-0.22284779, 0.06976547, 0.35052964, 0.90697336)
+bones/27/rotation = Quaternion(-0.22287782, 0.06977772, 0.35066348, 0.9069133)
 bones/27/scale = Vector3(1, 0.9999998, 1)
 bones/28/name = "DEF_thumb_03.R"
 bones/28/parent = 27
 bones/28/rest = Transform3D(0.8312032, -0.37068003, -0.41436404, 0.42521054, 0.9040119, 0.04425376, 0.35818598, -0.21297579, 0.90903485, -2.2351742e-08, 0.04692296, 5.5879354e-09)
 bones/28/enabled = true
 bones/28/position = Vector3(-2.2351742e-08, 0.04692296, 5.5879354e-09)
-bones/28/rotation = Quaternion(-0.07314936, -0.20143083, 0.22633083, 0.9501838)
+bones/28/rotation = Quaternion(-0.07300762, -0.2014542, 0.2258924, 0.9502941)
 bones/28/scale = Vector3(1, 0.9999999, 1.0000001)
 bones/29/name = "DEF_clavical.L"
 bones/29/parent = 4
@@ -577,87 +563,22 @@ bones/53/position = Vector3(-3.3420244e-10, 0.360013, -1.1780856e-09)
 bones/53/rotation = Quaternion(0.7129887, -0.7011393, -0.0050030653, 0.005088075)
 bones/53/scale = Vector3(0.99999994, 0.99999994, 1)
 
-[node name="DEF_head" type="BoneAttachment3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=2055512160]
+[node name="DEF_head" type="BoneAttachment3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=100962445]
 transform = Transform3D(-0.90900224, 0.4167913, 1.280592e-07, -0.06555962, -0.14298278, 0.9875515, 0.41160288, 0.8976865, 0.15729624, 1.509958e-07, 1.4565074, -0.02528871)
 bone_name = "DEF_head"
 bone_idx = 6
 
-[node name="hair_03_001" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D/DEF_head" unique_id=1983053548]
-transform = Transform3D(-1, 1.7484557e-07, 0, 0, 0, 1, 1.7484557e-07, 1, 0, -1.0366806e-07, 0.02528871, -1.4565074)
-mesh = ExtResource("2_klg0g")
-surface_material_override/0 = ExtResource("3_bplx5")
-
-[node name="m_eyebrows_001" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D/DEF_head" unique_id=1992020560]
+[node name="m_eyebrows_006" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D/DEF_head" unique_id=528788076]
 transform = Transform3D(-1, 1.9937304e-29, 1.9937304e-29, 1.9937304e-29, 0, 1, 1.9937304e-29, 1, 0, -0.0020939228, 0.025288703, -1.4545299)
 mesh = ExtResource("3_koy6a")
 surface_material_override/0 = ExtResource("3_bplx5")
 
-[node name="m_eyes_001" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1273434912]
-mesh = ExtResource("4_bplx5")
-skin = SubResource("Skin_60b2o")
+[node name="m_mesh_master_027" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=2010705811]
+mesh = ExtResource("4_3u5jo")
+skin = SubResource("Skin_6ybg6")
 skeleton = NodePath("..")
 
-[node name="m_eyes_012" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1725010175]
-mesh = ExtResource("5_3vbnd")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-
-[node name="m_eyes_013" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=777216214]
-mesh = ExtResource("6_a4c4n")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-
-[node name="m_hair_beard_02_001" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1163694122]
-mesh = ExtResource("7_1vvvr")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-surface_material_override/0 = ExtResource("3_bplx5")
-
-[node name="m_hair_mustash_02_001" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=320681931]
-mesh = ExtResource("8_x223v")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-surface_material_override/0 = ExtResource("3_bplx5")
-
-[node name="m_mesh_master_001" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=366045020]
-mesh = ExtResource("9_wloej")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-
-[node name="m_mesh_master_023" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1519341073]
-mesh = ExtResource("10_jm111")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-surface_material_override/0 = ExtResource("12_3vbnd")
-
-[node name="m_mesh_master_024" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=801246914]
-mesh = ExtResource("11_k6jou")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-surface_material_override/0 = ExtResource("14_a4c4n")
-
-[node name="m_mesh_master_025" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1303482984]
-mesh = ExtResource("12_8v3ue")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-
-[node name="m_mesh_master_026" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=152730160]
-mesh = ExtResource("13_oq7x6")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-
-[node name="m_teeth_001" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1183182980]
-mesh = ExtResource("14_vk0af")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-
-[node name="samurai_robe_004" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=479520826]
-mesh = ExtResource("15_x8u3n")
-skin = SubResource("Skin_60b2o")
-skeleton = NodePath("..")
-surface_material_override/0 = ExtResource("14_a4c4n")
-
-[node name="LookAtModifier3D" type="LookAtModifier3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1819984107]
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=917335369]
 target_node = NodePath("../PelvisAttachment/sheeth_location/katana_blade/KatanaTipMarker")
 bone_name = "DEF_head"
 bone = 6
@@ -670,10 +591,10 @@ primary_damp_threshold = 1.0
 secondary_limit_angle = 2.772979
 secondary_damp_threshold = 1.0
 
-[node name="KatanaTarget" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1904186766]
+[node name="KatanaTarget" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1607923913]
 transform = Transform3D(0.96316916, 0, -0.26889616, 0, 1, 0, 0.26889616, 0, 0.96316916, 0.009728104, 1.2574202, 0.72401375)
 
-[node name="KatanaIK" type="JacobianIK3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=931475263]
+[node name="KatanaIK" type="JacobianIK3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1344367231]
 active = false
 angular_delta_limit = 0.883991812842608
 deterministic = true
@@ -698,7 +619,7 @@ settings/0/joints/4/limitation = null
 settings/0/joints/5/rotation_axis = 3
 settings/0/joints/5/limitation = null
 
-[node name="SheethIK" type="JacobianIK3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1879894123]
+[node name="SheethIK" type="JacobianIK3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=740991136]
 angular_delta_limit = 0.883991812842608
 deterministic = true
 setting_count = 1
@@ -716,17 +637,17 @@ settings/0/joints/1/limitation = null
 settings/0/joints/2/rotation_axis = 3
 settings/0/joints/2/limitation = null
 
-[node name="LeftHandAttachment" type="BoneAttachment3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=2053508958]
+[node name="LeftHandAttachment" type="BoneAttachment3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1069360358]
 transform = Transform3D(-0.027221516, -0.12990299, -0.9911529, 0.08537321, -0.98819995, 0.12717119, -0.995977, -0.08115616, 0.03799063, -0.27625614, 0.783985, -0.0042728223)
 bone_name = "DEF_hand.L"
 bone_idx = 32
 
-[node name="PelvisAttachment" type="BoneAttachment3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=1262933911]
+[node name="PelvisAttachment" type="BoneAttachment3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=933807804]
 transform = Transform3D(1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, 1, 1.509958e-07, 0.7553566, -0.025288701)
 bone_name = "DEF_pelvis"
 bone_idx = 2
 
-[node name="sheeth_location" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment" unique_id=383190892]
+[node name="sheeth_location" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment" unique_id=61005922]
 transform = Transform3D(0.19847074, 0.960412, 0.19549811, 0.7957412, -0.27434888, 0.5399342, 0.5721936, 0.0484035, -0.81869006, 0.24524315, 0.13865656, -0.0116482675)
 
 [node name="katana_sheeth" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location" unique_id=2099546828 instance=ExtResource("17_qox7t")]
@@ -735,8 +656,8 @@ transform = Transform3D(0.59963626, 0.6678642, -0.44090518, 0.60440063, -0.73905
 [node name="katana_blade" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location" unique_id=694371302 instance=ExtResource("16_vv4x6")]
 transform = Transform3D(0.5751668, 0.6702296, -0.46901408, 0.57712823, -0.73879457, -0.34800065, -0.5797456, -0.07052156, -0.8117383, 0.050904393, -0.11292495, -0.07086003)
 
-[node name="KatanaTipMarker" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location/katana_blade" unique_id=904021306]
+[node name="KatanaTipMarker" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location/katana_blade" unique_id=1640778678]
 transform = Transform3D(1, -2.9802322e-08, 2.9802322e-08, 2.9802322e-08, 1, 1.3411045e-07, 0, -5.9604645e-08, 1, -0.10648164, -0.69759125, 0.0004581213)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="samurai" unique_id=2147349842]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="samurai" unique_id=379972173]
 libraries/SamuraiAnimationLibrary = ExtResource("18_klg0g")

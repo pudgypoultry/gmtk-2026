@@ -1,7 +1,44 @@
 [gd_scene format=3 uid="uid://bnkw3aosoevtr"]
 
-[ext_resource type="PackedScene" uid="uid://c0f7anc3k52rc" path="res://GLB_Resorces/bamboo.glb" id="1_naukt"]
+[ext_resource type="PackedScene" uid="uid://dede6vonqbes7" path="res://Assets/static_objects/bamboo_pole_01.tscn" id="1_hw5nv"]
+[ext_resource type="PackedScene" uid="uid://bypl5da8cqhw3" path="res://Assets/static_objects/bamboo_pole_02.tscn" id="2_k08fs"]
+[ext_resource type="ArrayMesh" uid="uid://ce4jl6fl7u4rf" path="res://Assets/samurai/resources/mesh_belt.res" id="3_iod63"]
 
 [node name="BambooTarget" type="Node3D" unique_id=480863414]
 
-[node name="bamboo" parent="." unique_id=2112606983 instance=ExtResource("1_naukt")]
+[node name="bamboo_pole_01" parent="." unique_id=294628015 instance=ExtResource("1_hw5nv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460876, 0, 0.038178027)
+
+[node name="bamboo_pole_03" parent="." unique_id=398382594 instance=ExtResource("1_hw5nv")]
+transform = Transform3D(-0.9999678, 0, 0.008031994, 0, 1.0478015, 0, -0.008031994, 0, -0.9999678, 0.30337518, 0, 0.010525711)
+
+[node name="bamboo_pole_02" parent="." unique_id=551616532 instance=ExtResource("2_k08fs")]
+transform = Transform3D(1, 0, 0, 0, 0.952977, 0, 0, 0, 1, 0.34728822, 0, 0.05457832)
+
+[node name="bamboo_pole_04" parent="." unique_id=1980160815 instance=ExtResource("2_k08fs")]
+transform = Transform3D(0.6832698, 0, -0.730166, 0, 1.0161431, 0, 0.730166, 0, 0.6832698, 0.39329657, 0, 0)
+
+[node name="bamboo_pole_05" parent="." unique_id=935910066 instance=ExtResource("2_k08fs")]
+transform = Transform3D(0.8554183, -0.029303119, 0.5171081, 0, 0.99839836, 0.056576535, -0.5179378, -0.048396606, 0.85404825, 0.48618788, 0, 0.03110464)
+
+[node name="bamboo_pole_06" parent="." unique_id=1883663201 instance=ExtResource("2_k08fs")]
+transform = Transform3D(0.86584127, 0, -0.5003188, 0, 1.0736785, 0, 0.5003188, 0, 0.86584127, 0.32846272, 0, -0.08238083)
+
+[node name="bamboo_pole_07" parent="." unique_id=492577615 instance=ExtResource("1_hw5nv")]
+transform = Transform3D(-0.86826205, 0, -0.49610582, 0, 0.95428425, 0, 0.49610582, 0, -0.86826205, 0.33380425, 0, -0.14618772)
+
+[node name="bamboo_pole_08" parent="." unique_id=1026964172 instance=ExtResource("1_hw5nv")]
+transform = Transform3D(0.8722188, 0, 0.48911598, 0, 1.0374688, 0, -0.48911598, 0, 0.8722188, 0.48427472, 0, -0.20031533)
+
+[node name="bamboo_pole_09" parent="." unique_id=186953465 instance=ExtResource("2_k08fs")]
+transform = Transform3D(-0.86826205, 0, -0.49610582, 0, 1, 0, 0.49610582, 0, -0.86826205, 0.42429194, 0, -0.21677902)
+
+[node name="bamboo_pole_10" parent="." unique_id=1854065394 instance=ExtResource("2_k08fs")]
+transform = Transform3D(-0.95549685, 0, 0.29500133, 0, 1.0227364, 0, -0.29500133, 0, -0.95549685, 0.41142124, 0, -0.14656574)
+
+[node name="bamboo_pole_12" parent="." unique_id=520283812 instance=ExtResource("2_k08fs")]
+transform = Transform3D(-0.9999882, 0, 0.0048589706, 0, 1, 0, -0.0048589706, 0, -0.9999882, 0.5085836, 0, -0.10720204)
+
+[node name="MeshBelt" type="MeshInstance3D" parent="." unique_id=261740561]
+transform = Transform3D(0.85645384, 0, 1.1728692, 0, 1.2281257, 0, -1.1109641, 0, 0.904177, 0.45298165, -1.1920929e-07, -0.06299654)
+mesh = ExtResource("3_iod63")

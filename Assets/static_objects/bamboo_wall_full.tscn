@@ -1,10 +1,111 @@
 [gd_scene format=3 uid="uid://cdxyllha2jejb"]
 
-[ext_resource type="PackedScene" uid="uid://c4451bqpnxufk" path="res://GLB_Resorces/bamboo_wall_main.glb" id="1_py7jh"]
 [ext_resource type="PackedScene" uid="uid://dlsc4aw0hm241" path="res://GLB_Resorces/bamboo_wall_fill.glb" id="2_cas1b"]
+[ext_resource type="PackedScene" uid="uid://cp4f4lxlu5vep" path="res://Assets/static_objects/bamboo_tree.tscn" id="2_y0jtg"]
+[ext_resource type="PackedScene" uid="uid://b0crpxipsvnuw" path="res://GLB_Resorces/tall_grass.glb" id="3_1oms6"]
 
 [node name="BambooWallFull" type="Node3D" unique_id=2067654600]
 
-[node name="bamboo_wall_main" parent="." unique_id=1080518036 instance=ExtResource("1_py7jh")]
-
 [node name="bamboo_wall_fill2" parent="." unique_id=1527964018 instance=ExtResource("2_cas1b")]
+
+[node name="bamboo_tree" parent="." unique_id=1920832284 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.681596, 0, -1.2704582)
+
+[node name="bamboo_tree5" parent="." unique_id=1349194762 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.71989954, 0, -0.6940783, 0, 1, 0, 0.6940783, 0, 0.71989954, -3.6583424, 0, -1.249752)
+
+[node name="bamboo_tree7" parent="." unique_id=860681543 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.85629094, 0, 0.51649374, 0, 1.2944636, 0, -0.51649374, 0, 0.85629094, -2.7874603, 0, -1.168581)
+
+[node name="bamboo_tree8" parent="." unique_id=1316859104 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.992202, 0, 0.12464124, 0, 1, 0, -0.12464124, 0, 0.992202, -2.143386, 0, -0.1456213)
+
+[node name="bamboo_tree10" parent="." unique_id=685262911 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(1.117622, 0, -0.13434929, 0, 1.1256682, 0, 0.13434929, 0, 1.117622, -1.4520204, 0, 0.3444805)
+
+[node name="bamboo_tree11" parent="." unique_id=1488748379 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9999473, 0, 0.010259822, 0, 0.92867374, 0, -0.010259822, 0, 0.9999473, -1.3080108, 0, -1.4241066)
+
+[node name="bamboo_tree12" parent="." unique_id=1224872759 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9999473, 0, 0.010259822, 0, 1, 0, -0.010259822, 0, 0.9999473, -0.84964967, 0, 0.37194633)
+
+[node name="bamboo_tree14" parent="." unique_id=803760144 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9235735, 0, 0.38342148, 0, 1, 0, -0.38342148, 0, 0.9235735, 0.4653678, 0, -0.42761368)
+
+[node name="bamboo_tree15" parent="." unique_id=1188617083 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.82483125, 0, 0.565379, 0, 1.2021344, 0, -0.565379, 0, 0.82483125, 1.6129841, 0, 0.021395266)
+
+[node name="bamboo_tree18" parent="." unique_id=2022417471 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.59281284, 0, 0.80534023, 0, 1.2944636, 0, -0.80534023, 0, 0.59281284, 2.253803, 0, -1.0597749)
+
+[node name="bamboo_tree19" parent="." unique_id=1597656936 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.8685813, 0, 0.49554688, 0, 1, 0, -0.49554688, 0, 0.8685813, 3.2408779, 0, -0.3619483)
+
+[node name="bamboo_tree20" parent="." unique_id=339348043 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9978758, 0, 0.065145135, 0, 1, 0, -0.065145135, 0, 0.9978758, 2.8189032, 0, -1.5357114)
+
+[node name="bamboo_tree22" parent="." unique_id=626941556 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.91959095, 0, 0.39287695, 0, 0.92867374, 0, -0.39287695, 0, 0.91959095, 3.5222094, 0, -1.8630242)
+
+[node name="bamboo_tree23" parent="." unique_id=563934348 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.919591, 0, 0.39287698, 0, 1, 0, -0.39287698, 0, 0.919591, 4.634185, 0, -0.37998283)
+
+[node name="bamboo_tree13" parent="." unique_id=1543490433 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.81286305, 0, 0.5824547, 0, 1.2944636, 0, -0.5824547, 0, 0.81286305, -0.2845192, 0, -0.71397305)
+
+[node name="bamboo_tree2" parent="." unique_id=1471850720 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.74781114, 0, 0.6639115, 0, 1, 0, -0.6639115, 0, 0.74781114, 5.7958016, 0, -0.89153934)
+
+[node name="bamboo_tree25" parent="." unique_id=982296888 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9999473, 0, 0.010259822, 0, 0.69409186, 0, -0.010259822, 0, 0.9999473, -2.0697427, 0, -2.7539105)
+
+[node name="bamboo_tree26" parent="." unique_id=1300253643 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9999473, 0, 0.010259822, 0, 0.7474011, 0, -0.010259822, 0, 0.9999473, -1.6113815, 0, -0.9578576)
+
+[node name="bamboo_tree28" parent="." unique_id=995015391 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.82483125, 0, 0.565379, 0, 0.8984766, 0, -0.565379, 0, 0.82483125, 0.8512522, 0, -1.3084087)
+
+[node name="bamboo_tree29" parent="." unique_id=1054090044 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9310047, 0, -0.3650074, 0, 0.7474011, 0, 0.3650074, 0, 0.9310047, 0.6566249, 0, -2.1306312)
+
+[node name="bamboo_tree30" parent="." unique_id=2122688238 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.96212125, 0, 0.27262172, 0, 0.69409186, 0, -0.27262172, 0, 0.96212125, 1.9003127, 0, -1.3878958)
+
+[node name="bamboo_tree31" parent="." unique_id=851838170 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.59281284, 0, 0.80534023, 0, 0.9674836, 0, -0.80534023, 0, 0.59281284, 1.4920712, 0, -2.3895788)
+
+[node name="bamboo_tree34" parent="." unique_id=680002968 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(1.0837184, 0, 0.30443886, 0, 0.8413257, 0, -0.30443886, 0, 1.0837184, 3.3055885, 0, -1.5041915)
+
+[node name="bamboo_tree35" parent="." unique_id=119550727 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.91959095, 0, 0.39287695, 0, 0.69409186, 0, -0.39287695, 0, 0.91959095, 2.7604775, 0, -3.1928282)
+
+[node name="bamboo_tree37" parent="." unique_id=842625205 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.81286305, 0, 0.5824547, 0, 0.9674836, 0, -0.5824547, 0, 0.81286305, -1.0462508, 0, -2.043777)
+
+[node name="bamboo_tree38" parent="." unique_id=1276758540 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.74781114, 0, 0.6639115, 0, 0.7474011, 0, -0.6639115, 0, 0.74781114, 5.03407, 0, -2.2213433)
+
+[node name="bamboo_tree39" parent="." unique_id=5272326 instance=ExtResource("2_y0jtg")]
+transform = Transform3D(0.9766864, 0, 0.21467087, 0, 0.7474011, 0, -0.21467087, 0, 0.9766864, 5.014366, 0, -1.4925265)
+
+[node name="tall_grass" parent="." unique_id=254428451 instance=ExtResource("3_1oms6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1795328, -0.5210284, 0.2958734)
+
+[node name="tall_grass2" parent="." unique_id=513410230 instance=ExtResource("3_1oms6")]
+transform = Transform3D(0.74019104, 0, -0.67239666, 0, 1, 0, 0.67239666, 0, 0.74019104, -1.8413461, -0.5210284, 0.39241624)
+
+[node name="tall_grass3" parent="." unique_id=769266271 instance=ExtResource("3_1oms6")]
+transform = Transform3D(-0.69323236, 0, -0.7207142, 0, 0.9075782, 0, 0.7207142, 0, -0.69323236, -0.93616664, -0.5210284, 1.0434365)
+
+[node name="tall_grass4" parent="." unique_id=2062002192 instance=ExtResource("3_1oms6")]
+transform = Transform3D(-0.9306625, 0, -0.3658789, 0, 1, 0, 0.3658789, 0, -0.9306625, 0.46343064, -0.5210289, -0.09437466)
+
+[node name="tall_grass5" parent="." unique_id=68560079 instance=ExtResource("3_1oms6")]
+transform = Transform3D(-0.52144355, 0, -0.7193357, 0, 0.897508, 0, 0.8466284, 0, -0.44304323, 1.2673113, -0.5210289, 0.7100315)
+
+[node name="tall_grass6" parent="." unique_id=107396940 instance=ExtResource("3_1oms6")]
+transform = Transform3D(0.24906817, 0, -0.96848595, 0, 1, 0, 0.96848595, 0, 0.24906817, 3.0586815, -0.5210284, 0.18824482)
+
+[node name="tall_grass7" parent="." unique_id=2079627811 instance=ExtResource("3_1oms6")]
+transform = Transform3D(-0.89614844, 0, 0.44375437, 0, 1, 0, -0.44375437, 0, -0.89614844, 4.781679, -0.5210279, 0.1325903)

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cp4f4lxlu5vep"]
+
+[ext_resource type="PackedScene" uid="uid://dun420qbuareo" path="res://GLB_Resorces/bamboo_tree.glb" id="1_ddfvu"]
+
+[node name="bamboo_tree" type="Node3D" unique_id=1920832284]
+
+[node name="bamboo_tree" parent="." unique_id=1121980279 instance=ExtResource("1_ddfvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9216123, 0, 0.55488706)
