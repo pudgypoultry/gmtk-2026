@@ -56,6 +56,7 @@ shadow_enabled = true
 [node name="Camera-Perspective" type="Camera3D" parent="." unique_id=1443317079]
 transform = Transform3D(1, -5.6352074e-09, -3.3616692e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, -0.47261715, 14.894799, -25.903305)
 cull_mask = 1048573
+fov = 115.3
 size = 21.54
 
 [node name="MainMenu3D" parent="Camera-Perspective" unique_id=1401067214 instance=ExtResource("6_vv641")]
@@ -86,3 +87,33 @@ transform = Transform3D(1, -5.6352074e-09, -3.3616694e-09, 5.9371814e-09, 0.9951
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
 stream = SubResource("AudioStreamWAV_vv641")
 autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1480528874]
+
+[node name="Dialogue" type="Panel" parent="UI" unique_id=1100151844]
+anchors_preset = -1
+anchor_top = 0.71000004
+anchor_right = 0.22200002
+anchor_bottom = 0.998
+offset_top = -0.08001709
+offset_right = -255.74402
+offset_bottom = -4.7040405
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Content" type="MarginContainer" parent="UI/Dialogue" unique_id=2052003686]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextContainer" type="VBoxContainer" parent="UI/Dialogue/Content" unique_id=1802704084]
+layout_mode = 2
+
+[node name="Speaker" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=544056385]
+layout_mode = 2
+
+[node name="DialogueText" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=348635854]
+layout_mode = 2
+
+[node name="Continue" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=1770884927]
+layout_mode = 2
