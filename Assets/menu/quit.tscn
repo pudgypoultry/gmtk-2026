@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b3h3lfd8ssj0u"]
+
+[ext_resource type="ArrayMesh" uid="uid://bj01mh4p0kb2l" path="res://Assets/menu/resources/mesh_quit_text.res" id="1_aha3o"]
+[ext_resource type="Material" uid="uid://b2e3f8osd8xr0" path="res://Assets/menu/resources/menu_button_text.material" id="2_vec88"]
+
+[node name="QUIT" type="MeshInstance3D" unique_id=998086453]
+layers = 2
+mesh = ExtResource("1_aha3o")
+surface_material_override/0 = ExtResource("2_vec88")

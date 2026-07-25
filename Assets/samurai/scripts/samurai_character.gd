@@ -23,7 +23,10 @@ func __delayed_setup() -> void:
 		animation_player.play("SamuraiAnimationLibrary/Draw_Ready_Pose")
 	else:
 		animation_player.play("SamuraiAnimationLibrary/Standing")
-	
+		
+func slice_ready() -> void:
+	animation_player.play("SamuraiAnimationLibrary/Draw_Ready_Pose")
+
 func head_look_at(loc:Vector3) -> void:
 	look_marker.position = loc
 	

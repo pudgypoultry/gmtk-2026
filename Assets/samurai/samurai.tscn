@@ -176,6 +176,7 @@ bind/53/pose = Transform3D(1.3212626e-07, 1, -2.1654976e-06, -9.313277e-10, 2.08
 [node name="Samurai" type="Node3D" unique_id=293925746 node_paths=PackedStringArray("look_marker")]
 script = ExtResource("1_ca4um")
 look_marker = NodePath("samurai/m_armature_full/Skeleton3D/LeftHandAttachment/katana_blade/KatanaTipMarker")
+default_animation = 0
 
 [node name="samurai" type="Node3D" parent="." unique_id=649759898]
 

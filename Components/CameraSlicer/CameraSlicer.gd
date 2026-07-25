@@ -10,6 +10,7 @@ class_name CameraSlicer
 @export var rigidbody_parent : Node3D
 @export var audio_player : AudioStreamPlayer3D
 @export var camera: Camera3D
+@export var camera_vis_layer: int = 2
 signal sliced_obj(name:String)
 
 
@@ -109,12 +110,15 @@ func perform_slice(start_point: Vector2, end_point: Vector2):
 			#get mesh size
 			var aabb = meshes[0].get_aabb()
 			var aabb2 = meshes[1].get_aabb()
+			#meshinstance.set_layer_mask_value(camera_vis_layer, true)
+			#meshinstance2.set_layer_mask_value(camera_vis_layer, true)
 			
 			body.center_of_mass = meshinstance.to_global(calculate_center_of_mass(meshes[0]))
 			body2.center_of_mass = meshinstance.to_global(calculate_center_of_mass(meshes[1]))
 			
 			body.counterpart_position = body2.center_of_mass
 			body2.counterpart_position = body.center_of_mass
+			
 			body.slice()
 			body2.slice()
 			

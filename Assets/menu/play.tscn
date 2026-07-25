@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c3fw5ydl6wqd6"]
+
+[ext_resource type="ArrayMesh" uid="uid://bd4ncsf7da3sd" path="res://Assets/menu/resources/mesh_play_text.res" id="1_6a7pp"]
+[ext_resource type="Material" uid="uid://b2e3f8osd8xr0" path="res://Assets/menu/resources/menu_button_text.material" id="2_8ue2r"]
+
+[node name="PLAY" type="MeshInstance3D" unique_id=612520950]
+layers = 2
+mesh = ExtResource("1_6a7pp")
+surface_material_override/0 = ExtResource("2_8ue2r")

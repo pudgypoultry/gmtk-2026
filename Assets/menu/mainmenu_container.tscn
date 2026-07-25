@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://drj0mkihpkoys"]
+
+[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="1_6w2ch"]
+[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="2_j5v4j"]
+[ext_resource type="PackedScene" uid="uid://c3fw5ydl6wqd6" path="res://Assets/menu/play.tscn" id="3_qmtxq"]
+[ext_resource type="PackedScene" uid="uid://jujc3xxvv4gb" path="res://Assets/menu/settings.tscn" id="4_dtt2k"]
+[ext_resource type="PackedScene" uid="uid://bdsy2ctbqwd7" path="res://Assets/menu/credits.tscn" id="5_rifds"]
+[ext_resource type="PackedScene" uid="uid://b3h3lfd8ssj0u" path="res://Assets/menu/quit.tscn" id="6_8yobm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5t4p"]
+size = Vector3(0.20829023, 0.09202957, 0.037174225)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwwtp"]
+size = Vector3(0.40058953, 0.08053017, 0.021976471)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxqgl"]
+size = Vector3(0.32834652, 0.08364296, 0.022586823)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3pav"]
+size = Vector3(0.18542534, 0.06272817, 0.018497467)
+
+[node name="menu_container" type="Node3D" unique_id=1035219753]
+
+[node name="play_option" type="RigidBody3D" parent="." unique_id=753038683 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577044, 0.081198424, -4.3267355)
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("1_6w2ch")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="play_option" unique_id=2053858709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00780306, -0.0018135458, -0.0010089874)
+shape = SubResource("BoxShape3D_f5t4p")
+
+[node name="SliceBehaviorComponent" type="Node" parent="play_option" unique_id=1834708473]
+script = ExtResource("2_j5v4j")
+movement_speed = 2.0
+
+[node name="PLAY" parent="play_option" unique_id=612520950 instance=ExtResource("3_qmtxq")]
+transform = Transform3D(0.115502775, 0, 0, 0, -3.5340326e-09, -0.115502775, 0, 0.080849245, -5.0487867e-09, -0.082675815, -0.02018696, 0)
+
+[node name="settings_option" type="RigidBody3D" parent="." unique_id=1638380410 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23055059, -0.06305352, -4.3267355)
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("1_6w2ch")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="settings_option" unique_id=1708243079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0064718127, -0.0045430064, -0.0003681183)
+shape = SubResource("BoxShape3D_cwwtp")
+
+[node name="SliceBehaviorComponent" type="Node" parent="settings_option" unique_id=964082122]
+script = ExtResource("2_j5v4j")
+movement_speed = 2.0
+
+[node name="SETTINGS" parent="settings_option" unique_id=871548910 instance=ExtResource("4_dtt2k")]
+transform = Transform3D(0.115502775, 0, 0, 0, -3.913085e-09, -0.115502775, 0, 0.089520946, -5.0487867e-09, -0.19930765, -0.027066194, 0)
+
+[node name="credits_option" type="RigidBody3D" parent="." unique_id=1339404831 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07862091, -0.22878723, -4.3267355)
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("1_6w2ch")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="credits_option" unique_id=478492678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004107401, 0.0031612515, 0.00030326843)
+shape = SubResource("BoxShape3D_pxqgl")
+
+[node name="SliceBehaviorComponent" type="Node" parent="credits_option" unique_id=2036106303]
+script = ExtResource("2_j5v4j")
+movement_speed = 2.0
+
+[node name="CREDITS" parent="credits_option" unique_id=721038854 instance=ExtResource("5_rifds")]
+transform = Transform3D(0.115502775, 0, 0, 0, -5.0487867e-09, -0.115502775, 0, 0.115502775, -5.0487867e-09, -0.16485941, -0.014256492, 0)
+
+[node name="quit_option" type="RigidBody3D" parent="." unique_id=775184197 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43347764, -0.3701436, -4.3267355)
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("1_6w2ch")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="quit_option" unique_id=1735677656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0027480423, -0.0068348646, 2.861023e-05)
+shape = SubResource("BoxShape3D_x3pav")
+
+[node name="SliceBehaviorComponent" type="Node" parent="quit_option" unique_id=1003581232]
+script = ExtResource("2_j5v4j")
+movement_speed = 2.0
+
+[node name="QUIT" parent="quit_option" unique_id=998086453 instance=ExtResource("6_8yobm")]
+transform = Transform3D(0.115502775, 0, 0, 0, -5.0487867e-09, -0.115502775, 0, 0.115502775, -5.0487867e-09, -0.09596297, -0.031610608, 0)
