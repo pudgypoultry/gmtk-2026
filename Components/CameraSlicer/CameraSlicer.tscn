@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dww4wp00jtn0h"]
 
 [ext_resource type="Script" uid="uid://dom2vfqabt2bm" path="res://Components/CameraSlicer/CameraSlicer.gd" id="1_jjv6k"]
+[ext_resource type="AudioStream" uid="uid://cvqi6rj3x56b4" path="res://Audio/combat/game slice.wav" id="2_ssnxe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5w2h"]
 transparency = 1
@@ -17,11 +18,12 @@ size = Vector3(39.512177, 14.5390625, 0.01)
 radius = 0.19824219
 height = 0.95007324
 
-[node name="CameraSlicer" type="Node3D" unique_id=1777482211 node_paths=PackedStringArray("slicer", "slicer_area")]
+[node name="CameraSlicer" type="Node3D" unique_id=1777482211 node_paths=PackedStringArray("slicer", "slicer_area", "audio_player")]
 script = ExtResource("1_jjv6k")
 depth = 0.1
 slicer = NodePath("Slicer")
 slicer_area = NodePath("Slicer/Area3D")
+audio_player = NodePath("AudioStreamPlayer3D")
 
 [node name="Slicer" type="Node3D" parent="." unique_id=1855049699]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -43,3 +45,6 @@ shape = SubResource("BoxShape3D_xbof0")
 transform = Transform3D(0.020868411, 0.9997822, -4.279921e-08, -0.9997822, 0.020868411, -4.3701878e-08, -4.279921e-08, 4.3701878e-08, 1, 0.4388821, 0.3741616, 2.9802322e-08)
 visible = false
 mesh = SubResource("CapsuleMesh_pxqgl")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=774227122]
+stream = ExtResource("2_ssnxe")

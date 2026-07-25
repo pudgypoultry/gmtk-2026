@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbmargax77fks"]
 
-[ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="2_4306q"]
+[ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControl.tscn" id="2_4306q"]
 [ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="3_kmgky"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
 [ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="4_kmgky"]
@@ -46,7 +46,7 @@ sky = SubResource("Sky_h6djc")
 [node name="Sandbox" type="Node3D" unique_id=1130912265]
 
 [node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("2_4306q")]
-max_tracking_time = 0.5
+max_tracking_time = 3.0
 camera_slicer = NodePath("../Camera3D/CameraSlicer")
 debug = false
 

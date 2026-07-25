@@ -8,14 +8,14 @@ class_name CameraSlicer
 @export var slicer : Node3D
 @export var slicer_area : Area3D
 @export var rigidbody_parent : Node3D
-
-
+@export var audio_player : AudioStreamPlayer3D
 @export var camera: Camera3D
 
 
 var cross_section_material = preload("res://addons/concave mesh slicer/Example/cross_section_material.tres")
 var slicer_original_position
 var slicer_original_rotation
+var sliced_object_array = []
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -72,17 +72,21 @@ func calculate_mesh_volume(mesh: ArrayMesh) -> float:
 
 func perform_slice(start_point: Vector2, end_point: Vector2):
 	update_slicer_rotation(start_point, end_point)
-	await get_tree().create_timer(0.25).timeout
-	print("Trying to slice")
-	print(slicer.position)
-	print(position)
-	print(slicer_area.get_overlapping_bodies())
+	audio_player.play()
+	await get_tree().create_timer(0.1).timeout
 	for body in slicer_area.get_overlapping_bodies().duplicate():
 		if body is RigidBody3D:
 			print("	Currently slicing: ", body)
 			#The convert the slicer's transform to be relative/local to the meshinstance.
-			var meshinstance:MeshInstance3D = body.get_node("SliceableMesh")
-			var meshinstance2 : MeshInstance3D
+			#Get all meshinstance3d nodes, for loop over each of them
+			var meshinstance:MeshInstance3D 
+			for child in body.get_children():
+				if child is MeshInstance3D:
+					meshinstance = child
+					break
+			if not meshinstance:
+				return
+			#var meshinstance:MeshInstance3D = body.get_node("SliceableMesh")
 			var slice_transform = meshinstance.global_transform.affine_inverse() * slicer.global_transform
 			body.center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 			#Slice the mesh
@@ -90,7 +94,14 @@ func perform_slice(start_point: Vector2, end_point: Vector2):
 			meshinstance.mesh = meshes[0]
 			var body2 = body.duplicate()
 			rigidbody_parent.add_child(body2)
-			meshinstance2 = body2.get_node("SliceableMesh")
+			
+			var meshinstance2 : MeshInstance3D
+			for child in body2.get_children():
+				if child is MeshInstance3D:
+					meshinstance2 = child
+					break
+			if not meshinstance2:
+				return
 			meshinstance2.mesh = meshes[1]
 			
 			#get mesh size
@@ -104,6 +115,11 @@ func perform_slice(start_point: Vector2, end_point: Vector2):
 			body2.counterpart_position = body.center_of_mass
 			body.slice()
 			body2.slice()
+			
+			if body not in sliced_object_array:
+				sliced_object_array.append(body)
+			if body2 not in sliced_object_array:
+				sliced_object_array.append(body2)
 			
 			#queue_free() if the mesh is too small
 			if aabb2.size.length() < 0.3:

@@ -20,6 +20,7 @@ enum State { PREPARING, READY, RECORDING, DONE }
 var current_state : State = State.PREPARING
 var mouse_recording : Array = []
 var tracking_timer : float = 0.0
+var how_many_sliced_objects : int = 0
 
 
 func _process(delta : float) -> void:
@@ -133,6 +134,12 @@ func find_lines() -> void:
 		margin_child.add_child(new_slash)
 		await camera_slicer.perform_slice(new_slash.points[0], new_slash.points[1])
 		line_set.append(line)
+			
+		#await get_tree().create_timer(1.0).timeout
+	for object in camera_slicer.sliced_object_array:
+		if object:
+			object.finish_slice()
+			how_many_sliced_objects += 1
 
 
 func find_direction(from, to):

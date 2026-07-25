@@ -9,6 +9,7 @@ class_name SliceBehaviorComponent
 var velocity : Vector3 = Vector3.ZERO
 var started_movement : bool = false
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if started_movement:
@@ -17,9 +18,12 @@ func _process(delta: float) -> void:
 
 
 func execute_behavior(counterpart_position : Vector3):
-	started_movement = true
 	var direction_to_move = actor_reference.global_position - counterpart_position
-	print(str(actor_reference.global_position) + "	:	" + str(counterpart_position))
+	# print(str(actor_reference.global_position) + "	:	" + str(counterpart_position))
 	velocity += direction_to_move.normalized()
+
+
+func finish_slice():
+	started_movement = true
 	await get_tree().create_timer(3.0).timeout
 	actor_reference.queue_free()
