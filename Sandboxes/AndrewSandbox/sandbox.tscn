@@ -55,9 +55,10 @@ projection = 1
 size = 9.095
 near = 0.03
 
-[node name="CameraSlicer" parent="Camera3D" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent") instance=ExtResource("3_qqcbp")]
+[node name="CameraSlicer" parent="Camera3D" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent", "camera") instance=ExtResource("3_qqcbp")]
 depth = 1.0
 rigidbody_parent = NodePath("../../Floor")
+camera = NodePath("..")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=179645054]
 transform = Transform3D(1, 0, 0, 0, 0.99960726, -0.028023003, 0, 0.028023003, 0.99960726, 0, -1.430098, 0)

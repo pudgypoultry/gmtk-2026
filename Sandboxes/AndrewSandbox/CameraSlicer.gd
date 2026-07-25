@@ -43,10 +43,10 @@ func calculate_center_of_mass(mesh:ArrayMesh):
 	#Not sure how well this work
 	var meshVolume = 0
 	var temp = Vector3(0,0,0)
-	for i in range(len(mesh.get_faces())/3):
-		var v1 = mesh.get_faces()[i]
-		var v2 = mesh.get_faces()[i+1]
-		var v3 = mesh.get_faces()[i+2]
+	if len(mesh.get_faces()) > 2:
+		var v1 = mesh.get_faces()[0]
+		var v2 = mesh.get_faces()[1]
+		var v3 = mesh.get_faces()[2]
 		var center = (v1 + v2 + v3) / 3
 		var volume = (Geometry3D.get_closest_point_to_segment_uncapped(v3,v1,v2).distance_to(v3)*v1.distance_to(v2))/2
 		meshVolume += volume
@@ -62,7 +62,7 @@ func calculate_mesh_volume(mesh: ArrayMesh) -> float:
 	for surface in range(mesh.get_surface_count()):
 		var arrays = mesh.surface_get_arrays(surface)
 		var vertices = arrays[Mesh.ARRAY_VERTEX]
-		for i in range(0, vertices.size(), 3):
+		for i in range(0, 6, 3):
 			var v1 = vertices[i]
 			var v2 = vertices[i + 1]
 			var v3 = vertices[i + 2]
@@ -72,7 +72,7 @@ func calculate_mesh_volume(mesh: ArrayMesh) -> float:
 
 func perform_slice(start_point: Vector2, end_point: Vector2):
 	update_slicer_rotation(start_point, end_point)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.25).timeout
 	print("Trying to slice")
 	print(slicer.position)
 	print(position)
