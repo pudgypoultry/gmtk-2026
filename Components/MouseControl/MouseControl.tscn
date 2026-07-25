@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tkut1lxq82o5"]
 
-[ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Sandboxes/AndrewSandbox/MouseControl.gd" id="1_dtwem"]
-[ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Sandboxes/AndrewSandbox/SlashLine.tscn" id="2_d7045"]
+[ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Components/MouseControl/MouseControl.gd" id="1_dtwem"]
+[ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Components/SlashLine/SlashLine.tscn" id="2_d7045"]
 [ext_resource type="Script" uid="uid://cp0opfp1nc6bx" path="res://Sandboxes/AndrewSandbox/DebugDraw.gd" id="2_sfg5k"]
 
 [node name="MouseControlCanvas" type="CanvasLayer" unique_id=549195944 node_paths=PackedStringArray("mouse_start_position", "margin_child")]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cbmargax77fks"]
 
-[ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Sandboxes/AndrewSandbox/MouseControl.tscn" id="2_4306q"]
-[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Sandboxes/AndrewSandbox/SliceableObject.gd" id="3_kmgky"]
-[ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Sandboxes/AndrewSandbox/CameraSlicer.tscn" id="3_qqcbp"]
-[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Sandboxes/AndrewSandbox/SliceBehaviorComponent.gd" id="4_kmgky"]
+[ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControl.tscn" id="2_4306q"]
+[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="3_kmgky"]
+[ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
+[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="4_kmgky"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4306q"]
 albedo_color = Color(0, 0.2700305, 1, 1)
