@@ -53,7 +53,7 @@ func show_dialogue():
 	dialogue.show()
 	speaker.text="Master:"
 	dialogue_text.text= dialogue_lines[current_line]
-	continue_label.text="Press [Space]"
+	continue_label.text="Press [Space] to continue"
 	
 	
 func _unhandled_input(event):
