@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Components/MouseControl/MouseControl.gd" id="1_dtwem"]
 [ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Components/SlashLine/SlashLine.tscn" id="2_d7045"]
 [ext_resource type="Script" uid="uid://cp0opfp1nc6bx" path="res://Sandboxes/AndrewSandbox/DebugDraw.gd" id="2_sfg5k"]
+[ext_resource type="Texture2D" uid="uid://dpow2edrnnal5" path="res://Assets/ui/start_slice_ui.png" id="4_ilni3"]
 
 [node name="MouseControlCanvas" type="CanvasLayer" unique_id=549195944 node_paths=PackedStringArray("mouse_start_position", "margin_child")]
 script = ExtResource("1_dtwem")
 mouse_start_position = NodePath("MouseControl/MouseStartPosition")
 slash_line = ExtResource("2_d7045")
 margin_child = NodePath("MouseControl")
-debug = true
 
 [node name="MouseControl" type="MarginContainer" parent="." unique_id=1426232428]
 process_mode = 1
@@ -23,10 +23,22 @@ size_flags_vertical = 6
 script = ExtResource("2_sfg5k")
 
 [node name="MouseStartPosition" type="ColorRect" parent="MouseControl" unique_id=1296350390]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 8
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="MouseControl/MouseStartPosition" unique_id=1816874736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ilni3")
+expand_mode = 2
+stretch_mode = 4
 
 [connection signal="mouse_entered" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_entered_start"]
 [connection signal="mouse_exited" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_exited_start"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cj3o8vw5x3q0o"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwf11sqehbokt" path="res://Assets/menu/resources/mesh_settings_text.res" id="1_fdvfp"]
+[ext_resource type="Material" uid="uid://b2e3f8osd8xr0" path="res://Assets/menu/resources/menu_button_text.material" id="2_0mo2g"]
+
+[node name="settings_button" type="Node3D" unique_id=431784207]
+
+[node name="SETTINGS" type="MeshInstance3D" parent="." unique_id=658415402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7383623, 0, 0.14412808)
+layers = 2
+mesh = ExtResource("1_fdvfp")
+surface_material_override/0 = ExtResource("2_0mo2g")

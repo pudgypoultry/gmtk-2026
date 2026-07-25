@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://odevdprljh0w"]
+
+[ext_resource type="ArrayMesh" uid="uid://0dev1ux6fhax" path="res://Assets/menu/resources/mesh_credits_text.res" id="1_ryq52"]
+[ext_resource type="Material" uid="uid://b2e3f8osd8xr0" path="res://Assets/menu/resources/menu_button_text.material" id="2_ydgyb"]
+
+[node name="credits_button" type="Node3D" unique_id=2048437712]
+
+[node name="CREDITS" type="MeshInstance3D" parent="." unique_id=1072360652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.426, 0, 0.157)
+layers = 2
+mesh = ExtResource("1_ryq52")
+surface_material_override/0 = ExtResource("2_ydgyb")

@@ -4,46 +4,127 @@
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="1_qftof"]
 [ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="4_8gepf"]
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="5_8gepf"]
-[ext_resource type="PackedScene" uid="uid://crla2lwikqfcw" path="res://Sandboxes/AustinSandbox/MATERIAL/menubuttons.res" id="5_p8owb"]
 [ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="6_p8owb"]
+[ext_resource type="PackedScene" uid="uid://di7jnipkut5e6" path="res://Assets/menu/play_button.tscn" id="6_tcwqh"]
+[ext_resource type="PackedScene" uid="uid://cj3o8vw5x3q0o" path="res://Assets/menu/settings_button.tscn" id="7_vxid6"]
+[ext_resource type="PackedScene" uid="uid://odevdprljh0w" path="res://Assets/menu/credits_button.tscn" id="8_f4xjt"]
+[ext_resource type="PackedScene" uid="uid://dglhnxc0hh2di" path="res://Assets/menu/quit_button.tscn" id="9_eb2kg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5t4p"]
+size = Vector3(0.20829023, 0.09202957, 0.037174225)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwwtp"]
+size = Vector3(0.40058953, 0.08053017, 0.021976471)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxqgl"]
-size = Vector3(1.0841255, 1.0274658, 0.84020996)
+size = Vector3(0.32834652, 0.08364296, 0.022586823)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3pav"]
+size = Vector3(0.18542534, 0.06272817, 0.018497467)
 
 [node name="MainMenu3D" type="Node3D" unique_id=1401067214]
 script = ExtResource("1_p8owb")
 
 [node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("5_8gepf")]
-camera_slicer = NodePath("../Camera3D/CameraSlicer")
-debug = false
+camera_slicer = NodePath("../SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1691445575]
 transform = Transform3D(0.9063078, 0.2424039, -0.34618863, 0, 0.81915206, 0.57357645, 0.4226183, -0.5198368, 0.74240386, -4.694045, 0, 0)
 visible = false
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=319641749]
-transform = Transform3D(1, 1.3234888e-23, -2.9802322e-08, 0, 1, 4.4408916e-16, 2.9802322e-08, -4.4408916e-16, 1, 0, 0, 4.2935443)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=954238116]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
-[node name="CameraSlicer" parent="Camera3D" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent", "camera") instance=ExtResource("1_qftof")]
-rigidbody_parent = NodePath("../..")
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=648147149]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="CameraOrtho" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=319641749]
+transform = Transform3D(1, 1.3234888e-23, -2.9802322e-08, 0, 1, 4.4408916e-16, 2.9802322e-08, -4.4408916e-16, 1, 0, 0, -0.033191204)
+cull_mask = 2
+projection = 1
+
+[node name="CameraSlicer" parent="SubViewportContainer/SubViewport/CameraOrtho" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent", "camera") instance=ExtResource("1_qftof")]
+rigidbody_parent = NodePath("../../../..")
 camera = NodePath("..")
 
-[node name="Playoption" type="RigidBody3D" parent="." unique_id=1338480276 node_paths=PackedStringArray("slice_behavior_component")]
+[node name="play_option" type="RigidBody3D" parent="." unique_id=1338480276 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577044, 0.081198424, -4.3267355)
 collision_layer = 3
 collision_mask = 3
 freeze = true
 script = ExtResource("4_8gepf")
 slice_behavior_component = NodePath("SliceBehaviorComponent")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Playoption" unique_id=1373288669]
-shape = SubResource("BoxShape3D_pxqgl")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="play_option" unique_id=1373288669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00780306, -0.0018135458, -0.0010089874)
+shape = SubResource("BoxShape3D_f5t4p")
 
-[node name="SliceBehaviorComponent" type="Node" parent="Playoption" unique_id=468231204]
+[node name="SliceBehaviorComponent" type="Node" parent="play_option" unique_id=468231204]
 script = ExtResource("6_p8owb")
 
-[node name="RigidbodyPArent" type="Node3D" parent="." unique_id=1244092784]
+[node name="play_button" parent="play_option" unique_id=1359423618 instance=ExtResource("6_tcwqh")]
+transform = Transform3D(0.115502775, 0, 0, 0, -3.5340326e-09, -0.115502775, 0, 0.080849245, -5.0487867e-09, 0, -0.0034549385, 0)
 
-[node name="Menubuttons" parent="." unique_id=2038921222 instance=ExtResource("5_p8owb")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.349, 0, 0.146)
+[node name="settings_option" type="RigidBody3D" parent="." unique_id=1260050697 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23055059, -0.06305352, -4.3267355)
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("4_8gepf")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
 
-[editable path="Camera3D/CameraSlicer"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="settings_option" unique_id=639010388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0064718127, -0.0045430064, -0.0003681183)
+shape = SubResource("BoxShape3D_cwwtp")
+
+[node name="SliceBehaviorComponent" type="Node" parent="settings_option" unique_id=1420132392]
+script = ExtResource("6_p8owb")
+
+[node name="settings_button" parent="settings_option" unique_id=431784207 instance=ExtResource("7_vxid6")]
+transform = Transform3D(0.115502775, 0, 0, 0, -3.913085e-09, -0.115502775, 0, 0.089520946, -5.0487867e-09, 0, -0.01082629, 0)
+
+[node name="credits_option" type="RigidBody3D" parent="." unique_id=1675788200 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07862091, -0.22878723, -4.3267355)
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("4_8gepf")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="credits_option" unique_id=1508759010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004107401, 0.0031612515, 0.00030326843)
+shape = SubResource("BoxShape3D_pxqgl")
+
+[node name="SliceBehaviorComponent" type="Node" parent="credits_option" unique_id=392025975]
+script = ExtResource("6_p8owb")
+
+[node name="credits_button" parent="credits_option" unique_id=2048437712 instance=ExtResource("8_f4xjt")]
+transform = Transform3D(0.115502775, 0, 0, 0, -5.0487867e-09, -0.115502775, 0, 0.115502775, -5.0487867e-09, 0, 0.0034597516, 0)
+
+[node name="quit_option" type="RigidBody3D" parent="." unique_id=1025451254 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43347764, -0.3701436, -4.3267355)
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("4_8gepf")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="quit_option" unique_id=1165909663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0027480423, -0.0068348646, 2.861023e-05)
+shape = SubResource("BoxShape3D_x3pav")
+
+[node name="SliceBehaviorComponent" type="Node" parent="quit_option" unique_id=1515959994]
+script = ExtResource("6_p8owb")
+
+[node name="quit_button" parent="quit_option" unique_id=788479421 instance=ExtResource("9_eb2kg")]
+transform = Transform3D(0.115502775, 0, 0, 0, -5.0487867e-09, -0.115502775, 0, 0.115502775, -5.0487867e-09, 0, -0.009957433, 0)
+
+[editable path="SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer"]

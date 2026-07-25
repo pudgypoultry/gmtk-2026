@@ -26,7 +26,10 @@ var typing_id: int=0
 @onready var camera_perspective: Camera3D = $"Camera-Perspective"
 
 @onready var main_menu_3d: Node3D = $"Camera-Perspective/MainMenu3D"
-@export var playbutton_slice_name:String = "Playoption"
+@export var play_button_slice_name:String = "play_option"
+@export var settings_button_slice_name:String = "settings_option"
+@export var credits_button_slice_name:String = "credits_option"
+@export var quit_button_slice_name:String = "quit_option"
 
 @export var typing_speed: float = 0.03
 
@@ -41,8 +44,15 @@ func __delayed_setup() -> void:
 	main_menu_3d.camera_slicer.sliced_obj.connect(on_sliced_obj)
 	
 func on_sliced_obj(name:String) -> void:
-	if name == playbutton_slice_name:
+	if name == play_button_slice_name:
 		move_camera(false)
+	elif name == quit_button_slice_name:
+		await get_tree().create_timer(0.5).timeout
+		get_tree().quit()
+	elif name == settings_button_slice_name:
+		pass
+	elif name == credits_button_slice_name:
+		pass
 
 func move_camera(menu_active:bool) -> void:
 	var loc:Vector3 = Vector3.ZERO

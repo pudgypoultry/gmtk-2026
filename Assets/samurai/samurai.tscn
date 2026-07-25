@@ -568,11 +568,11 @@ bone_idx = 6
 
 [node name="m_eyebrows_005" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D/DEF_head" unique_id=1963177208]
 transform = Transform3D(-0.99999994, -6.9849193e-10, 1.07102105e-08, 1.07102105e-08, 0, 0.99999994, -6.984919e-10, 1, 7.480996e-18, -0.0020939216, 0.02528872, -1.4545298)
-layers = 2
+layers = 4
 mesh = ExtResource("3_plsnh")
 
 [node name="m_mesh_master_030" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=636440095]
-layers = 2
+layers = 4
 mesh = ExtResource("3_1h5ln")
 skin = SubResource("Skin_74jwr")
 skeleton = NodePath("..")
@@ -643,6 +643,7 @@ bone_idx = 32
 
 [node name="katana_blade" parent="samurai/m_armature_full/Skeleton3D/LeftHandAttachment" unique_id=694371302 instance=ExtResource("4_1h5ln")]
 transform = Transform3D(0.72533125, 0.63727057, 0.26034737, 0.6351875, -0.7653551, 0.10377145, 0.26538858, 0.09010066, -0.9599219, -0.04674363, 0.10386339, -0.034956276)
+visibility_layer = 3
 
 [node name="KatanaTipMarker" type="Marker3D" parent="samurai/m_armature_full/Skeleton3D/LeftHandAttachment/katana_blade" unique_id=904021306]
 transform = Transform3D(1, 0, 3.7252903e-08, 2.9802322e-08, 1.0000001, 1.3411045e-07, 3.7252903e-09, 1.4901161e-08, 1.0000001, -0.10648167, -0.6975912, 0.0004580021)
@@ -657,6 +658,7 @@ transform = Transform3D(0.19847074, 0.960412, 0.19549811, 0.7957412, -0.27434888
 
 [node name="katana_sheeth" parent="samurai/m_armature_full/Skeleton3D/PelvisAttachment/sheeth_location" unique_id=2099546828 instance=ExtResource("5_y5d12")]
 transform = Transform3D(0.59963626, 0.6678642, -0.4409052, 0.6044006, -0.73905367, -0.2974915, -0.52453625, -0.08809745, -0.8468194, 0.040008307, -0.09683655, -0.07146323)
+visibility_layer = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="samurai" unique_id=1009183192]
 libraries/SamuraiAnimationLibrary = ExtResource("18_plsnh")

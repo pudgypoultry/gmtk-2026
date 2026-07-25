@@ -570,12 +570,10 @@ bone_idx = 6
 
 [node name="m_eyebrows_006" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D/DEF_head" unique_id=528788076]
 transform = Transform3D(-1, 1.9937304e-29, 1.9937304e-29, 1.9937304e-29, 0, 1, 1.9937304e-29, 1, 0, -0.0020939228, 0.025288703, -1.4545299)
-layers = 2
 mesh = ExtResource("3_koy6a")
 surface_material_override/0 = ExtResource("3_bplx5")
 
 [node name="m_mesh_master_027" type="MeshInstance3D" parent="samurai/m_armature_full/Skeleton3D" unique_id=2010705811]
-layers = 2
 mesh = ExtResource("4_3u5jo")
 skin = SubResource("Skin_6ybg6")
 skeleton = NodePath("..")

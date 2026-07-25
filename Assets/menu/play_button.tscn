@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://di7jnipkut5e6"]
+
+[ext_resource type="ArrayMesh" uid="uid://bd4ncsf7da3sd" path="res://Assets/menu/resources/mesh_play_text.res" id="1_uuejx"]
+[ext_resource type="Material" uid="uid://b2e3f8osd8xr0" path="res://Assets/menu/resources/menu_button_text.material" id="2_e31or"]
+
+[node name="play_button" type="Node3D" unique_id=1359423618]
+
+[node name="PLAY" type="MeshInstance3D" parent="." unique_id=1594398286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.73574173, 0, 0.12724787)
+layers = 2
+mesh = ExtResource("1_uuejx")
+surface_material_override/0 = ExtResource("2_e31or")
