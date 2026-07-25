@@ -27,6 +27,7 @@ slicer_area = NodePath("Slicer/Area3D")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slicer" unique_id=701755799]
+visible = false
 mesh = SubResource("QuadMesh_jjv6k")
 skeleton = NodePath("../../..")
 
@@ -40,4 +41,5 @@ shape = SubResource("BoxShape3D_xbof0")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Slicer" unique_id=756003060]
 transform = Transform3D(0.020868411, 0.9997822, -4.279921e-08, -0.9997822, 0.020868411, -4.3701878e-08, -4.279921e-08, 4.3701878e-08, 1, 0.4388821, 0.3741616, 2.9802322e-08)
+visible = false
 mesh = SubResource("CapsuleMesh_pxqgl")

@@ -2,7 +2,7 @@ extends Node3D
 class_name CameraSlicer
 
 @export_category("Game Rules")
-@export var depth : float = .5
+@export var depth : float = 5
 
 @export_category("Plugging in Nodes")
 @export var slicer : Node3D
@@ -78,25 +78,32 @@ func perform_slice(start_point: Vector2, end_point: Vector2):
 	print(position)
 	print(slicer_area.get_overlapping_bodies())
 	for body in slicer_area.get_overlapping_bodies().duplicate():
-		if body is StaticBody3D:
+		if body is RigidBody3D:
 			print("	Currently slicing: ", body)
 			#The convert the slicer's transform to be relative/local to the meshinstance.
 			var meshinstance:MeshInstance3D = body.get_node("SliceableMesh")
+			var meshinstance2 : MeshInstance3D
 			var slice_transform = meshinstance.global_transform.affine_inverse() * slicer.global_transform
-			
+			body.center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 			#Slice the mesh
 			var meshes := MeshSlicer.slice_mesh(slice_transform,meshinstance.mesh,cross_section_material)
 			meshinstance.mesh = meshes[0]
-			meshinstance.position.x += randf()
 			var body2 = body.duplicate()
 			rigidbody_parent.add_child(body2)
-			meshinstance = body2.get_node("SliceableMesh")
-			meshinstance.mesh = meshes[1]
-			meshinstance.position.x -= randf()
+			meshinstance2 = body2.get_node("SliceableMesh")
+			meshinstance2.mesh = meshes[1]
 			
 			#get mesh size
 			var aabb = meshes[0].get_aabb()
 			var aabb2 = meshes[1].get_aabb()
+			
+			body.center_of_mass = meshinstance.to_global(calculate_center_of_mass(meshes[0]))
+			body2.center_of_mass = meshinstance.to_global(calculate_center_of_mass(meshes[1]))
+			
+			body.counterpart_position = body2.center_of_mass
+			body2.counterpart_position = body.center_of_mass
+			body.slice()
+			body2.slice()
 			
 			#queue_free() if the mesh is too small
 			if aabb2.size.length() < 0.3:

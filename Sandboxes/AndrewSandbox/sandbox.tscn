@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cbmargax77fks"]
 
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Sandboxes/AndrewSandbox/MouseControl.tscn" id="2_4306q"]
+[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Sandboxes/AndrewSandbox/SliceableObject.gd" id="3_kmgky"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Sandboxes/AndrewSandbox/CameraSlicer.tscn" id="3_qqcbp"]
+[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Sandboxes/AndrewSandbox/SliceBehaviorComponent.gd" id="4_kmgky"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4306q"]
 albedo_color = Color(0, 0.2700305, 1, 1)
@@ -22,7 +24,7 @@ material = SubResource("StandardMaterial3D_rojf5")
 [sub_resource type="SphereShape3D" id="SphereShape3D_pxqgl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytoc7"]
-albedo_color = Color(0, 1, 0.27952433, 1)
+albedo_color = Color(0.08097792, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hh20u"]
 material = SubResource("StandardMaterial3D_ytoc7")
@@ -48,44 +50,58 @@ camera_slicer = NodePath("../Camera3D/CameraSlicer")
 debug = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=419158298]
-transform = Transform3D(1, 0, 0, 0, 0.9859668, 0.1669415, 0, -0.1669415, 0.9859668, 0, 3.2698877, 7.171626)
+transform = Transform3D(1, 0, 0, 0, 0.9933823, 0.11485514, 0, -0.11485514, 0.9933823, -2.3841858e-07, 1.0959468, 6.345024)
 projection = 1
 size = 9.095
 near = 0.03
 
 [node name="CameraSlicer" parent="Camera3D" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent") instance=ExtResource("3_qqcbp")]
-rigidbody_parent = NodePath("../../StaticBody3D")
+depth = 1.0
+rigidbody_parent = NodePath("../../Floor")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=179645054]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=179645054]
 transform = Transform3D(1, 0, 0, 0, 0.99960726, -0.028023003, 0, 0.028023003, 0.99960726, 0, -1.430098, 0)
 
-[node name="Floor" type="MeshInstance3D" parent="StaticBody3D" unique_id=1704622130]
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor" unique_id=1704622130]
+visible = false
 mesh = SubResource("BoxMesh_pxqgl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=402361433]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=402361433]
 shape = SubResource("BoxShape3D_rojf5")
 
-[node name="SliceTestSphere" type="StaticBody3D" parent="StaticBody3D" unique_id=946363852]
+[node name="SliceTestSphere" type="RigidBody3D" parent="Floor" unique_id=1174364763 node_paths=PackedStringArray("slice_behavior_component")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0378048, 1.3912772, 0)
 collision_layer = 3
 collision_mask = 3
+freeze = true
+script = ExtResource("3_kmgky")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
 
-[node name="SliceableMesh" type="MeshInstance3D" parent="StaticBody3D/SliceTestSphere" unique_id=1062748044]
+[node name="SliceableMesh" type="MeshInstance3D" parent="Floor/SliceTestSphere" unique_id=1062748044]
 mesh = SubResource("SphereMesh_pxqgl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/SliceTestSphere" unique_id=429936289]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/SliceTestSphere" unique_id=429936289]
 shape = SubResource("SphereShape3D_pxqgl")
 
-[node name="SliceTestBox" type="StaticBody3D" parent="StaticBody3D" unique_id=1408559134]
+[node name="SliceBehaviorComponent" type="Node" parent="Floor/SliceTestSphere" unique_id=1349412550]
+script = ExtResource("4_kmgky")
+
+[node name="SliceTestBox" type="RigidBody3D" parent="Floor" unique_id=307120524 node_paths=PackedStringArray("slice_behavior_component")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1301847, 2.0505736, 0)
 collision_layer = 3
 collision_mask = 3
+freeze = true
+script = ExtResource("3_kmgky")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
 
-[node name="SliceableMesh" type="MeshInstance3D" parent="StaticBody3D/SliceTestBox" unique_id=1451667231]
+[node name="SliceableMesh" type="MeshInstance3D" parent="Floor/SliceTestBox" unique_id=1451667231]
 mesh = SubResource("BoxMesh_hh20u")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/SliceTestBox" unique_id=1881716681]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/SliceTestBox" unique_id=1881716681]
 shape = SubResource("BoxShape3D_pxqgl")
+
+[node name="SliceBehaviorComponent" type="Node" parent="Floor/SliceTestBox" unique_id=448623360]
+script = ExtResource("4_kmgky")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1576296643]
 environment = SubResource("Environment_qqcbp")

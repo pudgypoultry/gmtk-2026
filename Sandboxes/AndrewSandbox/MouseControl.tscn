@@ -25,8 +25,8 @@ script = ExtResource("2_sfg5k")
 [node name="MouseStartPosition" type="ColorRect" parent="MouseControl" unique_id=1296350390]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [connection signal="mouse_entered" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_entered_start"]
 [connection signal="mouse_exited" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_exited_start"]
