@@ -4,6 +4,19 @@
 [ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="3_kmgky"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
 [ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="4_kmgky"]
+[ext_resource type="Script" uid="uid://bihyi6pwf0f6p" path="res://Sandboxes/AndrewSandbox/DuelManager.gd" id="5_su60e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
+sky_top_color = Color(0.286275, 0.411765, 0.823529, 1)
+sky_horizon_color = Color(0.580392, 0.678431, 0.678431, 1)
+ground_horizon_color = Color(0.584314, 0.67451, 0.686275, 1)
+
+[sub_resource type="Sky" id="Sky_h6djc"]
+sky_material = SubResource("ProceduralSkyMaterial_4306q")
+
+[sub_resource type="Environment" id="Environment_qqcbp"]
+background_mode = 2
+sky = SubResource("Sky_h6djc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4306q"]
 albedo_color = Color(0, 0.2700305, 1, 1)
@@ -31,19 +44,10 @@ material = SubResource("StandardMaterial3D_ytoc7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxqgl"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
-sky_top_color = Color(0.286275, 0.411765, 0.823529, 1)
-sky_horizon_color = Color(0.580392, 0.678431, 0.678431, 1)
-ground_horizon_color = Color(0.584314, 0.67451, 0.686275, 1)
-
-[sub_resource type="Sky" id="Sky_h6djc"]
-sky_material = SubResource("ProceduralSkyMaterial_4306q")
-
-[sub_resource type="Environment" id="Environment_qqcbp"]
-background_mode = 2
-sky = SubResource("Sky_h6djc")
-
 [node name="Sandbox" type="Node3D" unique_id=1130912265]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1576296643]
+environment = SubResource("Environment_qqcbp")
 
 [node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("2_4306q")]
 max_tracking_time = 0.5
@@ -105,12 +109,12 @@ shape = SubResource("BoxShape3D_pxqgl")
 [node name="SliceBehaviorComponent" type="Node" parent="Floor/SliceTestBox" unique_id=448623360]
 script = ExtResource("4_kmgky")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1576296643]
-environment = SubResource("Environment_qqcbp")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=631996476]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 light_energy = 2.0
 light_indirect_energy = 2.0
+
+[node name="DuelManager" type="Node" parent="." unique_id=152278871]
+script = ExtResource("5_su60e")
 
 [editable path="MouseControlCanvas"]
