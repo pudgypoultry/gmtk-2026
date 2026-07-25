@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bnkw3aosoevtr" path="res://Assets/static_objects/bamboo_target.tscn" id="4_ji6h3"]
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
 [ext_resource type="PackedScene" uid="uid://bp3vrki61iv53" path="res://Sandboxes/AustinSandbox/Mainmenuslice.tscn" id="6_vv641"]
+[ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="7_vxmc7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ntr6p"]
 sky_top_color = Color(0.077026285, 0.19024187, 0.36220393, 1)
@@ -103,17 +104,23 @@ grow_vertical = 0
 
 [node name="Content" type="MarginContainer" parent="UI/Dialogue" unique_id=2052003686]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 50.0
+offset_right = 121.0
+offset_bottom = 102.0
 
 [node name="TextContainer" type="VBoxContainer" parent="UI/Dialogue/Content" unique_id=1802704084]
 layout_mode = 2
 
 [node name="Speaker" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=544056385]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.6476925, 0.32641324, 1)
+theme_override_fonts/font = ExtResource("7_vxmc7")
+theme_override_font_sizes/font_size = 22
 
 [node name="DialogueText" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=348635854]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_vxmc7")
+theme_override_font_sizes/font_size = 24
 
 [node name="Continue" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=1770884927]
 layout_mode = 2
