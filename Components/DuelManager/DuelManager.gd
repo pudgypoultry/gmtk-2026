@@ -35,6 +35,7 @@ var mouse_in_circle : bool = false
 var current_score : int = 0
 var has_performed_debug_spawn : bool = false
 var how_fast : float = 0.0
+var win_streak : int = 0.0
 
 signal changed_state(state : State)
 
@@ -42,7 +43,6 @@ signal changed_state(state : State)
 func _ready() -> void:
 	mouse_in_circle = false
 	mouse_moved = false
-	#draw_text.visible = false
 	waiting_time = original_waiting_time
 	mouse_control.connect("mouse_ready", handle_mouse_ready)
 	mouse_control.connect("mouse_left", handle_mouse_left)
@@ -63,7 +63,6 @@ func _process(delta: float) -> void:
 		if mouse_moved:
 			lose_duel()
 		if countdown_timer > countdown_time:
-			print("POOOOOP")
 			var random_count_add = randf_range(0.75, 3.75)
 			waiting_time += random_count_add
 			current_state = State.WAITING
@@ -92,7 +91,6 @@ func prepare_duel(positions : Dictionary):
 	print("Preparing Duel")
 	mouse_moved = false
 	waiting_time = original_waiting_time
-	print(positions)
 	for pos : Vector3 in positions.keys():
 		var next_enemy : SliceableObject = positions[pos].instantiate()
 		enemy_folder.add_child(next_enemy)
@@ -138,6 +136,20 @@ func lose_duel():
 	# Kill player
 	# Show lose screen
 	# Offer go back to start
+
+
+func reset_duel():
+	how_fast = 0.0
+	current_score = 0
+	mouse_moved = false
+	mouse_in_circle = false
+	current_enemies = []
+	current_state = State.PREPARING
+	countdown_timer = 0.0
+	waiting_timer = 0.0
+	waiting_time = original_waiting_time
+	reaction_timer = 0.0
+	time_taken = 0.0
 
 
 func handle_mouse_ready():

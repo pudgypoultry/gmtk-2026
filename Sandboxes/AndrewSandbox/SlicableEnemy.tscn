@@ -32,3 +32,4 @@ mesh = ExtResource("3_cdpq1")
 [node name="SliceBehaviorComponent" type="Node" parent="." unique_id=131793628]
 script = ExtResource("4_iagh3")
 movement_speed = 2.0
+movement_speed_decay = 0.95
