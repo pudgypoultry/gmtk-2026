@@ -7,7 +7,7 @@ enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 @export var countdown_time : float = 4.0
 @export var original_waiting_time : float = 0.7
 @export var reaction_time_max : float = 0.4
-@export var test_dict : Dictionary[Vector3, PackedScene]
+@export var enemy_scenes : Array[PackedScene]
 
 
 @export_category("Plugging in Nodes")
@@ -17,7 +17,6 @@ enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 @export var countdown_sound : AudioStreamPlayer3D
 @export var draw_sound : AudioStreamPlayer3D
 @export var grade_sound : AudioStreamPlayer3D
-@export var draw_text : Control
 @onready var countdown_label: Control = $countdown_label
 
 @export_category("Debug")
@@ -35,7 +34,8 @@ var mouse_in_circle : bool = false
 var current_score : int = 0
 var has_performed_debug_spawn : bool = false
 var how_fast : float = 0.0
-var win_streak : int = 0.0
+var duel_is_setup : bool = false
+var win_streak : int = 0
 
 signal changed_state(state : State)
 
@@ -52,10 +52,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if current_state == State.PREPARING:
-		if !has_performed_debug_spawn && debug:
-			has_performed_debug_spawn = true
-			prepare_duel(test_dict)
-		if mouse_in_circle:
+		if !duel_is_setup:
+			prepare_duel(enemy_scenes.pick_random())
+		if mouse_in_circle && duel_is_setup:
 			begin_countdown()
 	
 	if current_state == State.COUNTDOWN:
@@ -87,15 +86,16 @@ func _process(delta: float) -> void:
 
 
 # Pass this function a dictionary of enemy packedscene keys and Vector3 positions
-func prepare_duel(positions : Dictionary):
+func prepare_duel(enemy : PackedScene):
 	print("Preparing Duel")
 	mouse_moved = false
 	waiting_time = original_waiting_time
-	for pos : Vector3 in positions.keys():
-		var next_enemy : SliceableObject = positions[pos].instantiate()
-		enemy_folder.add_child(next_enemy)
-		current_enemies.append(next_enemy)
-		next_enemy.position = pos
+	var next_enemy : SliceableObject = enemy.instantiate()
+	enemy_folder.add_child(next_enemy)
+	current_enemies.append(next_enemy)
+	next_enemy.position.x += randf_range(-3.0, 3.0)
+	next_enemy.scale *= randf_range(0.8, 1.5)
+	duel_is_setup = true
 
 
 func begin_countdown():
@@ -127,6 +127,8 @@ func win_duel():
 	print("YOU WIN")
 	print("How fast:	", how_fast)
 	print("How many things were cut:	", current_score)
+	win_streak += 1
+	print("Current win streak:	", win_streak)
 	# Show end of battle screen
 	# Show go to next fight screen
 
@@ -150,6 +152,7 @@ func reset_duel():
 	waiting_time = original_waiting_time
 	reaction_timer = 0.0
 	time_taken = 0.0
+	duel_is_setup = false
 
 
 func handle_mouse_ready():

@@ -44,7 +44,7 @@ near = 0.03
 
 [node name="CameraSlicer" parent="Camera3D" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent", "camera") instance=ExtResource("3_qqcbp")]
 depth = 1.0
-rigidbody_parent = NodePath("../../Floor")
+rigidbody_parent = NodePath("../../EnemyFolder")
 camera = NodePath("..")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=179645054]
@@ -63,12 +63,13 @@ light_energy = 2.0
 light_indirect_energy = 2.0
 
 [node name="DuelManager" parent="." unique_id=1760879894 node_paths=PackedStringArray("enemy_folder", "camera_slicer", "mouse_control") instance=ExtResource("5_su60e")]
-test_dict = Dictionary[Vector3, PackedScene]({
-Vector3(1.8532269, 2.5854492, -1.1773962): ExtResource("4_kmgky")
-})
-enemy_folder = NodePath("../Floor")
+enemy_scenes = Array[PackedScene]([ExtResource("4_kmgky")])
+enemy_folder = NodePath("../EnemyFolder")
 camera_slicer = NodePath("../Camera3D/CameraSlicer")
 mouse_control = NodePath("../MouseControlCanvas")
 debug = true
+
+[node name="EnemyFolder" type="Marker3D" parent="." unique_id=1735150575]
+transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0, 0.5140698, 0)
 
 [editable path="MouseControlCanvas"]
