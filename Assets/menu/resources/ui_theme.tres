@@ -8,7 +8,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0, 0, 0, 0.38431373)
+bg_color = Color(0, 0, 0, 0.59607846)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -16,7 +16,6 @@ corner_radius_bottom_left = 50
 
 [resource]
 default_font = ExtResource("1_og8xg")
-default_font_size = 35
 Button/colors/font_color = Color(1, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.5686275, 0.45490196, 0.40392157, 0.79607844)
 Button/colors/font_focus_color = Color(1, 0.7647059, 0, 1)

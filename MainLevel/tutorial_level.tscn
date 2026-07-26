@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctc81u3og8l6f" path="res://MainLevel/tutorial_level.gd" id="1_tvqg6"]
 [ext_resource type="PackedScene" uid="uid://j2v6okfdislb" path="res://MainLevel/static_env_assets.tscn" id="1_vkcfv"]
-[ext_resource type="PackedScene" uid="uid://cuygobdir8hhx" path="res://Assets/samurai/teacher_character.tscn" id="3_quqm4"]
+[ext_resource type="PackedScene" uid="uid://cuygobdir8hhx" path="res://Assets/samurai/samurai_master.tscn" id="3_quqm4"]
 [ext_resource type="PackedScene" uid="uid://bnkw3aosoevtr" path="res://Assets/static_objects/bamboo_target.tscn" id="4_ji6h3"]
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
 [ext_resource type="AudioStream" uid="uid://dimqwgd5pjbjj" path="res://Audio/music/AMBIENCE.wav" id="7_g160d"]
@@ -72,7 +72,7 @@ transform = Transform3D(1, -5.6352074e-09, -3.3616694e-09, 5.9371814e-09, 0.9951
 transform = Transform3D(0.88665205, -0.24490395, -0.39226285, 2.9997511e-09, 0.8482512, -0.52959406, 0.46243712, 0.46956566, 0.7521037, -0.76153755, 13.010362, -39.36079)
 
 [node name="CameraLoc_settings" type="Marker3D" parent="." unique_id=1507451146]
-transform = Transform3D(0.90446675, -0.041749112, 0.4244961, 0.13872777, 0.9698845, -0.20019701, -0.40335402, 0.23996092, 0.8830199, -4.8786125, 1.4901527, -19.749296)
+transform = Transform3D(0.9494254, 0, 0.31399244, 0, 1.0000001, 0, -0.3139924, 0, 0.94942546, -4.8786125, 1.4901527, -19.749296)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
 stream = ExtResource("7_g160d")

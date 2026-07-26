@@ -17,11 +17,17 @@ enum cameraloc {Play, Menu, Settings, Credits}
 #@export var quit_button_slice_name:String = "quit_option"
 
 @onready var tutorial_dialogue: DialogueCtrl = $TutorialDialogue
+@onready var main_menu: Panel = $MainMenu
 
 
 func _ready() -> void:
 	__delayed_setup.call_deferred()
 	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Menu"):
+		main_menu._on_return_pressed()
+		tutorial_dialogue.end_dialogue()
+
 func __delayed_setup() -> void:
 	var loc:Vector3 = samurai.position
 	samurai_master.head_look_at(loc)
@@ -49,6 +55,7 @@ func move_camera(pos:cameraloc) -> void:
 	var loc:Vector3 = Vector3.ZERO
 	var bas:Basis
 	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
 	if pos == cameraloc.Menu:
 		loc = camera_loc_menu.position
 		bas = camera_loc_menu.basis
