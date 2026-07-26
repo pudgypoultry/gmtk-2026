@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://c3dxvt6erpgi7"]
-
-[ext_resource type="PackedScene" uid="uid://chqs6swspka7i" path="res://GLB_Resorces/samurai_static_death_01.glb" id="1_iktry"]
-
-[node name="StaticSamuraiDeath01" type="Node3D" unique_id=1617588439]
-
-[node name="samurai_static_death_01" parent="." unique_id=1325007730 instance=ExtResource("1_iktry")]
