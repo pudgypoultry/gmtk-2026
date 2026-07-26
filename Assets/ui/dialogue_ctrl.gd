@@ -14,14 +14,19 @@ var dialogue_lines: Array[String]=[
 		MOVE YOUR MOUSE TO SLICE",
 		" GOOD good! Now do you think your skills can cut 
 		down this bamboo instead of just AIR HAHA",
+		"",
 		" Well, 
 		YOU STILL HAVE MUCH TO LEARN"]
+var error_dialogue_lines: Array[String]=[
+	"That was Shit! Try it again only this time do it right"
+]
+var is_error_line:bool = false
 var current_line=0
 var dialogue_active: bool = false
 var is_typing: bool = false
 var typing_id: int=0
 
-signal DialogeReadyToSlice()
+signal DialogeReadyToSlice(num:int)
 
 func show_dialogue() -> void:
 	dialogue_active= true
@@ -35,6 +40,8 @@ func show_dialogue() -> void:
 	
 func _unhandled_input(event):
 	if dialogue_active and event.is_action_pressed("ui_accept"):
+		if (current_line == 1 or current_line == 3) and not is_error_line:
+			return # don't allow continune
 		next_dialogue()
 		get_viewport().set_input_as_handled()
 	
@@ -42,13 +49,25 @@ func next_dialogue():
 	if is_typing:
 		finish_current_line()
 		return
-	current_line +=1
-	if current_line == 1:
-		DialogeReadyToSlice.emit()
-	if current_line>= dialogue_lines.size():
-		end_dialogue()
-		return
-	type_text(dialogue_lines[current_line])
+	if current_line == 0:
+		continue_label.hide()
+		DialogeReadyToSlice.emit(1)
+	elif current_line == 2:
+		continue_label.hide()
+		DialogeReadyToSlice.emit(2)
+	else:
+		continue_label.show()
+	
+	if is_error_line:
+		current_line -= 1
+		is_error_line = false
+		type_text(error_dialogue_lines[0])
+	else:
+		current_line +=1
+		if current_line>= dialogue_lines.size():
+			end_dialogue()
+			return
+		type_text(dialogue_lines[current_line])
 	
 func type_text(text_to_show: String) -> void:
 		typing_id +=1
@@ -75,3 +94,7 @@ func end_dialogue() -> void:
 	is_typing=false
 	dialogue_active= false
 	dialogue.hide()
+
+func error_dialog() -> void:
+	is_error_line = true
+	next_dialogue()

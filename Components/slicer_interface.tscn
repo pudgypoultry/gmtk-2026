@@ -3,12 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="1_nbxf2"]
 [ext_resource type="Script" uid="uid://da63xplb5putg" path="res://Components/slicer_interface_ctrl.gd" id="1_q7wpw"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="2_q7wpw"]
+[ext_resource type="AudioStream" uid="uid://dimqwgd5pjbjj" path="res://Audio/music/AMBIENCE.wav" id="4_jhywv"]
 
 [node name="SlicerInterface" type="Node3D" unique_id=1068988077 node_paths=PackedStringArray("camera")]
 script = ExtResource("1_q7wpw")
 camera = NodePath("SubViewportContainer/SubViewport/CameraOrtho")
 
 [node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("1_nbxf2")]
+visible = false
 camera_slicer = NodePath("../SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=930809538]
@@ -36,3 +38,6 @@ rigidbody_parent = NodePath("../../../../rigidbody_parent")
 camera = NodePath("..")
 
 [node name="rigidbody_parent" type="Node3D" parent="." unique_id=1209041119]
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer" parent="." unique_id=1918847924]
+stream = ExtResource("4_jhywv")

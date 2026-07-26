@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ctc81u3og8l6f" path="res://MainLevel/tutorial_level.gd" id="1_tvqg6"]
 [ext_resource type="PackedScene" uid="uid://j2v6okfdislb" path="res://MainLevel/static_env_assets.tscn" id="1_vkcfv"]
 [ext_resource type="PackedScene" uid="uid://cuygobdir8hhx" path="res://Assets/samurai/samurai_master.tscn" id="3_quqm4"]
-[ext_resource type="PackedScene" uid="uid://bnkw3aosoevtr" path="res://Assets/static_objects/bamboo_target.tscn" id="4_ji6h3"]
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
 [ext_resource type="AudioStream" uid="uid://bvlewybgq4lmf" path="res://Audio/music/game gameloop.wav" id="6_g160d"]
 [ext_resource type="PackedScene" uid="uid://c75ugdqdj75kf" path="res://MainLevel/main_menu_ui.tscn" id="8_g160d"]
@@ -53,9 +52,6 @@ transform = Transform3D(1, -5.6352074e-09, -3.3616692e-09, 5.9371814e-09, 0.9951
 cull_mask = 1048573
 size = 21.54
 
-[node name="BambooTarget" parent="." unique_id=480863414 instance=ExtResource("4_ji6h3")]
-transform = Transform3D(0.16480054, -0.008831384, 0.11297251, 0.034202013, 0.19396925, -0.034729637, -0.10803242, 0.047936752, 0.16134146, 0.35, 1, -4.3)
-
 [node name="Samurai" parent="." unique_id=293925746 instance=ExtResource("4_tvqg6")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.0948444, 0.09262395, 0)
 
@@ -82,5 +78,8 @@ autoplay = true
 
 [node name="MainMenu" parent="." unique_id=560086353 instance=ExtResource("8_g160d")]
 
-[connection signal="DialogeReadyToSlice" from="TutorialDialogue" to="." method="init_slice_interface"]
+[node name="BambooTargetTransform" type="Marker3D" parent="." unique_id=501587294]
+transform = Transform3D(0.16480052, -0.008831372, 0.11297252, 0.03420201, 0.19396922, -0.03472964, -0.10803243, 0.04793675, 0.16134144, 0.35, 1, -4.3)
+
+[connection signal="DialogeReadyToSlice" from="TutorialDialogue" to="." method="init_slicer"]
 [connection signal="menu_changed" from="MainMenu" to="." method="_on_main_menu_menu_changed"]

@@ -8,11 +8,14 @@ extends Node3D
 @onready var camera_loc_credits: Marker3D = $CameraLoc_credits
 @onready var camera_loc_settings: Marker3D = $CameraLoc_settings
 @onready var game_theme_player: AudioStreamPlayer = $GameThemePlayer
+@onready var bamboo_target_transform: Marker3D = $BambooTargetTransform
+const BAMBOO_TARGET = preload("res://Assets/static_objects/bamboo_target.tscn")
 
 enum cameraloc {Play, Menu, Settings, Credits}
 
 const SLICER_INTERFACE = preload("res://Components/slicer_interface.tscn")
 var slicer:Node3D
+var slice_goal:int = 0
 
 @onready var tutorial_dialogue: DialogueCtrl = $TutorialDialogue
 @onready var main_menu: Panel = $MainMenu
@@ -48,6 +51,7 @@ func move_camera(pos:cameraloc) -> void:
 		loc = camera_loc_active_game.position
 		bas = camera_loc_active_game.basis
 		tween.finished.connect(tutorial_dialogue.show_dialogue)
+		tween.finished.connect(init_slice_interface)
 	elif pos == cameraloc.Settings:
 		loc = camera_loc_settings.position
 		bas = camera_loc_settings.basis
@@ -77,7 +81,32 @@ func init_slice_interface() -> void:
 	slicer.position = camera_loc_active_game.position
 	slicer.basis = camera_loc_active_game.basis
 	self.add_child(slicer)
-	game_theme_player.stop()
 	slicer.mouse_control_canvas.mouse_ready.connect(samurai.slice_ready)
 	slicer.mouse_control_canvas.mouse_left.connect(samurai.draw_sword)
 	slicer.mouse_control_canvas.done_slicing.connect(samurai.sheath_sword)
+	slicer.mouse_control_canvas.done_slicing.connect(on_done_slicing)
+	
+func init_slicer(num:int) -> void:
+	if num == 1:
+		slice_goal = 0
+	elif num == 2:
+		slice_goal = 5
+		var target:Node3D = BAMBOO_TARGET.instantiate()
+		target.position = bamboo_target_transform.position
+		target.scale = bamboo_target_transform.scale
+		target.basis = bamboo_target_transform.basis
+		self.add_child(target)
+		
+	game_theme_player.stop()
+	slicer.enable_slicer()
+
+func clean_up_slicer() -> void:
+	slicer.disable_slicer()
+	game_theme_player.play()
+	
+func on_done_slicing(how_many:int) -> void:
+	if how_many >= slice_goal:
+		tutorial_dialogue.next_dialogue()
+	else:
+		tutorial_dialogue.error_dialog()
+	clean_up_slicer()
