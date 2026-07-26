@@ -80,7 +80,7 @@ func _process(delta: float) -> void:
 		reaction_timer += delta
 		if mouse_moved && how_fast == 0.0:
 			how_fast = reaction_timer
-		if reaction_timer > reaction_time_max:
+		if reaction_timer > reaction_time_max or how_fast != 0.0:
 			check_duel_end()
 
 
@@ -110,20 +110,14 @@ func check_duel_end():
 	if not mouse_moved:
 		lose_duel()
 	# allow for extra time after slice to watch
-	
 	await get_tree().create_timer(2.0).timeout
 	end_duel()
 
 
 func end_duel():
-	for enemy : SliceableObject in current_enemies:
-		if enemy.is_sliced:
-			continue
-		else:
-			lose_duel()
-			return
 	if current_score == 0:
 		lose_duel()
+		return
 	win_duel()
 
 

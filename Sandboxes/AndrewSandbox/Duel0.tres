@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Duel" format=3 uid="uid://cb7me5kn4vv"]
+
+[ext_resource type="Script" uid="uid://cbkm2erbi723t" path="res://Sandboxes/AndrewSandbox/Duel.gd" id="1_1t4jh"]
+
+[resource]
+script = ExtResource("1_1t4jh")
+metadata/_custom_type_script = "uid://cbkm2erbi723t"

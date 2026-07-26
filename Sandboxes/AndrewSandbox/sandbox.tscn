@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="2_4306q"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
-[ext_resource type="PackedScene" uid="uid://djt8mwsu6xdv3" path="res://Sandboxes/AndrewSandbox/TestSphere.tscn" id="3_su60e"]
+[ext_resource type="PackedScene" uid="uid://ep87helfabo2" path="res://Sandboxes/AndrewSandbox/SlicableEnemy.tscn" id="4_kmgky"]
 [ext_resource type="PackedScene" uid="uid://btq0atw5qen78" path="res://Components/DuelManager/duel_manager.tscn" id="5_su60e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
@@ -64,7 +64,7 @@ light_indirect_energy = 2.0
 
 [node name="DuelManager" parent="." unique_id=1760879894 node_paths=PackedStringArray("enemy_folder", "camera_slicer", "mouse_control") instance=ExtResource("5_su60e")]
 test_dict = Dictionary[Vector3, PackedScene]({
-Vector3(1.8532269, 2.5854492, -1.1773962): ExtResource("3_su60e")
+Vector3(1.8532269, 2.5854492, -1.1773962): ExtResource("4_kmgky")
 })
 enemy_folder = NodePath("../Floor")
 camera_slicer = NodePath("../Camera3D/CameraSlicer")

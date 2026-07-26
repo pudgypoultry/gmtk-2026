@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ep87helfabo2"]
+
+[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="1_cdpq1"]
+[ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="1_ih5tc"]
+[ext_resource type="ArrayMesh" uid="uid://cakbjhg7gra0" path="res://Sandboxes/AndrewSandbox/DyingSamurai1.tres" id="3_cdpq1"]
+[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="4_iagh3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxqgl"]
+radius = 0.30566406
+height = 1.5576172
+
+[node name="SlicableEnemy" type="RigidBody3D" unique_id=231484203 node_paths=PackedStringArray("slice_behavior_component", "healthy_mesh", "sliced_mesh")]
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("1_cdpq1")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+healthy_mesh = NodePath("Samurai")
+sliced_mesh = NodePath("m_mesh_death_01")
+
+[node name="Samurai" parent="." unique_id=293925746 instance=ExtResource("1_ih5tc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6230025, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=195808783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.063964844, 0)
+shape = SubResource("CapsuleShape3D_pxqgl")
+
+[node name="m_mesh_death_01" type="MeshInstance3D" parent="." unique_id=1097911843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7045426, 0)
+mesh = ExtResource("3_cdpq1")
+
+[node name="SliceBehaviorComponent" type="Node" parent="." unique_id=131793628]
+script = ExtResource("4_iagh3")
+movement_speed = 2.0
