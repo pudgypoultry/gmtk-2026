@@ -1,7 +1,7 @@
-extends Marker3D
+extends Node3D
 
 @export var camera:Node3D
 
-func _process(_delta: float) -> void:
+func _ready() -> void:
 	camera.position = self.position
 	camera.basis = self.basis

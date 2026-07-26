@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://dede6vonqbes7"]
 
 [ext_resource type="ArrayMesh" uid="uid://1yrruukikgvl" path="res://Assets/static_objects/resources/bamboo_pole_01_steam.res" id="1_fsak1"]
+[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="1_ubpa4"]
 [ext_resource type="ArrayMesh" uid="uid://cc2vuwkptpoa6" path="res://Assets/static_objects/resources/bamboo_pole_01_rings.res" id="2_xqtjs"]
 [ext_resource type="ArrayMesh" uid="uid://dvp3woh8sksry" path="res://Assets/static_objects/resources/bamboo_pole_01_leafstem.res" id="3_ubpa4"]
 [ext_resource type="ArrayMesh" uid="uid://dys55k8k6yska" path="res://Assets/static_objects/resources/bamboo_pole_01_leafs.res" id="4_kpp5c"]
+[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="6_kpp5c"]
 
-[node name="bamboo_pole_01" type="Node3D" unique_id=294628015]
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcaaa"]
+size = Vector3(0.056640625, 2.225525, 0.048095703)
+
+[node name="bamboo_pole_01" type="RigidBody3D" unique_id=640538519 node_paths=PackedStringArray("slice_behavior_component")]
+freeze = true
+script = ExtResource("1_ubpa4")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
 
 [node name="bamboo_01" type="MeshInstance3D" parent="." unique_id=734349120]
 layers = 2
@@ -24,3 +32,11 @@ mesh = ExtResource("3_ubpa4")
 transform = Transform3D(0.21913117, 0.1363588, -0.08074666, 0.01252311, 0.11465509, 0.26061288, 0.15475261, -0.20236365, 0.09324835, 0.003689289, 1.1191764, 0.031187057)
 layers = 2
 mesh = ExtResource("4_kpp5c")
+
+[node name="SliceBehaviorComponent" type="Node" parent="." unique_id=1059911717]
+script = ExtResource("6_kpp5c")
+movement_speed = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1448628880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1019592, 0.0020751953)
+shape = SubResource("BoxShape3D_bcaaa")

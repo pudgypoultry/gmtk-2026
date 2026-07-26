@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://13mep31bxa8y"]
+
+[ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="1_nbxf2"]
+[ext_resource type="Script" uid="uid://dafei1jdkibf7" path="res://Assets/ui/camera_loc_active_game.gd" id="1_q7wpw"]
+[ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="2_q7wpw"]
+
+[node name="SlicerInterface" type="Node3D" unique_id=1068988077 node_paths=PackedStringArray("camera")]
+script = ExtResource("1_q7wpw")
+camera = NodePath("SubViewportContainer/SubViewport/CameraOrtho")
+
+[node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("1_nbxf2")]
+camera_slicer = NodePath("../SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=930809538]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1474095113]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="CameraOrtho" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=2131300935]
+transform = Transform3D(1, 1.3234888e-23, -2.9802322e-08, 0, 1, 4.4408916e-16, 2.9802322e-08, -4.4408916e-16, 1, 0, 0, -0.033191204)
+cull_mask = 2
+projection = 1
+
+[node name="CameraSlicer" parent="SubViewportContainer/SubViewport/CameraOrtho" unique_id=1777482211 node_paths=PackedStringArray("rigidbody_parent", "camera") instance=ExtResource("2_q7wpw")]
+rigidbody_parent = NodePath("../../../../rigidbody_parent")
+camera = NodePath("..")
+
+[node name="rigidbody_parent" type="Node3D" parent="." unique_id=1209041119]
