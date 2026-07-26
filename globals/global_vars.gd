@@ -4,3 +4,4 @@ extends Node
 
 # if true, code meant only for testing will run
 var DEBUG:bool = true
+enum MenuChange {Menu, Play, Settings, Credits, Quit}

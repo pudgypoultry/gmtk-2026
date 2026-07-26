@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://c75ugdqdj75kf"]
+
+[ext_resource type="StyleBox" uid="uid://cx2ogpy574pjp" path="res://Assets/menu/resources/style_box_transparent.tres" id="1_a7t1o"]
+[ext_resource type="Theme" uid="uid://mbwxhb0flgrw" path="res://Assets/menu/resources/ui_theme.tres" id="1_t65kg"]
+[ext_resource type="Script" uid="uid://br434wx0cwhh7" path="res://Assets/menu/main_menu_ui.gd" id="3_0eewt"]
+
+[node name="MainMenu" type="Panel" unique_id=560086353]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t65kg")
+theme_override_styles/panel = ExtResource("1_a7t1o")
+script = ExtResource("3_0eewt")
+
+[node name="MainMenuPannel" type="Panel" parent="." unique_id=1389591337]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPannel" unique_id=81871538]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="MainMenuPannel/VBoxContainer" unique_id=1772375447]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Settings" type="Button" parent="MainMenuPannel/VBoxContainer" unique_id=443319274]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MainMenuPannel/VBoxContainer" unique_id=1047382117]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MainMenuPannel/VBoxContainer" unique_id=864876974]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="SettingsPannel" type="Panel" parent="." unique_id=724438440]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPannel" unique_id=316843986]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsPannel/VBoxContainer" unique_id=980054501]
+layout_mode = 2
+text = "Settings go here?"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="SettingsPannel" unique_id=61799491]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Return"
+
+[node name="CreditsPannel" type="Panel" parent="." unique_id=1095374416]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPannel" unique_id=896819790]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CreditsPannel/VBoxContainer" unique_id=200043615]
+layout_mode = 2
+text = "Credits go here"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="CreditsPannel" unique_id=240690225]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Return"
+
+[connection signal="pressed" from="MainMenuPannel/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenuPannel/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainMenuPannel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainMenuPannel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="SettingsPannel/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="CreditsPannel/Return" to="." method="_on_return_pressed"]
