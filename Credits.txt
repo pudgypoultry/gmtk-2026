@@ -1,1 +1,1 @@
-Concave Mesh Slicer - PiCode
+Concave Mesh Slicer Addon - PiCode

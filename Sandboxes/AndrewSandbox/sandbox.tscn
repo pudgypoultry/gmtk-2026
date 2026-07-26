@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://cbmargax77fks"]
 
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="2_4306q"]
-[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="3_kmgky"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
-[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="4_kmgky"]
-[ext_resource type="Script" uid="uid://bihyi6pwf0f6p" path="res://Sandboxes/AndrewSandbox/DuelManager.gd" id="5_su60e"]
+[ext_resource type="PackedScene" uid="uid://djt8mwsu6xdv3" path="res://Sandboxes/AndrewSandbox/TestSphere.tscn" id="3_su60e"]
+[ext_resource type="PackedScene" uid="uid://btq0atw5qen78" path="res://Sandboxes/AndrewSandbox/duel_manager.tscn" id="5_su60e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
 sky_top_color = Color(0.286275, 0.411765, 0.823529, 1)
@@ -28,22 +27,6 @@ size = Vector3(20, 0.25, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rojf5"]
 size = Vector3(20, 0.25, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rojf5"]
-albedo_color = Color(0.9691367, 0, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_pxqgl"]
-material = SubResource("StandardMaterial3D_rojf5")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_pxqgl"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytoc7"]
-albedo_color = Color(0.08097792, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hh20u"]
-material = SubResource("StandardMaterial3D_ytoc7")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pxqgl"]
-
 [node name="Sandbox" type="Node3D" unique_id=1130912265]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1576296643]
@@ -52,7 +35,6 @@ environment = SubResource("Environment_qqcbp")
 [node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("2_4306q")]
 max_tracking_time = 0.5
 camera_slicer = NodePath("../Camera3D/CameraSlicer")
-debug = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=419158298]
 transform = Transform3D(1, 0, 0, 0, 0.9933823, 0.11485514, 0, -0.11485514, 0.9933823, -2.3841858e-07, 1.0959468, 6.345024)
@@ -75,46 +57,19 @@ mesh = SubResource("BoxMesh_pxqgl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=402361433]
 shape = SubResource("BoxShape3D_rojf5")
 
-[node name="SliceTestSphere" type="RigidBody3D" parent="Floor" unique_id=1174364763 node_paths=PackedStringArray("slice_behavior_component")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0378048, 1.3912772, 0)
-collision_layer = 3
-collision_mask = 3
-freeze = true
-script = ExtResource("3_kmgky")
-slice_behavior_component = NodePath("SliceBehaviorComponent")
-
-[node name="SliceableMesh" type="MeshInstance3D" parent="Floor/SliceTestSphere" unique_id=1062748044]
-mesh = SubResource("SphereMesh_pxqgl")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/SliceTestSphere" unique_id=429936289]
-shape = SubResource("SphereShape3D_pxqgl")
-
-[node name="SliceBehaviorComponent" type="Node" parent="Floor/SliceTestSphere" unique_id=1349412550]
-script = ExtResource("4_kmgky")
-
-[node name="SliceTestBox" type="RigidBody3D" parent="Floor" unique_id=307120524 node_paths=PackedStringArray("slice_behavior_component")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1301847, 2.0505736, 0)
-collision_layer = 3
-collision_mask = 3
-freeze = true
-script = ExtResource("3_kmgky")
-slice_behavior_component = NodePath("SliceBehaviorComponent")
-
-[node name="SliceableMesh" type="MeshInstance3D" parent="Floor/SliceTestBox" unique_id=1451667231]
-mesh = SubResource("BoxMesh_hh20u")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/SliceTestBox" unique_id=1881716681]
-shape = SubResource("BoxShape3D_pxqgl")
-
-[node name="SliceBehaviorComponent" type="Node" parent="Floor/SliceTestBox" unique_id=448623360]
-script = ExtResource("4_kmgky")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=631996476]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 light_energy = 2.0
 light_indirect_energy = 2.0
 
-[node name="DuelManager" type="Node" parent="." unique_id=152278871]
-script = ExtResource("5_su60e")
+[node name="DuelManager" parent="." unique_id=1760879894 node_paths=PackedStringArray("enemy_folder", "camera_slicer", "mouse_control") instance=ExtResource("5_su60e")]
+test_dict = Dictionary[Vector3, PackedScene]({
+Vector3(-2.107621, 1.4634435, -1.1459416): ExtResource("3_su60e"),
+Vector3(1.8532269, 2.5854492, -1.1773962): ExtResource("3_su60e")
+})
+enemy_folder = NodePath("../Floor")
+camera_slicer = NodePath("../Camera3D/CameraSlicer")
+mouse_control = NodePath("../MouseControlCanvas")
+debug = true
 
 [editable path="MouseControlCanvas"]

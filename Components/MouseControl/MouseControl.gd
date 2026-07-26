@@ -6,7 +6,7 @@ enum State { PREPARING, READY, RECORDING, DONE }
 @export_category("Game Rules")
 @export var max_tracking_time : float = 1.25
 @export var direction_debounce_samples : int = 3
-@export var min_line_length : float = 50.0
+@export var min_line_length : float = 150.0
 
 @export_category("Plugging in Nodes")
 @export var mouse_start_position : Control
@@ -21,7 +21,11 @@ var current_state : State = State.PREPARING
 var mouse_recording : Array = []
 var tracking_timer : float = 0.0
 var how_many_sliced_objects : int = 0
+var line_set = []
 
+signal mouse_ready
+signal mouse_left
+signal done_slicing(how_many : int)
 
 func _process(delta : float) -> void:
 	if Input.is_action_just_pressed("R"):
@@ -123,23 +127,24 @@ func find_lines() -> void:
 		lines.erase(line)
 		line_order.erase(line)
 	
-	var line_set = []
 	print("Line order: ", line_order)
 	for line in line_order:
 		if line in line_set:
 			continue
 		print("TIME TO SLICE: ", line)
 		var new_slash : SlashLine = slash_line.instantiate()
+		if line not in lines.keys():
+			continue
 		new_slash.prepare(line, lines[line])
 		margin_child.add_child(new_slash)
 		await camera_slicer.perform_slice(new_slash.points[0], new_slash.points[1])
-		line_set.append(line)
-			
-		#await get_tree().create_timer(1.0).timeout
+		line_set.append(new_slash)
+		
 	for object in camera_slicer.sliced_object_array:
 		if object:
 			object.finish_slice()
 			how_many_sliced_objects += 1
+	done_slicing.emit(how_many_sliced_objects)
 
 
 func find_direction(from, to):
@@ -151,13 +156,25 @@ func find_direction(from, to):
 func handle_mouse_entered_start() -> void:
 	if current_state == State.PREPARING:
 		current_state = State.READY
+		mouse_ready.emit()
 		print("READY")
 
 
 func handle_mouse_exited_start() -> void:
 	if current_state == State.READY:
 		current_state = State.RECORDING
+		mouse_left.emit()
 		print("RECORDING")
+
+
+func clean_up() -> void:
+	current_state = State.PREPARING
+	mouse_recording = []
+	tracking_timer = 0.0
+	how_many_sliced_objects = 0
+	for i in range(len(line_set)):
+		var line_to_free : Line2D = line_set.pop_front()
+		line_to_free.queue_free()
 
 
 func _on_start_pos_mouse_entered() -> void:

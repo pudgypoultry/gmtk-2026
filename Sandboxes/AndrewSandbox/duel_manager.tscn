@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://btq0atw5qen78"]
+
+[ext_resource type="Script" uid="uid://bihyi6pwf0f6p" path="res://Sandboxes/AndrewSandbox/DuelManager.gd" id="1_edkh2"]
+[ext_resource type="AudioStream" uid="uid://cq6w8ey1w62fg" path="res://Audio/countdown/game countdown start.wav" id="2_uno43"]
+[ext_resource type="AudioStream" uid="uid://co1msxxgnrnxl" path="res://Audio/countdown/game countdown end.wav" id="3_i5c8c"]
+
+[node name="DuelManager" type="Node3D" unique_id=1760879894 node_paths=PackedStringArray("countdown_sound", "draw_sound")]
+script = ExtResource("1_edkh2")
+countdown_sound = NodePath("Countdown")
+draw_sound = NodePath("DrawSound")
+
+[node name="Countdown" type="AudioStreamPlayer3D" parent="." unique_id=134686189]
+stream = ExtResource("2_uno43")
+
+[node name="DrawSound" type="AudioStreamPlayer3D" parent="." unique_id=1072564468]
+stream = ExtResource("3_i5c8c")

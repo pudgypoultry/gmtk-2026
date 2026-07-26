@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://dlnk2kmeyb1yd"]
 
-[ext_resource type="Script" uid="uid://cn5exxrqtyo60" path="res://Components/SlashLine/SlashLine.gd" id="1_ou4ys"]
+[ext_resource type="Script" uid="uid://cn5exxrqtyo60" path="res://Components/SlashLine/SlashLine.gd" id="1_h1aof"]
+
+[sub_resource type="Curve" id="Curve_h1aof"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0.29599994), 0.0, 12.18, 0, 0, Vector2(0.49803925, 5), 0.0, 0.0, 0, 0, Vector2(1, 0.29599994), -13.576554, 0.0, 0, 0]
+point_count = 3
 
 [node name="Slash" type="Line2D" unique_id=54443482]
-width = 2.0
-script = ExtResource("1_ou4ys")
+width = 5.0
+width_curve = SubResource("Curve_h1aof")
+script = ExtResource("1_h1aof")

@@ -128,7 +128,7 @@ func perform_slice(start_point: Vector2, end_point: Vector2):
 				sliced_object_array.append(body2)
 			
 			#queue_free() if the mesh is too small
-			if aabb2.size.length() < 0.3:
+			if aabb2.size.length() < 0.05:
 				body2.queue_free()
-			if aabb.size.length() < 0.3:
+			if aabb.size.length() < 0.05:
 				body.queue_free()

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://djt8mwsu6xdv3"]
+
+[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="1_5vden"]
+[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="2_u7wie"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rojf5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pxqgl"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_pxqgl"]
+
+[node name="SliceTestSphere" type="RigidBody3D" unique_id=122878721 node_paths=PackedStringArray("slice_behavior_component", "healthy_mesh", "sliced_mesh")]
+collision_layer = 3
+collision_mask = 3
+freeze = true
+script = ExtResource("1_5vden")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+healthy_mesh = NodePath("MeshInstance3D")
+sliced_mesh = NodePath("MeshInstance3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=544204305]
+shape = SubResource("SphereShape3D_rojf5")
+
+[node name="SliceBehaviorComponent" type="Node" parent="." unique_id=960627978]
+script = ExtResource("2_u7wie")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1511007541]
+mesh = SubResource("CylinderMesh_pxqgl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=355697712]
+mesh = SubResource("SphereMesh_pxqgl")
