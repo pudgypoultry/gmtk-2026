@@ -2,10 +2,10 @@ extends Node
 class_name DialogueCtrl
 
 @export var typing_speed: float = 0.03
-@onready var dialogue= $UI/Dialogue
-@onready var speaker=  $UI/Dialogue/Content/TextContainer/Speaker
-@onready var dialogue_text = $UI/Dialogue/Content/TextContainer/DialogueText
-@onready var continue_label= $UI/Dialogue/Content/TextContainer/Continue
+@onready var dialogue= $Dialogue
+@onready var speaker=  $Dialogue/Content/TextContainer/Speaker
+@onready var dialogue_text = $Dialogue/Content/TextContainer/DialogueText
+@onready var continue_label= $Dialogue/Content/TextContainer/Continue
 var dialogue_lines: Array[String]=[ 
 		"Ah good i was beginning to think 
 		you werent going to show up.",
@@ -18,7 +18,8 @@ var dialogue_lines: Array[String]=[
 		" Well, 
 		YOU STILL HAVE MUCH TO LEARN"]
 var error_dialogue_lines: Array[String]=[
-	"That was Shit! Try it again only this time do it right"
+	"That was Shit! Try it again
+	 only this time do it right"
 ]
 var is_error_line:bool = false
 var current_line=0

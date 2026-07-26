@@ -4,39 +4,51 @@
 [ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="1_usr6m"]
 [ext_resource type="StyleBox" uid="uid://cx2ogpy574pjp" path="res://Assets/menu/resources/style_box_transparent.tres" id="2_1x5fp"]
 
-[node name="TutorialDialogue" type="Node" unique_id=751624776]
+[node name="UI" type="CanvasLayer" unique_id=562275275]
 script = ExtResource("1_edpv2")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=562275275]
-
-[node name="Dialogue" type="Panel" parent="UI" unique_id=1991628236]
+[node name="Dialogue" type="Panel" parent="." unique_id=1991628236]
+propagate_maximum_size = true
 anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 0.25
-anchor_bottom = 1.0
+anchor_left = 0.598
+anchor_top = 0.625
+anchor_right = 0.967
+anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = ExtResource("2_1x5fp")
 
-[node name="Content" type="MarginContainer" parent="UI/Dialogue" unique_id=1337123492]
-layout_mode = 0
-offset_left = 50.0
-offset_right = 121.0
-offset_bottom = 102.0
+[node name="Content" type="MarginContainer" parent="Dialogue" unique_id=1337123492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.14
+offset_right = 24.911987
+offset_bottom = -20.739975
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TextContainer" type="VBoxContainer" parent="UI/Dialogue/Content" unique_id=1611872223]
+[node name="TextContainer" type="VBoxContainer" parent="Dialogue/Content" unique_id=1611872223]
+custom_maximum_size = Vector2(450, 350)
 layout_mode = 2
+size_flags_horizontal = 0
 
-[node name="Speaker" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=291584487]
+[node name="Speaker" type="Label" parent="Dialogue/Content/TextContainer" unique_id=291584487]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.6476925, 0.32641324, 1)
 theme_override_fonts/font = ExtResource("1_usr6m")
 theme_override_font_sizes/font_size = 22
+text = "Master"
 
-[node name="DialogueText" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=1186719912]
+[node name="DialogueText" type="Label" parent="Dialogue/Content/TextContainer" unique_id=1186719912]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usr6m")
 theme_override_font_sizes/font_size = 24
+text = "lsdfjalksdjflasjdlfkjsld kfjkldsjaflkjsdkljfkljsd kljfkjsdklfjl kdsjfkjd slkj flkajsdlkfjlksdj"
+autowrap_mode = 2
 
-[node name="Continue" type="Label" parent="UI/Dialogue/Content/TextContainer" unique_id=1904128277]
+[node name="Continue" type="Label" parent="Dialogue/Content/TextContainer" unique_id=1904128277]
 layout_mode = 2
+text = "press space to go on"

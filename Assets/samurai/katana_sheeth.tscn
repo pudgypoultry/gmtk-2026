@@ -7,7 +7,7 @@
 script = ExtResource("2_dki58")
 
 [node name="katana_sheeth_003" parent="." index="0" unique_id=1161790180]
-layers = 0
+layers = 524288
 
 [node name="katana_sheeth_004" parent="." index="1" unique_id=1659493757]
-layers = 0
+layers = 524288

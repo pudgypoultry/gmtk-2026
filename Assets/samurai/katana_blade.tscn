@@ -7,13 +7,13 @@
 script = ExtResource("2_irgu4")
 
 [node name="katana_005" parent="." index="0" unique_id=43386662]
-layers = 0
+layers = 524288
 
 [node name="katana_006" parent="." index="1" unique_id=1835206503]
-layers = 0
+layers = 524288
 
 [node name="katana_007" parent="." index="2" unique_id=311700339]
-layers = 0
+layers = 524288
 
 [node name="katana_008" parent="." index="3" unique_id=42494574]
-layers = 0
+layers = 524288

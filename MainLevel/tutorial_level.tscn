@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctc81u3og8l6f" path="res://MainLevel/tutorial_level.gd" id="1_tvqg6"]
 [ext_resource type="PackedScene" uid="uid://j2v6okfdislb" path="res://MainLevel/static_env_assets.tscn" id="1_vkcfv"]
-[ext_resource type="PackedScene" uid="uid://cuygobdir8hhx" path="res://Assets/samurai/samurai_master.tscn" id="3_quqm4"]
+[ext_resource type="PackedScene" uid="uid://bt5s1n6um843i" path="res://Assets/samurai/master_static.tscn" id="3_vxmc7"]
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
 [ext_resource type="AudioStream" uid="uid://bvlewybgq4lmf" path="res://Audio/music/game gameloop.wav" id="6_g160d"]
 [ext_resource type="PackedScene" uid="uid://c75ugdqdj75kf" path="res://MainLevel/main_menu_ui.tscn" id="8_g160d"]
@@ -49,14 +49,14 @@ shadow_enabled = true
 
 [node name="Camera-Perspective" type="Camera3D" parent="." unique_id=1443317079]
 transform = Transform3D(1, -5.6352074e-09, -3.3616692e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, -0.47261715, 14.894799, -25.903305)
-cull_mask = 1048573
+cull_mask = 524285
 size = 21.54
+
+[node name="master_static" parent="." unique_id=1649078252 instance=ExtResource("3_vxmc7")]
+transform = Transform3D(0.5438353, 0, -0.839192, 0, 1, 0, 0.839192, 0, 0.5438353, 1.4825742, 0.08000994, -1.8632562)
 
 [node name="Samurai" parent="." unique_id=293925746 instance=ExtResource("4_tvqg6")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.0948444, 0.09262395, 0)
-
-[node name="Samurai_Master" parent="." unique_id=1068258326 instance=ExtResource("3_quqm4")]
-transform = Transform3D(0.54090524, 0, -0.8410835, 0, 1, 0, 0.8410835, 0, 0.54090524, 1.7294848, 0.08958048, -1.9853969)
 
 [node name="CameraLoc_ActiveGame" type="Marker3D" parent="." unique_id=937865072]
 transform = Transform3D(1, -5.6352074e-09, -3.3616694e-09, 5.9371814e-09, 0.9951985, 0.09787756, 2.7939677e-09, -0.09787756, 0.9951985, 0.43679667, 1.8637383, 1.2469524)
@@ -75,6 +75,7 @@ stream = ExtResource("6_g160d")
 autoplay = true
 
 [node name="TutorialDialogue" parent="." unique_id=751624776 instance=ExtResource("8_ylb82")]
+visible = false
 
 [node name="MainMenu" parent="." unique_id=560086353 instance=ExtResource("8_g160d")]
 

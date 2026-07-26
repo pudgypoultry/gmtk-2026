@@ -1,7 +1,6 @@
 extends Node3D
 
 @onready var samurai: SamuraiCtrl = $Samurai
-@onready var samurai_master: SamuraiCtrl = $Samurai_Master
 @onready var camera_loc_active_game: Marker3D = $CameraLoc_ActiveGame
 @onready var camera_loc_menu: Marker3D = $CameraLoc_Menu
 @onready var camera_perspective: Camera3D = $"Camera-Perspective"
@@ -23,11 +22,12 @@ var slice_goal:int = 0
 func _ready() -> void:
 	__delayed_setup.call_deferred()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		main_menu._on_return_pressed()
 		tutorial_dialogue.end_dialogue()
-		slicer.queue_free()
+		if slicer:
+			slicer.queue_free()
 		game_theme_player.play()
 	if samurai.record:
 		var mouse_pos = get_viewport().get_mouse_position()
@@ -35,8 +35,6 @@ func _process(delta: float) -> void:
 		samurai.set_ik_target_pos(world_pos)
 
 func __delayed_setup() -> void:
-	var loc:Vector3 = samurai.position
-	samurai_master.head_look_at(loc)
 	camera_perspective.position = camera_loc_menu.position
 
 func move_camera(pos:cameraloc) -> void:
@@ -66,12 +64,16 @@ func move_camera(pos:cameraloc) -> void:
 func _on_main_menu_menu_changed(state: GlobalVars.MenuChange) -> void:
 	match (state):
 		GlobalVars.MenuChange.Menu:
+			tutorial_dialogue.hide()
 			move_camera(cameraloc.Menu)
 		GlobalVars.MenuChange.Play:
+			tutorial_dialogue.show()
 			move_camera(cameraloc.Play)
 		GlobalVars.MenuChange.Settings:
+			tutorial_dialogue.hide()
 			move_camera(cameraloc.Settings)
 		GlobalVars.MenuChange.Credits:
+			tutorial_dialogue.hide()
 			move_camera(cameraloc.Credits)
 		GlobalVars.MenuChange.Quit:
 			get_tree().quit()
