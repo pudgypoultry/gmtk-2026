@@ -9,10 +9,14 @@ class_name SamuraiCtrl
 @export var look_marker: Marker3D
 enum DefaultAnim {Standing, Ready}
 @export var default_animation: DefaultAnim = DefaultAnim.Ready
+var record:bool = false
 
 func _ready() -> void:
 	__delayed_setup.call_deferred()
 	
+func set_ik_target_pos(pos:Vector3) -> void:
+	katana_target.position = pos
+
 func __delayed_setup() -> void:
 	# connect to animation player signal
 	animation_player.animation_changed.connect(__on_animation_changed)
@@ -33,18 +37,23 @@ func head_look_at(loc:Vector3) -> void:
 func draw_sword() -> void:
 	animation_player.play("SamuraiAnimationLibrary/Katana_Draw_Fast_Action")
 	animation_player.queue("SamuraiAnimationLibrary/Draw_Finished_Pose")
+	record = true
 	
 func __on_animation_changed(old_anm:StringName, new_anm:StringName) -> void:
 	if old_anm == "SamuraiAnimationLibrary/Katana_Draw_Fast_Action" and new_anm == "SamuraiAnimationLibrary/Draw_Finished_Pose":
 		# activate katana IK
 		katana_ik.active = true
 	
-func sheath_sword() -> void:
+func sheath_sword(_how_many:int=0) -> void:
 	# turn off katana IK
 	katana_ik.active = false
+	record = false
 	# play draw animation backwards
 	animation_player.play_backwards("SamuraiAnimationLibrary/Katana_Draw_Fast_Action")
-	animation_player.queue("SamuraiAnimationLibrary/Draw_Ready_Pose")
+	if default_animation == DefaultAnim.Ready:
+		animation_player.queue("SamuraiAnimationLibrary/Draw_Ready_Pose")
+	else:
+		animation_player.queue("SamuraiAnimationLibrary/Standing")
 	
 func eye_bugout() -> void:
 	var left_eye_bone:int = skeleton_3d.find_bone("DEF_eye.L")

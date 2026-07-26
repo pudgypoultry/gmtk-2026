@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://13mep31bxa8y"]
 
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="1_nbxf2"]
-[ext_resource type="Script" uid="uid://dafei1jdkibf7" path="res://Assets/ui/camera_loc_active_game.gd" id="1_q7wpw"]
+[ext_resource type="Script" uid="uid://da63xplb5putg" path="res://Components/slicer_interface_ctrl.gd" id="1_q7wpw"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="2_q7wpw"]
 
 [node name="SlicerInterface" type="Node3D" unique_id=1068988077 node_paths=PackedStringArray("camera")]

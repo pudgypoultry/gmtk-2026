@@ -21,6 +21,8 @@ var dialogue_active: bool = false
 var is_typing: bool = false
 var typing_id: int=0
 
+signal DialogeReadyToSlice()
+
 func show_dialogue() -> void:
 	dialogue_active= true
 	current_line=0
@@ -41,6 +43,8 @@ func next_dialogue():
 		finish_current_line()
 		return
 	current_line +=1
+	if current_line == 1:
+		DialogeReadyToSlice.emit()
 	if current_line>= dialogue_lines.size():
 		end_dialogue()
 		return

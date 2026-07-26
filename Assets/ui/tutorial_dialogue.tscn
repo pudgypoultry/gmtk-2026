@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uxogqn7nvusj" path="res://Assets/ui/dialogue_ctrl.gd" id="1_edpv2"]
 [ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="1_usr6m"]
+[ext_resource type="StyleBox" uid="uid://cx2ogpy574pjp" path="res://Assets/menu/resources/style_box_transparent.tres" id="2_1x5fp"]
 
 [node name="TutorialDialogue" type="Node" unique_id=751624776]
 script = ExtResource("1_edpv2")
@@ -10,14 +11,12 @@ script = ExtResource("1_edpv2")
 
 [node name="Dialogue" type="Panel" parent="UI" unique_id=1991628236]
 anchors_preset = -1
-anchor_top = 0.71000004
-anchor_right = 0.22200002
-anchor_bottom = 0.998
-offset_top = -0.08001709
-offset_right = -255.74402
-offset_bottom = -4.7040405
+anchor_top = 0.7
+anchor_right = 0.25
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = ExtResource("2_1x5fp")
 
 [node name="Content" type="MarginContainer" parent="UI/Dialogue" unique_id=1337123492]
 layout_mode = 0

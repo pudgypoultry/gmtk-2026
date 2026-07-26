@@ -2,7 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dede6vonqbes7" path="res://Assets/static_objects/bamboo_pole_01.tscn" id="1_hw5nv"]
 [ext_resource type="PackedScene" uid="uid://bypl5da8cqhw3" path="res://Assets/static_objects/bamboo_pole_02.tscn" id="2_k08fs"]
+[ext_resource type="Script" uid="uid://blaxf12ivhkvm" path="res://Components/SliceableObject/SliceableObject.gd" id="3_5r1n5"]
 [ext_resource type="ArrayMesh" uid="uid://ce4jl6fl7u4rf" path="res://Assets/samurai/resources/mesh_belt.res" id="3_iod63"]
+[ext_resource type="Script" uid="uid://dw3n0cvisflht" path="res://Components/SliceBehavior/SliceBehaviorComponent.gd" id="5_ekavq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcaaa"]
+size = Vector3(0.4058838, 0.25460815, 0.45599365)
 
 [node name="BambooTarget" type="Node3D" unique_id=480863414]
 
@@ -39,7 +44,19 @@ transform = Transform3D(-0.95549685, 0, 0.29500133, 0, 1.0227364, 0, -0.29500133
 [node name="bamboo_pole_12" parent="." unique_id=520283812 instance=ExtResource("2_k08fs")]
 transform = Transform3D(-0.9999882, 0, 0.0048589706, 0, 1, 0, -0.0048589706, 0, -0.9999882, 0.5085836, 0, -0.10720204)
 
-[node name="MeshBelt" type="MeshInstance3D" parent="." unique_id=261740561]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=456820969 node_paths=PackedStringArray("slice_behavior_component")]
+script = ExtResource("3_5r1n5")
+slice_behavior_component = NodePath("SliceBehaviorComponent")
+
+[node name="MeshBelt" type="MeshInstance3D" parent="RigidBody3D" unique_id=261740561]
 transform = Transform3D(0.85645384, 0, 1.1728692, 0, 1.2281257, 0, -1.1109641, 0, 0.904177, 0.45298165, -1.1920929e-07, -0.06299654)
 layers = 2
 mesh = ExtResource("3_iod63")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=2129184880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41525793, 1.1020344, -0.088145494)
+shape = SubResource("BoxShape3D_bcaaa")
+
+[node name="SliceBehaviorComponent" type="Node" parent="RigidBody3D" unique_id=1119195256]
+script = ExtResource("5_ekavq")
+movement_speed = 2.0

@@ -7,6 +7,8 @@ extends Node3D
 @onready var camera_perspective: Camera3D = $"Camera-Perspective"
 @onready var camera_loc_credits: Marker3D = $CameraLoc_credits
 @onready var camera_loc_settings: Marker3D = $CameraLoc_settings
+@onready var game_theme_player: AudioStreamPlayer = $GameThemePlayer
+
 enum cameraloc {Play, Menu, Settings, Credits}
 
 const SLICER_INTERFACE = preload("res://Components/slicer_interface.tscn")
@@ -22,6 +24,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		main_menu._on_return_pressed()
 		tutorial_dialogue.end_dialogue()
+		slicer.queue_free()
+		game_theme_player.play()
+	if samurai.record:
+		var mouse_pos = get_viewport().get_mouse_position()
+		var world_pos = camera_perspective.project_position(mouse_pos, 3.2)
+		samurai.set_ik_target_pos(world_pos)
 
 func __delayed_setup() -> void:
 	var loc:Vector3 = samurai.position
@@ -40,7 +48,6 @@ func move_camera(pos:cameraloc) -> void:
 		loc = camera_loc_active_game.position
 		bas = camera_loc_active_game.basis
 		tween.finished.connect(tutorial_dialogue.show_dialogue)
-		tween.finished.connect(init_slice_interface)
 	elif pos == cameraloc.Settings:
 		loc = camera_loc_settings.position
 		bas = camera_loc_settings.basis
@@ -70,3 +77,7 @@ func init_slice_interface() -> void:
 	slicer.position = camera_loc_active_game.position
 	slicer.basis = camera_loc_active_game.basis
 	self.add_child(slicer)
+	game_theme_player.stop()
+	slicer.mouse_control_canvas.mouse_ready.connect(samurai.slice_ready)
+	slicer.mouse_control_canvas.mouse_left.connect(samurai.draw_sword)
+	slicer.mouse_control_canvas.done_slicing.connect(samurai.sheath_sword)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cuygobdir8hhx" path="res://Assets/samurai/samurai_master.tscn" id="3_quqm4"]
 [ext_resource type="PackedScene" uid="uid://bnkw3aosoevtr" path="res://Assets/static_objects/bamboo_target.tscn" id="4_ji6h3"]
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
-[ext_resource type="AudioStream" uid="uid://dimqwgd5pjbjj" path="res://Audio/music/AMBIENCE.wav" id="7_g160d"]
+[ext_resource type="AudioStream" uid="uid://bvlewybgq4lmf" path="res://Audio/music/game gameloop.wav" id="6_g160d"]
 [ext_resource type="PackedScene" uid="uid://c75ugdqdj75kf" path="res://MainLevel/main_menu_ui.tscn" id="8_g160d"]
 [ext_resource type="PackedScene" uid="uid://b2s3l21p8i0kx" path="res://Assets/ui/tutorial_dialogue.tscn" id="8_ylb82"]
 
@@ -74,12 +74,13 @@ transform = Transform3D(0.88665205, -0.24490395, -0.39226285, 2.9997511e-09, 0.8
 [node name="CameraLoc_settings" type="Marker3D" parent="." unique_id=1507451146]
 transform = Transform3D(0.9494254, 0, 0.31399244, 0, 1.0000001, 0, -0.3139924, 0, 0.94942546, -4.8786125, 1.4901527, -19.749296)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
-stream = ExtResource("7_g160d")
+[node name="GameThemePlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
+stream = ExtResource("6_g160d")
 autoplay = true
 
 [node name="TutorialDialogue" parent="." unique_id=751624776 instance=ExtResource("8_ylb82")]
 
 [node name="MainMenu" parent="." unique_id=560086353 instance=ExtResource("8_g160d")]
 
+[connection signal="DialogeReadyToSlice" from="TutorialDialogue" to="." method="init_slice_interface"]
 [connection signal="menu_changed" from="MainMenu" to="." method="_on_main_menu_menu_changed"]
