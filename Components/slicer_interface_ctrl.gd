@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var camera_slicer : CameraSlicer
 @export var camera:Node3D
 @onready var mouse_control_canvas: MouseControl = $MouseControlCanvas
 @onready var ambience_player: AudioStreamPlayer = $AmbiencePlayer

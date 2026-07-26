@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="2_q7wpw"]
 [ext_resource type="AudioStream" uid="uid://dimqwgd5pjbjj" path="res://Audio/music/AMBIENCE.wav" id="4_jhywv"]
 
-[node name="SlicerInterface" type="Node3D" unique_id=1068988077 node_paths=PackedStringArray("camera")]
+[node name="SlicerInterface" type="Node3D" unique_id=1068988077 node_paths=PackedStringArray("camera_slicer", "camera")]
 script = ExtResource("1_q7wpw")
+camera_slicer = NodePath("SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
 camera = NodePath("SubViewportContainer/SubViewport/CameraOrtho")
 
 [node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("1_nbxf2")]

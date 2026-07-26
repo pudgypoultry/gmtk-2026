@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btq0atw5qen78"]
 
-[ext_resource type="Script" uid="uid://bihyi6pwf0f6p" path="res://Sandboxes/AndrewSandbox/DuelManager.gd" id="1_edkh2"]
+[ext_resource type="Script" uid="uid://bihyi6pwf0f6p" path="res://Components/DuelManager/DuelManager.gd" id="1_edkh2"]
 [ext_resource type="AudioStream" uid="uid://cq6w8ey1w62fg" path="res://Audio/countdown/game countdown start.wav" id="2_uno43"]
 [ext_resource type="AudioStream" uid="uid://co1msxxgnrnxl" path="res://Audio/countdown/game countdown end.wav" id="3_i5c8c"]
 

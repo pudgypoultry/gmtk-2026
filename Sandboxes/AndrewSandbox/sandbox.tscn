@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="2_4306q"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
 [ext_resource type="PackedScene" uid="uid://djt8mwsu6xdv3" path="res://Sandboxes/AndrewSandbox/TestSphere.tscn" id="3_su60e"]
-[ext_resource type="PackedScene" uid="uid://btq0atw5qen78" path="res://Sandboxes/AndrewSandbox/duel_manager.tscn" id="5_su60e"]
+[ext_resource type="PackedScene" uid="uid://btq0atw5qen78" path="res://Components/DuelManager/duel_manager.tscn" id="5_su60e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
 sky_top_color = Color(0.286275, 0.411765, 0.823529, 1)

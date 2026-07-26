@@ -96,24 +96,28 @@ func init_slicer(num:int) -> void:
 		slice_goal = 5
 		var target:Node3D = BAMBOO_TARGET.instantiate()
 		target.position = bamboo_target_transform.position
-		#target.scale = bamboo_target_transform.scale
 		target.basis = bamboo_target_transform.basis
+		target.scale = bamboo_target_transform.scale
 		self.add_child(target)
+		slicer.camera_slicer.rigidbody_parent = target
 		
 	game_theme_player.stop()
 	slicer.enable_slicer()
+
 
 func clean_up_slicer() -> void:
 	slicer.disable_slicer()
 	game_theme_player.play()
 
+
 func on_done_slicing(how_many:int) -> void:
 	if how_many >= slice_goal:
 		tutorial_dialogue.next_dialogue()
-		
 	else:
 		tutorial_dialogue.error_dialog()
 	clean_up_slicer()
+	await get_tree().create_timer(3.0).timeout
+
 
 func _on_tutorial_dialogue_done() -> void:
 	master_static.play_animation()
