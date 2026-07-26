@@ -10,10 +10,11 @@ func _ready() -> void:
 	master_top_half.hide()
 
 func play_animation() -> void:
-	await get_tree().create_timer(0.2).timeout
 	master_static.hide()
 	master_bottom_half.show()
 	master_top_half.show()
 	var tween = get_tree().create_tween()
-	tween.set_parallel(true)
+	tween.tween_property(master_static, "rotation", Vector3.ZERO, 0.5) #inject a delay
 	tween.tween_property(master_top_half, "rotation", Vector3(0,0, (80.0 * PI) / 180.0), 0.5)
+	tween.tween_property(master_static, "rotation", Vector3.ZERO, 1.5) #inject a delay
+	tween.tween_property(master_bottom_half, "rotation", Vector3((75.0 * PI) / 180.0, 0, 0), 0.5)

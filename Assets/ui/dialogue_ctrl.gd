@@ -15,8 +15,8 @@ var dialogue_lines: Array[String]=[
 		" GOOD good! Now do you think your skills can cut 
 		down this bamboo instead of just AIR HAHA",
 		"",
-		" Well, 
-		YOU STILL HAVE MUCH TO LEARN"]
+		"Ouch!
+		You cut me in half!"]
 var error_dialogue_lines: Array[String]=[
 	"That was Shit! Try it again
 	 only this time do it right"
