@@ -13,6 +13,9 @@ enum State { PREPARING, READY, RECORDING, DONE }
 @export var slash_line : PackedScene
 @export var margin_child : MarginContainer
 @export var camera_slicer : CameraSlicer
+@export var sword_image_rect : TextureRect
+@export var sword_closed_image : Texture2D
+@export var sword_open_image : Texture2D
 
 @export_category("Debug")
 @export var debug : bool = false
@@ -131,7 +134,7 @@ func find_lines() -> void:
 	for line in line_order:
 		if line in line_set:
 			continue
-		print("TIME TO SLICE: ", line)
+		#print("TIME TO SLICE: ", line)
 		var new_slash : SlashLine = slash_line.instantiate()
 		if line not in lines.keys():
 			continue
@@ -163,6 +166,7 @@ func handle_mouse_entered_start() -> void:
 func handle_mouse_exited_start() -> void:
 	if current_state == State.READY:
 		current_state = State.RECORDING
+		sword_image_rect.texture = sword_open_image
 		mouse_left.emit()
 		print("RECORDING")
 
@@ -172,9 +176,8 @@ func clean_up() -> void:
 	mouse_recording = []
 	tracking_timer = 0.0
 	how_many_sliced_objects = 0
-	for i in range(len(line_set)):
-		var line_to_free : Line2D = line_set.pop_front()
-		line_to_free.queue_free()
+	sword_image_rect.texture = sword_closed_image
+	margin_child.clean_up()
 
 
 func _on_start_pos_mouse_entered() -> void:

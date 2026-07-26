@@ -103,7 +103,7 @@ func init_slicer(num:int) -> void:
 func clean_up_slicer() -> void:
 	slicer.disable_slicer()
 	game_theme_player.play()
-	
+
 func on_done_slicing(how_many:int) -> void:
 	if how_many >= slice_goal:
 		tutorial_dialogue.next_dialogue()

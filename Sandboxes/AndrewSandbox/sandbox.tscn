@@ -64,7 +64,6 @@ light_indirect_energy = 2.0
 
 [node name="DuelManager" parent="." unique_id=1760879894 node_paths=PackedStringArray("enemy_folder", "camera_slicer", "mouse_control") instance=ExtResource("5_su60e")]
 test_dict = Dictionary[Vector3, PackedScene]({
-Vector3(-2.107621, 1.4634435, -1.1459416): ExtResource("3_su60e"),
 Vector3(1.8532269, 2.5854492, -1.1773962): ExtResource("3_su60e")
 })
 enemy_folder = NodePath("../Floor")
