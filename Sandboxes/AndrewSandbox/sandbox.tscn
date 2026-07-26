@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="2_4306q"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
 [ext_resource type="PackedScene" uid="uid://ep87helfabo2" path="res://Sandboxes/AndrewSandbox/SlicableEnemy.tscn" id="4_kmgky"]
+[ext_resource type="PackedScene" uid="uid://ddur3yjbqnrj3" path="res://Components/DuelManager/results_panel.tscn" id="5_g68ym"]
 [ext_resource type="PackedScene" uid="uid://btq0atw5qen78" path="res://Components/DuelManager/duel_manager.tscn" id="5_su60e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
@@ -32,9 +33,21 @@ size = Vector3(20, 0.25, 20)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1576296643]
 environment = SubResource("Environment_qqcbp")
 
+[node name="DuelManager" parent="." unique_id=1760879894 node_paths=PackedStringArray("enemy_folder", "camera_slicer", "mouse_control", "results_panel") instance=ExtResource("5_su60e")]
+enemy_scenes = Array[PackedScene]([ExtResource("4_kmgky")])
+enemy_folder = NodePath("../EnemyFolder")
+camera_slicer = NodePath("../Camera3D/CameraSlicer")
+mouse_control = NodePath("../MouseControlCanvas")
+results_panel = NodePath("../MouseControlCanvas/ResultsPanel")
+debug = true
+
 [node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("2_4306q")]
 max_tracking_time = 0.5
 camera_slicer = NodePath("../Camera3D/CameraSlicer")
+
+[node name="ResultsPanel" parent="MouseControlCanvas" unique_id=1233100686 node_paths=PackedStringArray("duel_manager") instance=ExtResource("5_g68ym")]
+visible = false
+duel_manager = NodePath("../../DuelManager")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=419158298]
 transform = Transform3D(1, 0, 0, 0, 0.9933823, 0.11485514, 0, -0.11485514, 0.9933823, -2.3841858e-07, 1.0959468, 6.345024)
@@ -61,13 +74,6 @@ shape = SubResource("BoxShape3D_rojf5")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 light_energy = 2.0
 light_indirect_energy = 2.0
-
-[node name="DuelManager" parent="." unique_id=1760879894 node_paths=PackedStringArray("enemy_folder", "camera_slicer", "mouse_control") instance=ExtResource("5_su60e")]
-enemy_scenes = Array[PackedScene]([ExtResource("4_kmgky")])
-enemy_folder = NodePath("../EnemyFolder")
-camera_slicer = NodePath("../Camera3D/CameraSlicer")
-mouse_control = NodePath("../MouseControlCanvas")
-debug = true
 
 [node name="EnemyFolder" type="Marker3D" parent="." unique_id=1735150575]
 transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0, 0.5140698, 0)

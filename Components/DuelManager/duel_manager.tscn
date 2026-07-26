@@ -17,3 +17,4 @@ stream = ExtResource("2_uno43")
 stream = ExtResource("3_i5c8c")
 
 [node name="countdown_label" parent="." unique_id=1044648533 instance=ExtResource("4_sgc0i")]
+mouse_filter = 1

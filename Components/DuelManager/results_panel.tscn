@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://ddur3yjbqnrj3"]
+
+[ext_resource type="Theme" uid="uid://mbwxhb0flgrw" path="res://Assets/menu/resources/ui_theme.tres" id="1_jt164"]
+[ext_resource type="Script" uid="uid://etfwhf7nu7xd" path="res://Components/DuelManager/ResultsPanel.gd" id="2_bv00y"]
+
+[sub_resource type="FontFile" id="FontFile_xint0"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_7u7ll"]
+default_font = SubResource("FontFile_xint0")
+
+[node name="ResultsPanel" type="Panel" unique_id=1233100686 node_paths=PackedStringArray("slice_label", "reaction_time_label", "win_streak_label")]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_jt164")
+script = ExtResource("2_bv00y")
+slice_label = NodePath("WinResults/SlicesScore")
+reaction_time_label = NodePath("WinResults/ReactionScore")
+win_streak_label = NodePath("WinResults/WinStreakScore")
+
+[node name="WinResults" type="VBoxContainer" parent="." unique_id=1870791297]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SlicesText" type="Label" parent="WinResults" unique_id=468919615]
+layout_mode = 2
+text = "Number of Slices"
+horizontal_alignment = 1
+
+[node name="SlicesScore" type="Label" parent="WinResults" unique_id=780083363]
+layout_mode = 2
+theme = SubResource("Theme_7u7ll")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="ReactionTimeText" type="Label" parent="WinResults" unique_id=1048566291]
+layout_mode = 2
+text = "Reaction Time"
+horizontal_alignment = 1
+
+[node name="ReactionScore" type="Label" parent="WinResults" unique_id=1065037467]
+layout_mode = 2
+theme = SubResource("Theme_7u7ll")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="WinStreakText" type="Label" parent="WinResults" unique_id=1785272909]
+layout_mode = 2
+text = "Win Streak"
+horizontal_alignment = 1
+
+[node name="WinStreakScore" type="Label" parent="WinResults" unique_id=21520149]
+layout_mode = 2
+theme = SubResource("Theme_7u7ll")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="WinResults" unique_id=222421975]
+layout_mode = 2
+
+[node name="NextFight" type="Button" parent="WinResults" unique_id=1412238672]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_focus_color = Color(1, 0.7647059, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.7647059, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "NEXT OPPONENT"
+
+[node name="LoseResults" type="VBoxContainer" parent="." unique_id=496710869]
+visible = false
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Return" type="Button" parent="." unique_id=1204657358]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Return To Main Menu     "
+
+[node name="Label" type="Label" parent="." unique_id=1397547547]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 53.0
+
+[connection signal="pressed" from="WinResults/NextFight" to="." method="handle_next_fight_pressed"]
+[connection signal="pressed" from="Return" to="." method="handle_quit_pressed"]

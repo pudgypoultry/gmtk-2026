@@ -1,4 +1,5 @@
 extends Node
+class_name DuelManager
 
 enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 
@@ -18,6 +19,7 @@ enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 @export var draw_sound : AudioStreamPlayer3D
 @export var grade_sound : AudioStreamPlayer3D
 @onready var countdown_label: Control = $countdown_label
+@export var results_panel : Panel
 
 @export_category("Debug")
 @export var debug = false
@@ -128,6 +130,7 @@ func win_duel():
 	print("How fast:	", how_fast)
 	print("How many things were cut:	", current_score)
 	win_streak += 1
+	results_panel.set_results(current_score, how_fast, win_streak)
 	print("Current win streak:	", win_streak)
 	# Show end of battle screen
 	# Show go to next fight screen
@@ -153,6 +156,7 @@ func reset_duel():
 	reaction_timer = 0.0
 	time_taken = 0.0
 	duel_is_setup = false
+	mouse_control.clean_up()
 
 
 func handle_mouse_ready():
