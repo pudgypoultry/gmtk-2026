@@ -11,6 +11,8 @@ draw_sound = NodePath("DrawSound")
 
 [node name="Countdown" type="AudioStreamPlayer3D" parent="." unique_id=134686189]
 stream = ExtResource("2_uno43")
+bus = &"SoundEffects"
 
 [node name="DrawSound" type="AudioStreamPlayer3D" parent="." unique_id=1072564468]
 stream = ExtResource("3_i5c8c")
+bus = &"SoundEffects"

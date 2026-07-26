@@ -4,8 +4,14 @@
 [ext_resource type="Theme" uid="uid://mbwxhb0flgrw" path="res://Assets/menu/resources/ui_theme.tres" id="1_t65kg"]
 [ext_resource type="Script" uid="uid://br434wx0cwhh7" path="res://Assets/menu/main_menu_ui.gd" id="3_0eewt"]
 [ext_resource type="StyleBox" uid="uid://bpctjflshv6b1" path="res://Assets/menu/resources/style_box_line_transparent.tres" id="4_hkd73"]
+[ext_resource type="Script" uid="uid://dm2i1p2p512uw" path="res://MainLevel/VolumeSlider.gd" id="4_j0vo4"]
 [ext_resource type="StyleBox" uid="uid://bgbsev1o17ssp" path="res://Assets/menu/resources/style_box_line.tres" id="5_we60d"]
 [ext_resource type="StyleBox" uid="uid://mq5k3hpalci" path="res://Assets/menu/resources/style_box_vline.tres" id="6_j0vo4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxqgl"]
+bg_color = Color(0.8039216, 0.8039216, 0.8039216, 0.49019608)
+border_width_top = 4
+border_blend = true
 
 [node name="MainMenu" type="Panel" unique_id=560086353]
 anchors_preset = 15
@@ -82,10 +88,62 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="SettingsPannel/VBoxContainer" unique_id=980054501]
+[node name="MasterVolume" type="Label" parent="SettingsPannel/VBoxContainer" unique_id=980054501]
 layout_mode = 2
-text = "Settings go here?"
+text = "Master Volume"
 horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="SettingsPannel/VBoxContainer" unique_id=1740965575]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_pxqgl")
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 3
+script = ExtResource("4_j0vo4")
+bus_name = "Master"
+
+[node name="MusicVolume" type="Label" parent="SettingsPannel/VBoxContainer" unique_id=450930130]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="HSlider2" type="HSlider" parent="SettingsPannel/VBoxContainer" unique_id=2142883585]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_pxqgl")
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 3
+script = ExtResource("4_j0vo4")
+bus_name = "Music"
+
+[node name="SFXVolume" type="Label" parent="SettingsPannel/VBoxContainer" unique_id=147960533]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="HSlider3" type="HSlider" parent="SettingsPannel/VBoxContainer" unique_id=2058120959]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_pxqgl")
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 3
+script = ExtResource("4_j0vo4")
+bus_name = "SoundEffects"
 
 [node name="Return" type="Button" parent="SettingsPannel" unique_id=61799491]
 layout_mode = 1
