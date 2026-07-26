@@ -40,15 +40,12 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.6476925, 0.32641324, 1)
 theme_override_fonts/font = ExtResource("1_usr6m")
 theme_override_font_sizes/font_size = 22
-text = "Master"
 
 [node name="DialogueText" type="Label" parent="Dialogue/Content/TextContainer" unique_id=1186719912]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usr6m")
 theme_override_font_sizes/font_size = 24
-text = "lsdfjalksdjflasjdlfkjsld kfjkldsjaflkjsdkljfkljsd kljfkjsdklfjl kdsjfkjd slkj flkajsdlkfjlksdj"
 autowrap_mode = 2
 
 [node name="Continue" type="Label" parent="Dialogue/Content/TextContainer" unique_id=1904128277]
 layout_mode = 2
-text = "press space to go on"

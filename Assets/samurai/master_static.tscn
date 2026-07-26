@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bt5s1n6um843i"]
 
 [ext_resource type="PackedScene" uid="uid://dkl7tf67tf4ds" path="res://Assets/samurai/katana_blade.tscn" id="1_a772y"]
+[ext_resource type="Script" uid="uid://nufxdwwkoy8i" path="res://Assets/samurai/master_static_ctrl.gd" id="1_ksm4t"]
 [ext_resource type="PackedScene" uid="uid://c67mfye16krfb" path="res://Assets/samurai/katana_sheeth.tscn" id="2_ksm4t"]
 [ext_resource type="PackedScene" uid="uid://ufu1h7iadkqa" path="res://GLB_Resorces/master_bottom_half.glb" id="3_vtmgd"]
 [ext_resource type="PackedScene" uid="uid://c35j4necrbpqo" path="res://GLB_Resorces/master_static.glb" id="4_15eqi"]
 [ext_resource type="PackedScene" uid="uid://upkj7v51iog0" path="res://GLB_Resorces/master_top_half.glb" id="5_njaoq"]
 
 [node name="master_static" type="Node3D" unique_id=1649078252]
+script = ExtResource("1_ksm4t")
 
 [node name="katana_blade" parent="." unique_id=694371302 instance=ExtResource("1_a772y")]
 transform = Transform3D(-0.3184176, -0.20339154, -0.9258738, -0.6976234, 0.71157, 0.083605595, 0.6418193, 0.6725326, -0.36846706, 0.12556243, 0.9631999, 0.10052484)
@@ -17,5 +19,6 @@ transform = Transform3D(-0.3184176, -0.20339154, -0.9258738, -0.6976234, 0.71157
 [node name="master_bottom_half" parent="." unique_id=1213989107 instance=ExtResource("3_vtmgd")]
 
 [node name="master_static" parent="." unique_id=210464859 instance=ExtResource("4_15eqi")]
+visible = false
 
 [node name="master_top_half" parent="." unique_id=1929443112 instance=ExtResource("5_njaoq")]

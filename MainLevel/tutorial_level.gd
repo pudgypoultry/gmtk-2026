@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var samurai: SamuraiCtrl = $Samurai
+@onready var master_static: Node3D = $master_static
 @onready var camera_loc_active_game: Marker3D = $CameraLoc_ActiveGame
 @onready var camera_loc_menu: Marker3D = $CameraLoc_Menu
 @onready var camera_perspective: Camera3D = $"Camera-Perspective"
@@ -95,7 +96,7 @@ func init_slicer(num:int) -> void:
 		slice_goal = 5
 		var target:Node3D = BAMBOO_TARGET.instantiate()
 		target.position = bamboo_target_transform.position
-		target.scale = bamboo_target_transform.scale
+		#target.scale = bamboo_target_transform.scale
 		target.basis = bamboo_target_transform.basis
 		self.add_child(target)
 		
@@ -109,6 +110,10 @@ func clean_up_slicer() -> void:
 func on_done_slicing(how_many:int) -> void:
 	if how_many >= slice_goal:
 		tutorial_dialogue.next_dialogue()
+		
 	else:
 		tutorial_dialogue.error_dialog()
 	clean_up_slicer()
+
+func _on_tutorial_dialogue_done() -> void:
+	master_static.play_animation()

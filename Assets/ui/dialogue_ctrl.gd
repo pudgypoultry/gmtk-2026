@@ -28,6 +28,7 @@ var is_typing: bool = false
 var typing_id: int=0
 
 signal DialogeReadyToSlice(num:int)
+signal TutorialDone()
 
 func show_dialogue() -> void:
 	dialogue_active= true
@@ -56,6 +57,9 @@ func next_dialogue():
 	elif current_line == 2:
 		continue_label.hide()
 		DialogeReadyToSlice.emit(2)
+	elif current_line == 3:
+		TutorialDone.emit()
+		continue_label.show()
 	else:
 		continue_label.show()
 	
@@ -87,7 +91,6 @@ func type_text(text_to_show: String) -> void:
 func finish_current_line() -> void:
 	typing_id +=1
 	is_typing= false
-	
 	dialogue_text.text= dialogue_lines[current_line]
 	
 func end_dialogue() -> void:
