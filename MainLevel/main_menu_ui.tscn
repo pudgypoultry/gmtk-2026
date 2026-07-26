@@ -69,6 +69,7 @@ theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="SettingsPannel" type="Panel" parent="." unique_id=724438440]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -160,7 +161,6 @@ theme_override_font_sizes/font_size = 25
 text = "Return"
 
 [node name="CreditsPannel" type="Panel" parent="." unique_id=1095374416]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -195,7 +195,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 23
 text = "Concave Mesh Slicer Addon"
 
 [node name="VSeparator" type="VSeparator" parent="CreditsPannel/VBoxContainer/Container" unique_id=1002104385]
@@ -206,7 +206,7 @@ theme_override_styles/separator = ExtResource("4_hkd73")
 [node name="assets_text2" type="Label" parent="CreditsPannel/VBoxContainer/Container" unique_id=1012798987]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 23
 text = "PiCode"
 
 [node name="Container2" type="HBoxContainer" parent="CreditsPannel/VBoxContainer" unique_id=692815694]
@@ -216,7 +216,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 23
 text = "Human Mesh and Rig (existing project)"
 
 [node name="VSeparator2" type="VSeparator" parent="CreditsPannel/VBoxContainer/Container2" unique_id=1408404207]
@@ -227,8 +227,8 @@ theme_override_styles/separator = ExtResource("4_hkd73")
 [node name="assets_text2" type="Label" parent="CreditsPannel/VBoxContainer/Container2" unique_id=814433647]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
-text = "Cory Johns"
+theme_override_font_sizes/font_size = 23
+text = "PituophisCatenifer"
 
 [node name="HSeparator" type="HSeparator" parent="CreditsPannel/VBoxContainer" unique_id=860539513]
 layout_mode = 2
@@ -252,16 +252,18 @@ layout_mode = 2
 [node name="contrib_text" type="Label" parent="CreditsPannel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=820404576]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.45882353, 0, 1)
-theme_override_font_sizes/font_size = 35
-text = "Andrew Teske"
+theme_override_font_sizes/font_size = 29
+text = "Axiomata"
 horizontal_alignment = 1
 
 [node name="contrib_text2" type="Label" parent="CreditsPannel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1392757220]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
-text = "Line detection
+theme_override_font_sizes/font_size = 23
+text = "Design
+Line detection
 Slicer System
+Level System
 "
 horizontal_alignment = 1
 
@@ -275,14 +277,14 @@ layout_mode = 2
 [node name="contrib_text2" type="Label" parent="CreditsPannel/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=261245752]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.45882353, 0, 1)
-theme_override_font_sizes/font_size = 35
-text = "Austin Gerardo"
+theme_override_font_sizes/font_size = 29
+text = "bbkkbbkkplusplus"
 horizontal_alignment = 1
 
 [node name="contrib_text3" type="Label" parent="CreditsPannel/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1751315840]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 23
 text = "Music
 Sound Effects
 Ambient sounds
@@ -299,17 +301,18 @@ layout_mode = 2
 [node name="contrib_text3" type="Label" parent="CreditsPannel/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=816153982]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.45882353, 0, 1)
-theme_override_font_sizes/font_size = 35
-text = "Cory Johns"
+theme_override_font_sizes/font_size = 29
+text = "PituophisCatenifer"
 horizontal_alignment = 1
 
 [node name="contrib_text4" type="Label" parent="CreditsPannel/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=150116427]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 23
 text = "models
 Animation
-Menus"
+Menus
+Tutorial Code"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="CreditsPannel" unique_id=240690225]
