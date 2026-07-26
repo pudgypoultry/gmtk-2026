@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bagry2yjbykad"]
+
+[ext_resource type="Theme" uid="uid://mbwxhb0flgrw" path="res://Assets/menu/resources/ui_theme.tres" id="1_q5dhr"]
+[ext_resource type="Script" uid="uid://njarfqtei31l" path="res://Assets/ui/countdown_label.gd" id="2_4n1ck"]
+[ext_resource type="StyleBox" uid="uid://cx2ogpy574pjp" path="res://Assets/menu/resources/style_box_transparent.tres" id="2_lqyua"]
+
+[node name="countdown_label" type="Control" unique_id=1044648533]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q5dhr")
+script = ExtResource("2_4n1ck")
+
+[node name="Panel" type="Panel" parent="." unique_id=606219701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_lqyua")
+
+[node name="Label" type="Label" parent="Panel" unique_id=506677582]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2

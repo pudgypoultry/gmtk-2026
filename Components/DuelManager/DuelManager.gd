@@ -9,6 +9,7 @@ enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 @export var reaction_time_max : float = 0.4
 @export var test_dict : Dictionary[Vector3, PackedScene]
 
+
 @export_category("Plugging in Nodes")
 @export var enemy_folder : Node3D
 @export var camera_slicer : CameraSlicer
@@ -17,6 +18,7 @@ enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 @export var draw_sound : AudioStreamPlayer3D
 @export var grade_sound : AudioStreamPlayer3D
 @export var draw_text : Control
+@onready var countdown_label: Control = $countdown_label
 
 @export_category("Debug")
 @export var debug = false
@@ -72,6 +74,7 @@ func _process(delta: float) -> void:
 		if mouse_moved:
 			lose_duel()
 		if waiting_timer > waiting_time:
+			countdown_label.countend()
 			draw_sound.play()
 			current_state = State.DRAW
 			changed_state.emit(current_state)
@@ -102,6 +105,7 @@ func begin_countdown():
 	current_state = State.COUNTDOWN
 	changed_state.emit(current_state)
 	countdown_sound.play()
+	countdown_label.countdown()
 
 
 func check_duel_end():

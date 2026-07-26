@@ -73,7 +73,6 @@ transform = Transform3D(0.9494254, 0, 0.31399244, 0, 1.0000001, 0, -0.3139924, 0
 [node name="GameThemePlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
 stream = ExtResource("6_g160d")
 autoplay = true
-bus = &"Music"
 
 [node name="TutorialDialogue" parent="." unique_id=751624776 instance=ExtResource("8_ylb82")]
 visible = false
