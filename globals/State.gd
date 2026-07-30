@@ -1,30 +1,11 @@
 # Adapted from https://github.com/pudgypoultry/godotwildjam7-25/blob/main/Sandboxes/Stella/State.gd
-extends Node
+extends SimpleState
 # skeleton of this code comes from this tutorial:
 # https://www.youtube.com/watch?v=ow_Lum-Agbs&ab_channel=Bitlytic
 class_name State
 
-var stateManager : StateManager
+@export_category("Plugging in Nodes")
+@export var error_state:State
 
-signal Transitioned(oldState:State, newState:State)
-
-# use this function to transition between states
-func ChangeState(newState:State) -> void:
-	self.__Exit(newState)
-
-func __Enter(oldState:State) -> void:
-	# called when the state is entered
-	pass
-
-func __Exit(newState:State) -> void:
-	# called when the state is exited
-	Transitioned.emit(self, newState)
-	newState.__Enter(self)
-
-
-func Update(delta) -> void:
-	pass
-
-
-func PhysicsUpdate(delta) -> void:
-	pass
+func FailState() -> void:
+	self.ChangeState(error_state)

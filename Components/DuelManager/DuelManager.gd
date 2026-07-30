@@ -1,7 +1,7 @@
 extends Node
 class_name DuelManager
 
-enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
+#enum MState {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 
 @export_category("Game Rules")
 @export var delay_start_base : float = 0.75
@@ -13,18 +13,14 @@ enum State {PREPARING, COUNTDOWN, WAITING, DRAW, RESULTS}
 
 @export_category("Plugging in Nodes")
 @export var enemy_folder : Node3D
-@export var camera_slicer : CameraSlicer
 @export var mouse_control : MouseControl
-@export var countdown_sound : AudioStreamPlayer3D
-@export var draw_sound : AudioStreamPlayer3D
-@export var grade_sound : AudioStreamPlayer3D
 @onready var countdown_label: Control = $countdown_label
 @export var results_panel : Panel
 
 @export_category("Debug")
 @export var debug = false
 
-var current_state : State = State.PREPARING
+var current_state : MState = MState.PREPARING
 var countdown_timer : float = 0.0
 var waiting_timer : float = 0.0
 var waiting_time : float
@@ -49,42 +45,7 @@ func _ready() -> void:
 	mouse_control.connect("mouse_ready", handle_mouse_ready)
 	mouse_control.connect("mouse_left", handle_mouse_left)
 	mouse_control.connect("done_slicing", handle_done_slicing)
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if current_state == State.PREPARING:
-		if !duel_is_setup:
-			prepare_duel(enemy_scenes.pick_random())
-		if mouse_in_circle && duel_is_setup:
-			begin_countdown()
-	
-	if current_state == State.COUNTDOWN:
-		countdown_timer += delta
-		if mouse_moved:
-			lose_duel()
-		if countdown_timer > countdown_time:
-			var random_count_add = randf_range(0.75, 3.75)
-			waiting_time += random_count_add
-			current_state = State.WAITING
-			changed_state.emit(current_state)
-	
-	if current_state == State.WAITING:
-		waiting_timer += delta
-		if mouse_moved:
-			lose_duel()
-		if waiting_timer > waiting_time:
-			countdown_label.countend()
-			draw_sound.play()
-			current_state = State.DRAW
-			changed_state.emit(current_state)
-	
-	if current_state == State.DRAW:
-		reaction_timer += delta
-		if mouse_moved && how_fast == 0.0:
-			how_fast = reaction_timer
-		if reaction_timer > reaction_time_max or how_fast != 0.0:
-			check_duel_end()
 
 
 # Pass this function a dictionary of enemy packedscene keys and Vector3 positions
@@ -102,14 +63,13 @@ func prepare_duel(enemy : PackedScene):
 
 func begin_countdown():
 	print("Starting Countdown")
-	current_state = State.COUNTDOWN
+	current_state = MState.COUNTDOWN
 	changed_state.emit(current_state)
-	countdown_sound.play()
 	countdown_label.countdown()
 
 
 func check_duel_end():
-	current_state = State.RESULTS
+	current_state = MState.RESULTS
 	changed_state.emit(current_state)
 	if not mouse_moved:
 		lose_duel()
@@ -149,7 +109,7 @@ func reset_duel():
 	mouse_moved = false
 	mouse_in_circle = false
 	current_enemies = []
-	current_state = State.PREPARING
+	current_state = MState.PREPARING
 	countdown_timer = 0.0
 	waiting_timer = 0.0
 	waiting_time = original_waiting_time

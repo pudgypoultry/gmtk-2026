@@ -30,7 +30,7 @@ cache/0/35/0/scale = 1.0
 [sub_resource type="Theme" id="Theme_7u7ll"]
 default_font = SubResource("FontFile_xint0")
 
-[node name="ResultsPanel" type="Panel" unique_id=1233100686 node_paths=PackedStringArray("slice_label", "reaction_time_label", "win_streak_label")]
+[node name="ResultsPanel" type="Panel" unique_id=1233100686]
 anchors_preset = -1
 anchor_left = 0.1
 anchor_top = 0.1
@@ -41,9 +41,6 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("1_jt164")
 script = ExtResource("2_bv00y")
-slice_label = NodePath("WinResults/SlicesScore")
-reaction_time_label = NodePath("WinResults/ReactionScore")
-win_streak_label = NodePath("WinResults/WinStreakScore")
 
 [node name="WinResults" type="VBoxContainer" parent="." unique_id=1870791297]
 custom_minimum_size = Vector2(250, 250)

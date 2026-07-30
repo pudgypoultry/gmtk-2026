@@ -5,15 +5,14 @@
 [ext_resource type="Script" uid="uid://cp0opfp1nc6bx" path="res://Sandboxes/AndrewSandbox/DebugDraw.gd" id="2_sfg5k"]
 [ext_resource type="Texture2D" uid="uid://duuun4tbcxwca" path="res://Assets/ui/SwordOpen.png" id="4_2rfi4"]
 [ext_resource type="Texture2D" uid="uid://dtx3t0kw60ce6" path="res://Assets/ui/SwordClosed.png" id="4_ilni3"]
+[ext_resource type="Script" uid="uid://bdsd2w1u7ye1d" path="res://Components/MouseControl/mouse_control_state_manager.gd" id="6_0m3yo"]
+[ext_resource type="Script" uid="uid://d3ius2i4cq44p" path="res://Components/MouseControl/preparing.gd" id="7_ageo4"]
+[ext_resource type="Script" uid="uid://26dlusoyhk45" path="res://Components/MouseControl/ready.gd" id="8_pnn0l"]
+[ext_resource type="Script" uid="uid://b1friprj1g34c" path="res://Components/MouseControl/recording.gd" id="9_o1rc0"]
+[ext_resource type="Script" uid="uid://da5s7krcgrs8e" path="res://Components/MouseControl/done.gd" id="10_6ew2f"]
 
-[node name="MouseControlCanvas" type="CanvasLayer" unique_id=549195944 node_paths=PackedStringArray("mouse_start_position", "margin_child", "sword_image_rect")]
+[node name="MouseControlCanvas" type="CanvasLayer" unique_id=549195944]
 script = ExtResource("1_dtwem")
-mouse_start_position = NodePath("MouseControl/MouseStartPosition")
-slash_line = ExtResource("2_d7045")
-margin_child = NodePath("MouseControl")
-sword_image_rect = NodePath("MouseControl/MouseStartPosition/TextureRect")
-sword_closed_image = ExtResource("4_ilni3")
-sword_open_image = ExtResource("4_2rfi4")
 
 [node name="MouseControl" type="MarginContainer" parent="." unique_id=1426232428]
 process_mode = 1
@@ -45,5 +44,32 @@ texture = ExtResource("4_ilni3")
 expand_mode = 2
 stretch_mode = 4
 
-[connection signal="mouse_entered" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_entered_start"]
-[connection signal="mouse_exited" from="MouseControl/MouseStartPosition" to="." method="handle_mouse_exited_start"]
+[node name="MouseControlStateManager" type="Node" parent="." unique_id=1756310489 node_paths=PackedStringArray("mouse_ctrl", "mouse_start_position", "margin_child", "sword_image_rect", "initialState")]
+script = ExtResource("6_0m3yo")
+mouse_ctrl = NodePath("..")
+mouse_start_position = NodePath("../MouseControl/MouseStartPosition")
+slash_line = ExtResource("2_d7045")
+margin_child = NodePath("../MouseControl")
+sword_image_rect = NodePath("../MouseControl/MouseStartPosition/TextureRect")
+sword_closed_image = ExtResource("4_ilni3")
+sword_open_image = ExtResource("4_2rfi4")
+initialState = NodePath("Preparing")
+
+[node name="Preparing" type="Node" parent="MouseControlStateManager" unique_id=1883956732 node_paths=PackedStringArray("next_state")]
+script = ExtResource("7_ageo4")
+next_state = NodePath("../Ready")
+
+[node name="Ready" type="Node" parent="MouseControlStateManager" unique_id=564101665 node_paths=PackedStringArray("next_state")]
+script = ExtResource("8_pnn0l")
+next_state = NodePath("../Recording")
+
+[node name="Recording" type="Node" parent="MouseControlStateManager" unique_id=1952081410 node_paths=PackedStringArray("next_state")]
+script = ExtResource("9_o1rc0")
+next_state = NodePath("../Done")
+
+[node name="Done" type="Node" parent="MouseControlStateManager" unique_id=69056021 node_paths=PackedStringArray("next_state")]
+script = ExtResource("10_6ew2f")
+next_state = NodePath("../Preparing")
+
+[connection signal="mouse_entered" from="MouseControl/MouseStartPosition" to="MouseControlStateManager" method="_on_mouse_start_position_mouse_entered"]
+[connection signal="mouse_exited" from="MouseControl/MouseStartPosition" to="MouseControlStateManager" method="_on_mouse_start_position_mouse_exited"]

@@ -2,7 +2,7 @@ extends Dialogue_Line_State
 
 var return_state:Dialogue_Line_State
 
-func __Enter(oldState:State) -> void:
+func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
 	return_state = oldState

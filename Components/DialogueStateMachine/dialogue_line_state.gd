@@ -5,22 +5,12 @@ class_name Dialogue_Line_State
 @export var text:String
 @export var allow_continue:bool
 
-@export_category("Plugging in Nodes")
-@export var next_state:Dialogue_Line_State
-@export var error_state:Dialogue_Line_State
-
 var current_text:String = ""
 var done_typing:bool = false
 var typing_clock:float = 0.0
 var current_letter:int = 0
 
-func NextState() -> void:
-	self.ChangeState(next_state)
-
-func FailState() -> void:
-	self.ChangeState(error_state)
-
-func __Enter(oldState:State) -> void:
+func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
 	current_text = ""
@@ -28,7 +18,7 @@ func __Enter(oldState:State) -> void:
 	current_letter = 0
 	done_typing = false
 
-func __Exit(newState:State) -> void:
+func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
 	super.__Exit(newState)
 

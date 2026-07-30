@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://mbwxhb0flgrw" path="res://Assets/menu/resources/ui_theme.tres" id="1_q5dhr"]
 [ext_resource type="Script" uid="uid://njarfqtei31l" path="res://Assets/ui/countdown_label.gd" id="2_4n1ck"]
 [ext_resource type="StyleBox" uid="uid://cx2ogpy574pjp" path="res://Assets/menu/resources/style_box_transparent.tres" id="2_lqyua"]
+[ext_resource type="AudioStream" uid="uid://cq6w8ey1w62fg" path="res://Audio/countdown/game countdown start.wav" id="4_y6vna"]
+[ext_resource type="AudioStream" uid="uid://co1msxxgnrnxl" path="res://Audio/countdown/game countdown end.wav" id="5_d3ecx"]
 
 [node name="countdown_label" type="Control" unique_id=1044648533]
 layout_mode = 3
@@ -37,3 +39,9 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 60
+
+[node name="Countdown" type="AudioStreamPlayer3D" parent="." unique_id=1945971996]
+stream = ExtResource("4_y6vna")
+
+[node name="DrawSound" type="AudioStreamPlayer3D" parent="." unique_id=2009256327]
+stream = ExtResource("5_d3ecx")

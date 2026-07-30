@@ -263,7 +263,7 @@ theme_override_font_sizes/font_size = 23
 text = "Design
 Line detection
 Slicer System
-Level System
+Programming
 "
 horizontal_alignment = 1
 
@@ -287,8 +287,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 23
 text = "Music
 Sound Effects
-Ambient sounds
-Dialog"
+Dialog
+Programming"
 horizontal_alignment = 1
 
 [node name="VSeparator2" type="VSeparator" parent="CreditsPannel/VBoxContainer/HBoxContainer" unique_id=1445720941]
@@ -312,7 +312,7 @@ theme_override_font_sizes/font_size = 23
 text = "models
 Animation
 Menus
-Tutorial Code"
+Programming"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="CreditsPannel" unique_id=240690225]

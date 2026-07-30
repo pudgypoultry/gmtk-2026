@@ -2,13 +2,13 @@ extends Node
 
 class_name StateManager
 
-@export var initialState : State
-var currentState : State
+@export var initialState : SimpleState
+var currentState : SimpleState
 
 func _ready():
 	# states are child nodes of the State Manager node
 	for child in get_children():
-		if child is State:
+		if child is SimpleState:
 			child.Transitioned.connect(on_state_transition)
 			child.stateManager = self
 
@@ -28,6 +28,6 @@ func _physics_process(delta):
 		currentState.PhysicsUpdate(delta)
 
 
-func on_state_transition(oldState:State, newState:State):
+func on_state_transition(oldState:SimpleState, newState:SimpleState):
 	#print("Transitioning from %s to %s" % [ oldState.name, newState.name ])
 	currentState = newState

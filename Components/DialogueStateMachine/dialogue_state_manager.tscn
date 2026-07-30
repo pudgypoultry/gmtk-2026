@@ -33,6 +33,8 @@ next_state = NodePath("../DialogueDone")
 
 [node name="DialogueDone" type="Node" parent="." unique_id=75608228]
 script = ExtResource("3_nntfc")
+text = null
+allow_continue = null
 
 [node name="LineError" type="Node" parent="." unique_id=932940641]
 script = ExtResource("3_tbaxm")

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cm3oaq5tva1gh"]
+
+[ext_resource type="Script" uid="uid://cdokdw8bgxfkc" path="res://Components/SliceStateMachine/slice_state_manager.gd" id="1_cru6g"]
+[ext_resource type="Script" uid="uid://1rpfbwdoeuk5" path="res://Components/SliceStateMachine/slice_ready.gd" id="2_q3yow"]
+[ext_resource type="Script" uid="uid://bq01ahcbfydew" path="res://Components/SliceStateMachine/slice_countdown.gd" id="3_15v0g"]
+[ext_resource type="Script" uid="uid://xtkxho0biaxp" path="res://Components/SliceStateMachine/slice_waiting.gd" id="4_diiwt"]
+[ext_resource type="Script" uid="uid://be682d4gongvu" path="res://Components/SliceStateMachine/slice_draw.gd" id="5_yxyiu"]
+[ext_resource type="Script" uid="uid://ccjvir1ema5ay" path="res://Components/SliceStateMachine/slice_results.gd" id="6_i3dae"]
+[ext_resource type="Script" uid="uid://vd5xe7dmg076" path="res://Components/SliceStateMachine/slice_post_draw.gd" id="6_q3yow"]
+
+[node name="SliceStateManager" type="Node" unique_id=1710338953 node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_cru6g")
+initialState = NodePath("SliceReady")
+
+[node name="SliceReady" type="Node" parent="." unique_id=1880377244 node_paths=PackedStringArray("error_state", "next_state")]
+script = ExtResource("2_q3yow")
+error_state = NodePath("../SliceResults")
+next_state = NodePath("../SliceCountdown")
+
+[node name="SliceCountdown" type="Node" parent="." unique_id=138781680 node_paths=PackedStringArray("error_state", "next_state")]
+script = ExtResource("3_15v0g")
+error_state = NodePath("../SliceResults")
+next_state = NodePath("../SliceWaiting")
+
+[node name="SliceWaiting" type="Node" parent="." unique_id=342126874 node_paths=PackedStringArray("error_state", "next_state")]
+script = ExtResource("4_diiwt")
+error_state = NodePath("../SliceResults")
+next_state = NodePath("../SliceDraw")
+
+[node name="SliceDraw" type="Node" parent="." unique_id=257773078 node_paths=PackedStringArray("error_state", "next_state")]
+script = ExtResource("5_yxyiu")
+error_state = NodePath("../SliceResults")
+next_state = NodePath("../SlicePostDraw")
+
+[node name="SlicePostDraw" type="Node" parent="." unique_id=1852219661 node_paths=PackedStringArray("error_state", "next_state")]
+script = ExtResource("6_q3yow")
+error_state = NodePath("../SliceResults")
+next_state = NodePath("../SliceResults")
+
+[node name="SliceResults" type="Node" parent="." unique_id=2060034717]
+script = ExtResource("6_i3dae")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dbx14qi7wdx7d"]
+
+[ext_resource type="Script" uid="uid://bihyi6pwf0f6p" path="res://Components/DuelManager/DuelManager.gd" id="1_edkh2"]
+[ext_resource type="PackedScene" uid="uid://bagry2yjbykad" path="res://Assets/ui/countdown_label.tscn" id="4_sgc0i"]
+
+[node name="DuelManager" type="Node3D" unique_id=1760879894]
+script = ExtResource("1_edkh2")
+delay_start_base = null
+countdown_time = null
+original_waiting_time = null
+reaction_time_max = null
+enemy_scenes = null
+debug = null
+
+[node name="countdown_label" parent="." unique_id=1044648533 instance=ExtResource("4_sgc0i")]
