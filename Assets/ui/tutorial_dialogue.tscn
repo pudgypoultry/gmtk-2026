@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://uxogqn7nvusj" path="res://Assets/ui/dialogue_ctrl.gd" id="1_edpv2"]
 [ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="1_usr6m"]
 [ext_resource type="StyleBox" uid="uid://cx2ogpy574pjp" path="res://Assets/menu/resources/style_box_transparent.tres" id="2_1x5fp"]
+[ext_resource type="PackedScene" uid="uid://cut4d3m1ccktr" path="res://Components/DialogueStateMachine/dialogue_state_manager.tscn" id="4_u5gh6"]
 
-[node name="UI" type="CanvasLayer" unique_id=562275275]
+[node name="DialogueUI" type="CanvasLayer" unique_id=562275275]
 script = ExtResource("1_edpv2")
 
 [node name="Dialogue" type="Panel" parent="." unique_id=1991628236]
@@ -40,6 +41,7 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.6476925, 0.32641324, 1)
 theme_override_fonts/font = ExtResource("1_usr6m")
 theme_override_font_sizes/font_size = 22
+text = "Master:"
 
 [node name="DialogueText" type="Label" parent="Dialogue/Content/TextContainer" unique_id=1186719912]
 layout_mode = 2
@@ -49,3 +51,7 @@ autowrap_mode = 2
 
 [node name="Continue" type="Label" parent="Dialogue/Content/TextContainer" unique_id=1904128277]
 layout_mode = 2
+text = "Press [Space] to continue"
+
+[node name="DialogueStateManager" parent="." unique_id=1273816037 node_paths=PackedStringArray("dialogue_label") instance=ExtResource("4_u5gh6")]
+dialogue_label = NodePath("../Dialogue/Content/TextContainer/DialogueText")

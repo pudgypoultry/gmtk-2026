@@ -26,7 +26,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		main_menu._on_return_pressed()
-		tutorial_dialogue.end_dialogue()
+		tutorial_dialogue.hide()
 		if slicer:
 			slicer.queue_free()
 		game_theme_player.play()
@@ -42,15 +42,14 @@ func move_camera(pos:cameraloc) -> void:
 	var loc:Vector3 = Vector3.ZERO
 	var bas:Basis
 	var tween = get_tree().create_tween()
-	tween.set_parallel(true)
 	if pos == cameraloc.Menu:
 		loc = camera_loc_menu.position
 		bas = camera_loc_menu.basis
 	elif pos == cameraloc.Play:
 		loc = camera_loc_active_game.position
 		bas = camera_loc_active_game.basis
-		tween.finished.connect(tutorial_dialogue.show_dialogue)
 		tween.finished.connect(init_slice_interface)
+		tween.finished.connect(tutorial_dialogue.show)
 	elif pos == cameraloc.Settings:
 		loc = camera_loc_settings.position
 		bas = camera_loc_settings.basis
@@ -59,8 +58,8 @@ func move_camera(pos:cameraloc) -> void:
 		bas = camera_loc_credits.basis
 		
 	tween.tween_property(camera_perspective, "position", loc, 1.0)
-	tween.tween_property(camera_perspective, "basis", bas, 1.0)
-	
+	tween.parallel().tween_property(camera_perspective, "basis", bas, 1.0)
+
 
 func _on_main_menu_menu_changed(state: GlobalVars.MenuChange) -> void:
 	match (state):
@@ -112,9 +111,9 @@ func clean_up_slicer() -> void:
 
 func on_done_slicing(how_many:int) -> void:
 	if how_many >= slice_goal:
-		tutorial_dialogue.next_dialogue()
+		tutorial_dialogue.Next()
 	else:
-		tutorial_dialogue.error_dialog()
+		tutorial_dialogue.Fail()
 	clean_up_slicer()
 	await get_tree().create_timer(3.0).timeout
 

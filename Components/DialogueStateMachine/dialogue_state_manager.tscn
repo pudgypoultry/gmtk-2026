@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cut4d3m1ccktr"]
+
+[ext_resource type="Script" uid="uid://iqfxrmmssi0" path="res://Components/DialogueStateMachine/dialogue_state_manager.gd" id="1_b7dkt"]
+[ext_resource type="Script" uid="uid://dgiutct3aj6uq" path="res://Components/DialogueStateMachine/dialogue_line_state.gd" id="2_b7dkt"]
+[ext_resource type="Script" uid="uid://byjgbabaj2l1f" path="res://Components/DialogueStateMachine/dialogue_done.gd" id="3_nntfc"]
+[ext_resource type="Script" uid="uid://d3kg8ad0l8geu" path="res://Components/DialogueStateMachine/line_error.gd" id="3_tbaxm"]
+
+[node name="DialogueStateManager" type="Node" unique_id=1273816037 node_paths=PackedStringArray("global_error_state", "initialState")]
+script = ExtResource("1_b7dkt")
+global_error_state = NodePath("LineError")
+initialState = NodePath("Line1")
+
+[node name="Line1" type="Node" parent="." unique_id=1368352949 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_b7dkt")
+text = "\"Ah good i was beginning to think you werent going to show up.\""
+allow_continue = true
+next_state = NodePath("../Line2")
+
+[node name="Line2" type="Node" parent="." unique_id=957450027 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_b7dkt")
+text = "\"Begin before this headache kills me. Let your hand be the blade MOVE YOUR MOUSE TO SLICE\""
+next_state = NodePath("../Line3")
+
+[node name="Line3" type="Node" parent="." unique_id=1087269327 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_b7dkt")
+text = "\"GOOD good! Now do you think your skills can cut down this bamboo instead of just AIR HAHA\""
+next_state = NodePath("../Line4")
+
+[node name="Line4" type="Node" parent="." unique_id=14353068 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_b7dkt")
+text = "\"Ouch! You cut me in half!\""
+next_state = NodePath("../DialogueDone")
+
+[node name="DialogueDone" type="Node" parent="." unique_id=75608228]
+script = ExtResource("3_nntfc")
+
+[node name="LineError" type="Node" parent="." unique_id=932940641]
+script = ExtResource("3_tbaxm")
+text = "\"That was Shit! Try it again only this time do it right\""
+allow_continue = true
