@@ -8,6 +8,7 @@ func __Enter(oldState:SimpleState) -> void:
 	stateManager.mouse_in_circle = false
 	stateManager.current_score = 0
 	stateManager.results_panel.hide()
+	stateManager.countdown_label.hide()
 	# instantiate a random enemy
 	stateManager.selected_enemy = stateManager.enemy_list.pick_random().instantiate()
 	# select a random spawn point

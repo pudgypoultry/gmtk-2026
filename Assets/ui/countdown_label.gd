@@ -12,11 +12,14 @@ func countdown() -> void:
 	label.text = "Two"
 	await get_tree().create_timer(.9).timeout
 	label.text = "One"
-	await get_tree().create_timer(.9).timeout
+
+func wait() -> void:
 	label.text = ".  .  .  .  .  ."
 
 func countend() -> void:
 	draw_sound.play()
 	label.text = "Draw!"
-	await get_tree().create_timer(1).timeout
-	label.text = ""
+
+func stop() -> void:
+	countdown_sound.stop()
+	draw_sound.stop()

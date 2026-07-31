@@ -46,4 +46,9 @@ func __on_done_slicing(how_many : int) -> void:
 
 func reset_slicer() -> void:
 	mouse_ctrl.clean_up()
+	countdown_label.stop()
 	currentState.ChangeState(initialState)
+	
+func on_state_transition(oldState:SimpleState, newState:SimpleState):
+	super.on_state_transition(oldState, newState)
+	print("State transisiton ", oldState.name, " to ", newState.name)

@@ -9,10 +9,17 @@ func __Enter(oldState:SimpleState) -> void:
 	waiting_time_limit = stateManager.original_waiting_time
 	waiting_timer = 0.0
 	waiting_time_limit += randf_range(0.75, 3.75)
+	stateManager.countdown_label.show()
+	stateManager.countdown_label.wait()
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
+	stateManager.countdown_label.hide()
 	super.__Exit(newState)
+
+func FailState() -> void:
+	super.FailState()
+	stateManager.reset_slicer()
 
 func Update(delta) -> void:
 	super.Update(delta)
@@ -22,6 +29,3 @@ func Update(delta) -> void:
 		return
 	if waiting_timer > waiting_time_limit:
 			self.NextState()
-
-func PhysicsUpdate(delta) -> void:
-	super.PhysicsUpdate(delta)

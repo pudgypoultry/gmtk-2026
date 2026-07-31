@@ -73,13 +73,13 @@ transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0, 0.5140698, 0)
 [node name="SpawnPoints" type="Node3D" parent="." unique_id=1282968216]
 
 [node name="SpawnPoint_01" type="Marker3D" parent="SpawnPoints" unique_id=613399424]
-transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 2.1371508, 0.094413996, -5.347972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1371508, 0.094413996, -5.347972)
 
 [node name="SpawnPoint_02" type="Marker3D" parent="SpawnPoints" unique_id=1848309809]
-transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, -2.7916012, 0.094413996, -4.254026)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7916012, 0.094413996, -4.254026)
 
 [node name="SpawnPoint_03" type="Marker3D" parent="SpawnPoints" unique_id=1984776538]
-transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, -0.39876676, 0.09441352, -7.703712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39876676, 0.09441352, -7.703712)
 
 [node name="SliceStateManager" parent="." unique_id=1710338953 node_paths=PackedStringArray("mouse_ctrl", "countdown_label", "enemy_folder", "results_panel", "spawn_points") instance=ExtResource("6_g68ym")]
 mouse_ctrl = NodePath("../MouseControlCanvas")
