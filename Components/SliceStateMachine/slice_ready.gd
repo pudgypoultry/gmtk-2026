@@ -9,8 +9,11 @@ func __Enter(oldState:SimpleState) -> void:
 	stateManager.current_score = 0
 	stateManager.results_panel.hide()
 	stateManager.countdown_label.hide()
-	# instantiate a random enemy
-	stateManager.selected_enemy = stateManager.enemy_list.pick_random().instantiate()
+	# instantiate an enemy
+	if stateManager.deterministic:
+		stateManager.selected_enemy = stateManager.enemy_list[stateManager.deterministic_selection].instantiate()
+	else:
+		stateManager.selected_enemy = stateManager.enemy_list.pick_random().instantiate()
 	# select a random spawn point
 	var selected_spawn_point: Marker3D = stateManager.spawn_points.pick_random()
 	stateManager.selected_enemy.position = selected_spawn_point.position

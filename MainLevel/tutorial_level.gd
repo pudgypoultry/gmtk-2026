@@ -1,42 +1,36 @@
 extends Node3D
 
-@onready var samurai: SamuraiCtrl = $Samurai
-@onready var master_static: Node3D = $master_static
-@onready var camera_loc_active_game: Marker3D = $CameraLoc_ActiveGame
-@onready var camera_loc_menu: Marker3D = $CameraLoc_Menu
-@onready var camera_perspective: Camera3D = $"Camera-Perspective"
-@onready var camera_loc_credits: Marker3D = $CameraLoc_credits
-@onready var camera_loc_settings: Marker3D = $CameraLoc_settings
-@onready var game_theme_player: AudioStreamPlayer = $GameThemePlayer
-@onready var bamboo_target_transform: Marker3D = $BambooTargetTransform
-const BAMBOO_TARGET = preload("res://Assets/static_objects/bamboo_target.tscn")
+@export_category("Plugging in Nodes")
+@export var samurai: SamuraiCtrl
+@export var master_static: Node3D
+@export var camera_perspective: Camera3D
+@export var sub_viewport_container: SubViewportContainer
+@export var camera_loc_active_game: Marker3D
+@export var camera_loc_menu: Marker3D
+@export var camera_loc_credits: Marker3D
+@export var camera_loc_settings: Marker3D
+@export var game_theme_player: AudioStreamPlayer
+@export var ambience_player: AudioStreamPlayer
+@export var tutorial_dialogue: DialogueCtrl
+@export var main_menu: Panel
+@export var mouse_ctrl:MouseControl
+@export var slice_state_manager: StateManager
 
 enum cameraloc {Play, Menu, Settings, Credits}
-
-const SLICER_INTERFACE = preload("res://Components/slicer_interface.tscn")
-var slicer:Node3D
 var slice_goal:int = 0
 
-@onready var tutorial_dialogue: DialogueCtrl = $TutorialDialogue
-@onready var main_menu: Panel = $MainMenu
-
 func _ready() -> void:
-	__delayed_setup.call_deferred()
+	camera_perspective.position = camera_loc_menu.position
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Menu"):
-		main_menu._on_return_pressed()
-		tutorial_dialogue.hide()
-		if slicer:
-			slicer.queue_free()
-		game_theme_player.play()
+	#if Input.is_action_just_pressed("Menu"):
+		#main_menu._on_return_pressed()
+		#tutorial_dialogue.hide()
+		#game_theme_player.play()
 	if samurai.record:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var world_pos = camera_perspective.project_position(mouse_pos, 3.2)
 		samurai.set_ik_target_pos(world_pos)
-
-func __delayed_setup() -> void:
-	camera_perspective.position = camera_loc_menu.position
 
 func move_camera(pos:cameraloc) -> void:
 	var loc:Vector3 = Vector3.ZERO
@@ -48,8 +42,8 @@ func move_camera(pos:cameraloc) -> void:
 	elif pos == cameraloc.Play:
 		loc = camera_loc_active_game.position
 		bas = camera_loc_active_game.basis
-		tween.finished.connect(init_slice_interface)
 		tween.finished.connect(tutorial_dialogue.show)
+		tween.finished.connect(sub_viewport_container.show)
 	elif pos == cameraloc.Settings:
 		loc = camera_loc_settings.position
 		bas = camera_loc_settings.basis
@@ -77,46 +71,33 @@ func _on_main_menu_menu_changed(state: GlobalVars.MenuChange) -> void:
 			move_camera(cameraloc.Credits)
 		GlobalVars.MenuChange.Quit:
 			get_tree().quit()
-			
-func init_slice_interface() -> void:
-	slicer = SLICER_INTERFACE.instantiate()
-	slicer.position = camera_loc_active_game.position
-	slicer.basis = camera_loc_active_game.basis
-	self.add_child(slicer)
-	slicer.mouse_control_canvas.mouse_ready.connect(samurai.slice_ready)
-	slicer.mouse_control_canvas.mouse_left.connect(samurai.draw_sword)
-	slicer.mouse_control_canvas.done_slicing.connect(samurai.sheath_sword)
-	slicer.mouse_control_canvas.done_slicing.connect(on_done_slicing)
 	
-func init_slicer(num:int) -> void:
-	if num == 1:
-		slice_goal = 0
-	elif num == 2:
-		slice_goal = 5
-		var target:Node3D = BAMBOO_TARGET.instantiate()
-		target.position = bamboo_target_transform.position
-		target.basis = bamboo_target_transform.basis
-		target.scale = bamboo_target_transform.scale
-		self.add_child(target)
-		slicer.camera_slicer.rigidbody_parent = target
-		
+func show_slicer() -> void:
 	game_theme_player.stop()
-	slicer.enable_slicer()
+	ambience_player.play()
+	mouse_ctrl.show()
 
-
-func clean_up_slicer() -> void:
-	slicer.disable_slicer()
+func hide_slicer() -> void:
+	mouse_ctrl.clean_up()
+	mouse_ctrl.hide()
+	ambience_player.stop()
 	game_theme_player.play()
-
+	slice_state_manager.reset_slicer()
 
 func on_done_slicing(how_many:int) -> void:
 	if how_many >= slice_goal:
 		tutorial_dialogue.Next()
 	else:
 		tutorial_dialogue.Fail()
-	clean_up_slicer()
-	await get_tree().create_timer(3.0).timeout
-
+	hide_slicer()
 
 func _on_tutorial_dialogue_done() -> void:
 	master_static.play_animation()
+
+func _on_tutorial_dialogue_slice_param_update(enemy_selection: int, goal: int) -> void:
+	if enemy_selection != -1:
+		slice_state_manager.deterministic = true
+		slice_state_manager.deterministic_selection = enemy_selection
+	else:
+		slice_state_manager.deterministic = false
+	self.slice_goal = goal

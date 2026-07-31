@@ -15,8 +15,10 @@ extends StateManager
 # Array of Packed SliceableObject Scenes
 @export var enemy_list: Array[PackedScene]
 @export var spawn_points: Array[Marker3D]
+@export var deterministic:bool = false
+@export var deterministic_selection:int = 0
 
-var selected_enemy: SliceableObject
+var selected_enemy: Node3D
 var mouse_moved:bool = false
 var mouse_in_circle:bool = false
 var current_score:int = 0
@@ -48,7 +50,10 @@ func reset_slicer() -> void:
 	mouse_ctrl.clean_up()
 	countdown_label.stop()
 	currentState.ChangeState(initialState)
-	
+	for n in enemy_folder.get_children():
+		if n is Node3D:
+			n.queue_free()
+
 func on_state_transition(oldState:SimpleState, newState:SimpleState):
 	super.on_state_transition(oldState, newState)
 	print("State transisiton ", oldState.name, " to ", newState.name)

@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://uxogqn7nvusj" path="res://Assets/ui/dialogue_ctrl.gd" id="1_edpv2"]
 [ext_resource type="FontFile" uid="uid://dfsg474d4ocq1" path="res://font/SUKAJAN BRUSH DEMO.OTF" id="1_usr6m"]
 [ext_resource type="StyleBox" uid="uid://cx2ogpy574pjp" path="res://Assets/menu/resources/style_box_transparent.tres" id="2_1x5fp"]
-[ext_resource type="PackedScene" uid="uid://cut4d3m1ccktr" path="res://Components/DialogueStateMachine/dialogue_state_manager.tscn" id="4_u5gh6"]
+[ext_resource type="Script" uid="uid://iqfxrmmssi0" path="res://Components/DialogueStateMachine/dialogue_state_manager.gd" id="4_kvwh5"]
+[ext_resource type="Script" uid="uid://dgiutct3aj6uq" path="res://Components/DialogueStateMachine/dialogue_line_state.gd" id="5_kpcjh"]
+[ext_resource type="Script" uid="uid://byjgbabaj2l1f" path="res://Components/DialogueStateMachine/dialogue_done.gd" id="6_lxgqk"]
+[ext_resource type="Script" uid="uid://d3kg8ad0l8geu" path="res://Components/DialogueStateMachine/line_error.gd" id="7_2ke2h"]
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=562275275]
 script = ExtResource("1_edpv2")
@@ -53,5 +56,46 @@ autowrap_mode = 2
 layout_mode = 2
 text = "Press [Space] to continue"
 
-[node name="DialogueStateManager" parent="." unique_id=1273816037 node_paths=PackedStringArray("dialogue_label") instance=ExtResource("4_u5gh6")]
+[node name="DialogueStateManager" type="Node" parent="." unique_id=1273816037 node_paths=PackedStringArray("global_error_state", "dialogue_label", "continue_label", "dialogue_ui_parent", "initialState")]
+script = ExtResource("4_kvwh5")
+global_error_state = NodePath("LineError")
 dialogue_label = NodePath("../Dialogue/Content/TextContainer/DialogueText")
+continue_label = NodePath("../Dialogue/Content/TextContainer/Continue")
+dialogue_ui_parent = NodePath("..")
+initialState = NodePath("Line1")
+
+[node name="Line1" type="Node" parent="DialogueStateManager" unique_id=1368352949 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_kpcjh")
+text = "\"Ah good i was beginning to think you werent going to show up.\""
+allow_continue = true
+next_state = NodePath("../Line2")
+
+[node name="Line2" type="Node" parent="DialogueStateManager" unique_id=957450027 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_kpcjh")
+text = "\"Begin before this headache kills me. Let your hand be the blade MOVE YOUR MOUSE TO SLICE\""
+deterministic_selection = 0
+require_slice = true
+next_state = NodePath("../Line3")
+
+[node name="Line3" type="Node" parent="DialogueStateManager" unique_id=1087269327 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_kpcjh")
+text = "\"GOOD good! Now do you think your skills can cut down this bamboo instead of just AIR HAHA\""
+deterministic_selection = 1
+require_slice = true
+next_state = NodePath("../Line4")
+
+[node name="Line4" type="Node" parent="DialogueStateManager" unique_id=14353068 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_kpcjh")
+text = "\"Ouch! You cut me in half!\""
+allow_continue = true
+next_state = NodePath("../DialogueDone")
+
+[node name="DialogueDone" type="Node" parent="DialogueStateManager" unique_id=75608228]
+script = ExtResource("6_lxgqk")
+
+[node name="LineError" type="Node" parent="DialogueStateManager" unique_id=932940641]
+script = ExtResource("7_2ke2h")
+text = "\"That was Shit! Try it again only this time do it right\""
+allow_continue = true
+
+[connection signal="dialogueStateChanged" from="DialogueStateManager" to="." method="_on_dialogue_state_changed"]

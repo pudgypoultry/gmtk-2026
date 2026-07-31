@@ -31,6 +31,9 @@ func __delayed_setup() -> void:
 func slice_ready() -> void:
 	animation_player.play("SamuraiAnimationLibrary/Draw_Ready_Pose")
 
+func standing() -> void:
+	animation_player.play("SamuraiAnimationLibrary/Standing")
+
 func head_look_at(loc:Vector3) -> void:
 	look_marker.position = loc
 	
@@ -44,7 +47,7 @@ func __on_animation_changed(old_anm:StringName, new_anm:StringName) -> void:
 		# activate katana IK
 		katana_ik.active = true
 	
-func sheath_sword(_how_many:int=0) -> void:
+func sheath_sword() -> void:
 	# turn off katana IK
 	katana_ik.active = false
 	record = false

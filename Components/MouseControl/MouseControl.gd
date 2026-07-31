@@ -8,6 +8,7 @@ class_name MouseControl
 
 @export_category("Plugging in Nodes")
 @export var camera_slicer : CameraSlicer
+@export var samurai: SamuraiCtrl
 
 @export_category("Debug")
 @export var debug : bool = false

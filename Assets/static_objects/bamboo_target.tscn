@@ -12,39 +12,40 @@ size = Vector3(0.4058838, 0.25460815, 0.45599365)
 [node name="BambooTarget" type="Node3D" unique_id=480863414]
 
 [node name="bamboo_pole_01" parent="." unique_id=294628015 instance=ExtResource("1_hw5nv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460876, 0, 0.038178027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034067094, 0, 0.10090539)
 
 [node name="bamboo_pole_03" parent="." unique_id=398382594 instance=ExtResource("1_hw5nv")]
-transform = Transform3D(-0.9999678, 0, 0.008031994, 0, 1.0478015, 0, -0.008031994, 0, -0.9999678, 0.30337518, 0, 0.010525711)
+transform = Transform3D(-0.9999678, 0, 0.008031994, 0, 1.0478015, 0, -0.008031994, 0, -0.9999678, -0.12343371, 0, 0.07325307)
 
 [node name="bamboo_pole_02" parent="." unique_id=551616532 instance=ExtResource("2_k08fs")]
-transform = Transform3D(1, 0, 0, 0, 0.952977, 0, 0, 0, 1, 0.34728822, 0, 0.05457832)
+transform = Transform3D(1, 0, 0, 0, 0.952977, 0, 0, 0, 1, -0.07952067, 0, 0.11730568)
 
 [node name="bamboo_pole_04" parent="." unique_id=1980160815 instance=ExtResource("2_k08fs")]
-transform = Transform3D(0.6832698, 0, -0.730166, 0, 1.0161431, 0, 0.730166, 0, 0.6832698, 0.39329657, 0, 0)
+transform = Transform3D(0.6832698, 0, -0.730166, 0, 1.0161431, 0, 0.730166, 0, 0.6832698, -0.033512324, 0, 0.06272736)
 
 [node name="bamboo_pole_05" parent="." unique_id=935910066 instance=ExtResource("2_k08fs")]
-transform = Transform3D(0.8554183, -0.029303119, 0.5171081, 0, 0.99839836, 0.056576535, -0.5179378, -0.048396606, 0.85404825, 0.48618788, 0, 0.03110464)
+transform = Transform3D(0.8554183, -0.029303119, 0.5171081, 0, 0.99839836, 0.056576535, -0.5179378, -0.048396606, 0.85404825, 0.05937898, 0, 0.093832)
 
 [node name="bamboo_pole_06" parent="." unique_id=1883663201 instance=ExtResource("2_k08fs")]
-transform = Transform3D(0.86584127, 0, -0.5003188, 0, 1.0736785, 0, 0.5003188, 0, 0.86584127, 0.32846272, 0, -0.08238083)
+transform = Transform3D(0.86584127, 0, -0.5003188, 0, 1.0736785, 0, 0.5003188, 0, 0.86584127, -0.098346174, 0, -0.01965347)
 
 [node name="bamboo_pole_07" parent="." unique_id=492577615 instance=ExtResource("1_hw5nv")]
-transform = Transform3D(-0.86826205, 0, -0.49610582, 0, 0.95428425, 0, 0.49610582, 0, -0.86826205, 0.33380425, 0, -0.14618772)
+transform = Transform3D(-0.86826205, 0, -0.49610582, 0, 0.95428425, 0, 0.49610582, 0, -0.86826205, -0.093004644, 0, -0.08346036)
 
 [node name="bamboo_pole_08" parent="." unique_id=1026964172 instance=ExtResource("1_hw5nv")]
-transform = Transform3D(0.8722188, 0, 0.48911598, 0, 1.0374688, 0, -0.48911598, 0, 0.8722188, 0.48427472, 0, -0.20031533)
+transform = Transform3D(0.8722188, 0, 0.48911598, 0, 1.0374688, 0, -0.48911598, 0, 0.8722188, 0.05746582, 0, -0.13758796)
 
 [node name="bamboo_pole_09" parent="." unique_id=186953465 instance=ExtResource("2_k08fs")]
-transform = Transform3D(-0.86826205, 0, -0.49610582, 0, 1, 0, 0.49610582, 0, -0.86826205, 0.42429194, 0, -0.21677902)
+transform = Transform3D(-0.86826205, 0, -0.49610582, 0, 1, 0, 0.49610582, 0, -0.86826205, -0.0025169551, 0, -0.15405166)
 
 [node name="bamboo_pole_10" parent="." unique_id=1854065394 instance=ExtResource("2_k08fs")]
-transform = Transform3D(-0.95549685, 0, 0.29500133, 0, 1.0227364, 0, -0.29500133, 0, -0.95549685, 0.41142124, 0, -0.14656574)
+transform = Transform3D(-0.95549685, 0, 0.29500133, 0, 1.0227364, 0, -0.29500133, 0, -0.95549685, -0.015387654, 0, -0.08383837)
 
 [node name="bamboo_pole_12" parent="." unique_id=520283812 instance=ExtResource("2_k08fs")]
-transform = Transform3D(-0.9999882, 0, 0.0048589706, 0, 1, 0, -0.0048589706, 0, -0.9999882, 0.5085836, 0, -0.10720204)
+transform = Transform3D(-0.9999882, 0, 0.0048589706, 0, 1, 0, -0.0048589706, 0, -0.9999882, 0.08177471, 0, -0.044474676)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=456820969 node_paths=PackedStringArray("slice_behavior_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4268089, 0, 0.06272736)
 freeze = true
 script = ExtResource("3_5r1n5")
 slice_behavior_component = NodePath("SliceBehaviorComponent")

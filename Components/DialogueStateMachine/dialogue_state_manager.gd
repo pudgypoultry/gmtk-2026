@@ -7,6 +7,10 @@ class_name Dialogue_State_Manager
 @export_category("Plugging in Nodes")
 @export var global_error_state:Dialogue_Line_State
 @export var dialogue_label:Label
+@export var continue_label:Label
+@export var dialogue_ui_parent:DialogueCtrl
+
+signal dialogueStateChanged(oldState:String, newState:String)
 
 func _ready():
 	super._ready()
@@ -32,3 +36,7 @@ func _unhandled_input(event):
 	if is_visable() and event.is_action_pressed("ui_accept") and currentState.allow_continue:
 		currentState.NextState()
 		get_viewport().set_input_as_handled()
+
+func on_state_transition(oldState:SimpleState, newState:SimpleState):
+	dialogueStateChanged.emit(oldState.name, newState.name)
+	currentState = newState
