@@ -1,4 +1,4 @@
-extends SimpleState
+extends State
 
 var how_many_sliced_objects : int = 0
 var line_set = []
@@ -11,6 +11,11 @@ func __Enter(oldState:SimpleState) -> void:
 	if stateManager.mouse_ctrl.debug:
 		stateManager.margin_child.queue_redraw()
 	find_lines()
+
+
+func __Exit(newState:SimpleState) -> void:
+	super.__Exit(newState)
+
 
 func find_lines() -> void:
 	var current_breakpoint = 0
@@ -111,7 +116,10 @@ func find_lines() -> void:
 		if object:
 			object.finish_slice()
 			how_many_sliced_objects += 1
-	stateManager.mouse_ctrl.done_slicing.emit(how_many_sliced_objects)
+	
+	print("I'm cut in half real bad")
+	stateManager.__on_done_slicing(how_many_sliced_objects)
+	#stateManager.mouse_ctrl.done_slicing.emit(how_many_sliced_objects)
 
 func find_direction(from, to):
 	if to - from == 0:

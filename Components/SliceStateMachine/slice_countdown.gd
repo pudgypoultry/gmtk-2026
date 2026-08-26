@@ -8,6 +8,8 @@ func __Enter(oldState:SimpleState) -> void:
 	countdown_timer = 0.0
 	stateManager.countdown_label.show()
 	stateManager.countdown_label.countdown()
+	if stateManager.mouse_ctrl.samurai: 
+		stateManager.mouse_ctrl.samurai.slice_ready()
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited

@@ -9,6 +9,7 @@ class_name MouseControl
 @export_category("Plugging in Nodes")
 @export var camera_slicer : CameraSlicer
 @export var samurai: SamuraiCtrl
+@export var mouse_control_state_manager: StateManager
 
 @export_category("Debug")
 @export var debug : bool = false
@@ -21,8 +22,6 @@ signal mouse_left
 @warning_ignore("unused_signal")
 signal done_slicing(how_many : int)
 
-@onready var mouse_control_state_manager: StateManager = $MouseControlStateManager
-
 
 func clean_up() -> void:
-	mouse_control_state_manager.clean_up()
+	mouse_control_state_manager.reset_slicer()

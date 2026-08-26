@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
 [ext_resource type="PackedScene" uid="uid://ep87helfabo2" path="res://Sandboxes/AndrewSandbox/SlicableEnemy.tscn" id="5_elif0"]
 [ext_resource type="PackedScene" uid="uid://ddur3yjbqnrj3" path="res://Components/DuelManager/results_panel.tscn" id="5_g68ym"]
+[ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Components/SlashLine/SlashLine.tscn" id="5_rpviq"]
 [ext_resource type="PackedScene" uid="uid://bagry2yjbykad" path="res://Assets/ui/countdown_label.tscn" id="5_su60e"]
 [ext_resource type="PackedScene" uid="uid://cm3oaq5tva1gh" path="res://Components/SliceStateMachine/slice_state_manager.tscn" id="6_g68ym"]
+[ext_resource type="Texture2D" uid="uid://dtx3t0kw60ce6" path="res://Assets/ui/SwordClosed.png" id="6_mmarl"]
+[ext_resource type="Texture2D" uid="uid://duuun4tbcxwca" path="res://Assets/ui/SwordOpen.png" id="7_2ldwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
 sky_top_color = Color(0.286275, 0.411765, 0.823529, 1)
@@ -34,8 +37,9 @@ size = Vector3(20, 0.25, 20)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1576296643]
 environment = SubResource("Environment_qqcbp")
 
-[node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer") instance=ExtResource("2_4306q")]
+[node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer", "mouse_control_state_manager") instance=ExtResource("2_4306q")]
 camera_slicer = NodePath("../Camera3D/CameraSlicer")
+mouse_control_state_manager = NodePath("../SliceStateManager")
 
 [node name="ResultsPanel" parent="MouseControlCanvas" unique_id=1233100686 node_paths=PackedStringArray("slice_state_manager") instance=ExtResource("5_g68ym")]
 visible = false
@@ -81,8 +85,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7916012, 0.094413996, -4.2
 [node name="SpawnPoint_03" type="Marker3D" parent="SpawnPoints" unique_id=1984776538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39876676, 0.09441352, -7.703712)
 
-[node name="SliceStateManager" parent="." unique_id=1710338953 node_paths=PackedStringArray("mouse_ctrl", "countdown_label", "enemy_folder", "results_panel", "spawn_points") instance=ExtResource("6_g68ym")]
+[node name="SliceStateManager" parent="." unique_id=1710338953 node_paths=PackedStringArray("mouse_ctrl", "mouse_start_position", "margin_child", "sword_image_rect", "countdown_label", "enemy_folder", "results_panel", "spawn_points") instance=ExtResource("6_g68ym")]
 mouse_ctrl = NodePath("../MouseControlCanvas")
+mouse_start_position = NodePath("../MouseControlCanvas/MouseControl/MouseStartPosition")
+slash_line = ExtResource("5_rpviq")
+margin_child = NodePath("../MouseControlCanvas/MouseControl")
+sword_image_rect = NodePath("../MouseControlCanvas/MouseControl/MouseStartPosition/TextureRect")
+sword_closed_image = ExtResource("6_mmarl")
+sword_open_image = ExtResource("7_2ldwl")
 countdown_label = NodePath("../countdown_label")
 enemy_folder = NodePath("../EnemyFolder")
 results_panel = NodePath("../MouseControlCanvas/ResultsPanel")
@@ -90,3 +100,8 @@ enemy_list = Array[PackedScene]([ExtResource("5_elif0")])
 spawn_points = [NodePath("../SpawnPoints/SpawnPoint_01"), NodePath("../SpawnPoints/SpawnPoint_02"), NodePath("../SpawnPoints/SpawnPoint_03")]
 
 [node name="countdown_label" parent="." unique_id=1044648533 instance=ExtResource("5_su60e")]
+
+[connection signal="mouse_entered" from="MouseControlCanvas/MouseControl/MouseStartPosition" to="SliceStateManager" method="__on_mouse_ready"]
+[connection signal="mouse_exited" from="MouseControlCanvas/MouseControl/MouseStartPosition" to="SliceStateManager" method="__on_mouse_left"]
+
+[editable path="MouseControlCanvas"]

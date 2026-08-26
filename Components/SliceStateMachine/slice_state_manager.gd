@@ -5,8 +5,18 @@ extends StateManager
 @export var reaction_time_limit: float = 0.5
 @export var post_draw_time_limit: float = 2.0
 
+@export_category("Mouse Control")
+@export var mouse_ctrl:MouseControl
+@export var mouse_start_position : Control
+@export var slash_line : PackedScene
+@export var margin_child : MarginContainer
+@export var sword_image_rect : TextureRect
+@export var sword_closed_image : Texture2D
+@export var sword_open_image : Texture2D
+@export var preparing_state: SimpleState
+@export var ready_state: SimpleState
+
 @export_category("Plugging in Nodes")
-@export var mouse_ctrl: MouseControl
 @export var countdown_label: Countdown_Label
 @export var enemy_folder: Node3D
 @export var results_panel : Panel
@@ -23,14 +33,20 @@ var mouse_moved:bool = false
 var mouse_in_circle:bool = false
 var current_score:int = 0
 var win_streak:int = 0
+var how_fast : float = 0
+var mouse_recording : Array = []
 
 @onready var slice_draw: State = $SliceDraw
 
+@warning_ignore("unused_signal")
+signal reset_machine
+
 func _ready():
 	super._ready()
-	mouse_ctrl.mouse_ready.connect(__on_mouse_ready)
-	mouse_ctrl.mouse_left.connect(__on_mouse_left)
-	mouse_ctrl.done_slicing.connect(__on_done_slicing)
+	reset_machine.connect(initialState._on_go_next)
+	# TESTING HERE
+	_on_duel_start()
+	
 
 func __on_mouse_ready() -> void:
 	mouse_moved = false
@@ -39,15 +55,24 @@ func __on_mouse_ready() -> void:
 func __on_mouse_left() -> void:
 	mouse_moved = true
 	mouse_in_circle = false
-	
-func __on_done_slicing(how_many : int) -> void:
-	current_score += how_many
-	if currentState == slice_draw:
-		win_streak += 1
+
+func _on_mouse_start_position_mouse_entered() -> void:
+	if currentState == preparing_state:
 		currentState.NextState()
 
+func _on_mouse_start_position_mouse_exited() -> void:
+	if currentState == ready_state:
+		currentState.NextState()
+
+func __on_done_slicing(how_many : int) -> void:
+	current_score += how_many
+	win_streak += 1
+	currentState.NextState()
+
+func _on_duel_start():
+	reset_machine.emit()
+
 func reset_slicer() -> void:
-	mouse_ctrl.clean_up()
 	countdown_label.stop()
 	currentState.ChangeState(initialState)
 	for n in enemy_folder.get_children():
