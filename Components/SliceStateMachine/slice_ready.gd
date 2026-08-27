@@ -11,18 +11,15 @@ func __Enter(oldState:SimpleState) -> void:
 	stateManager.mouse_in_circle = false
 	stateManager.current_score = 0
 	stateManager.how_fast = 0.0
-	stateManager.results_panel.hide()
-	stateManager.countdown_label.hide()
+	stateManager.slicer.results_panel.hide()
+	stateManager.slicer.countdown_label.hide()
 	# instantiate an enemy
-	if stateManager.deterministic:
-		stateManager.selected_enemy = stateManager.enemy_list[stateManager.deterministic_selection].instantiate()
-	else:
-		stateManager.selected_enemy = stateManager.enemy_list.pick_random().instantiate()
+	stateManager.selected_enemy = stateManager.slicer.enemy_list.pick_random().instantiate()
 	# select a random spawn point
-	var selected_spawn_point: Marker3D = stateManager.spawn_points.pick_random()
+	var selected_spawn_point: Marker3D = stateManager.slicer.spawn_points.pick_random()
 	stateManager.selected_enemy.position = selected_spawn_point.position
 	stateManager.selected_enemy.basis = selected_spawn_point.basis
-	stateManager.enemy_folder.add_child(stateManager.selected_enemy)
+	stateManager.slicer.enemy_folder.add_child(stateManager.selected_enemy)
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited

@@ -7,9 +7,10 @@ class_name MouseControl
 @export var min_line_length : float = 150.0
 
 @export_category("Plugging in Nodes")
-@export var camera_slicer : CameraSlicer
-@export var samurai: SamuraiCtrl
-@export var mouse_control_state_manager: StateManager
+@export var slicer:Slicer
+#@export var camera_slicer : CameraSlicer
+#@export var samurai: SamuraiCtrl
+#@export var mouse_control_state_manager: StateManager
 
 @export_category("Debug")
 @export var debug : bool = false
@@ -24,4 +25,4 @@ signal done_slicing(how_many : int)
 
 
 func clean_up() -> void:
-	mouse_control_state_manager.reset_slicer()
+	slicer.state_manager.reset_slicer()

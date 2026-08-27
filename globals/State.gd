@@ -12,6 +12,7 @@ signal set_slicer_ui(visable:bool)
 func FailState() -> void:
 	print("FailState active")
 	stateManager.win_streak = 0
+	stateManager.current_score = 0
 	self.ChangeState(error_state)
 
 func __Enter(oldState:SimpleState) -> void:

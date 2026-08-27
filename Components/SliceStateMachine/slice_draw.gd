@@ -10,20 +10,20 @@ func __Enter(oldState:SimpleState) -> void:
 	reaction_timer = 0.0
 	how_fast = 0.0
 	tracking_timer = 0.0
-	stateManager.countdown_label.show()
-	stateManager.countdown_label.countend()
+	stateManager.slicer.countdown_label.show()
+	stateManager.slicer.countdown_label.countend()
 	stateManager.sword_image_rect.texture = stateManager.sword_open_image
 	stateManager.mouse_ctrl.mouse_left.emit()
-	if stateManager.mouse_ctrl.samurai: 
-		stateManager.mouse_ctrl.samurai.draw_sword()
+	if stateManager.slicer.samurai: 
+		stateManager.slicer.samurai.draw_sword()
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
-	stateManager.countdown_label.hide()
+	stateManager.slicer.countdown_label.hide()
 	super.__Exit(newState)
 	stateManager.sword_image_rect.texture = stateManager.sword_closed_image
-	if stateManager.mouse_ctrl.samurai: 
-		stateManager.mouse_ctrl.samurai.sheath_sword()
+	if stateManager.slicer.samurai: 
+		stateManager.slicer.samurai.sheath_sword()
 
 #func FailState() -> void:
 	#super.FailState()
@@ -36,7 +36,7 @@ func Update(delta) -> void:
 	if stateManager.mouse_moved && how_fast == 0.0:
 		stateManager.how_fast = reaction_timer
 	# Did not move out of circle fast enough to draw
-	if reaction_timer > stateManager.reaction_time_limit or how_fast != 0.0:
+	if reaction_timer > stateManager.slicer.reaction_time_limit or how_fast != 0.0:
 		if not stateManager.mouse_moved:
 			self.FailState()
 			return

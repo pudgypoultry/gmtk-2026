@@ -6,15 +6,15 @@ var waiting_timer:float
 func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
-	waiting_time_limit = stateManager.original_waiting_time
+	waiting_time_limit = stateManager.slicer.original_waiting_time
 	waiting_timer = 0.0
 	waiting_time_limit += randf_range(0.75, 3.75)
-	stateManager.countdown_label.show()
-	stateManager.countdown_label.wait()
+	stateManager.slicer.countdown_label.show()
+	stateManager.slicer.countdown_label.wait()
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
-	stateManager.countdown_label.hide()
+	stateManager.slicer.countdown_label.hide()
 	super.__Exit(newState)
 
 #func FailState() -> void:

@@ -109,10 +109,10 @@ func find_lines() -> void:
 			continue
 		new_slash.prepare(line, lines[line])
 		stateManager.margin_child.add_child(new_slash)
-		await stateManager.mouse_ctrl.camera_slicer.perform_slice(new_slash.points[0], new_slash.points[1])
+		await stateManager.slicer.camera_slicer.perform_slice(new_slash.points[0], new_slash.points[1])
 		line_set.append(new_slash)
 		
-	for object in stateManager.mouse_ctrl.camera_slicer.sliced_object_array:
+	for object in stateManager.slicer.camera_slicer.sliced_object_array:
 		if object:
 			object.finish_slice()
 			how_many_sliced_objects += 1

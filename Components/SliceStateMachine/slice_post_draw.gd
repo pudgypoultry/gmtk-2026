@@ -10,5 +10,5 @@ func __Enter(oldState:SimpleState) -> void:
 func Update(delta) -> void:
 	super.Update(delta)
 	post_draw_delay_timer += delta
-	if post_draw_delay_timer >= stateManager.post_draw_time_limit:
+	if post_draw_delay_timer >= stateManager.slicer.post_draw_time_limit:
 		self.NextState()

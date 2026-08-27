@@ -6,14 +6,14 @@ func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
 	countdown_timer = 0.0
-	stateManager.countdown_label.show()
-	stateManager.countdown_label.countdown()
-	if stateManager.mouse_ctrl.samurai: 
-		stateManager.mouse_ctrl.samurai.slice_ready()
+	stateManager.slicer.countdown_label.show()
+	stateManager.slicer.countdown_label.countdown()
+	if stateManager.slicer.samurai: 
+		stateManager.slicer.samurai.slice_ready()
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
-	stateManager.countdown_label.hide()
+	stateManager.slicer.countdown_label.hide()
 	super.__Exit(newState)
 
 #func FailState() -> void:
@@ -26,5 +26,5 @@ func Update(delta) -> void:
 	if stateManager.mouse_moved:
 		self.FailState()
 		return
-	if countdown_timer > stateManager.countdown_time_limit:
+	if countdown_timer > stateManager.slicer.countdown_time_limit:
 		self.NextState()

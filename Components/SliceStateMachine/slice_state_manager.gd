@@ -1,9 +1,9 @@
 extends StateManager
-@export_category("Game Rules")
-@export var countdown_time_limit: float = 4.0
-@export var original_waiting_time: float = 0.7
-@export var reaction_time_limit: float = 0.5
-@export var post_draw_time_limit: float = 2.0
+#@export_category("Game Rules")
+#@export var countdown_time_limit: float = 4.0
+#@export var original_waiting_time: float = 0.7
+#@export var reaction_time_limit: float = 0.5
+#@export var post_draw_time_limit: float = 2.0
 
 @export_category("Mouse Control")
 @export var mouse_ctrl:MouseControl
@@ -13,20 +13,19 @@ extends StateManager
 @export var sword_image_rect : TextureRect
 @export var sword_closed_image : Texture2D
 @export var sword_open_image : Texture2D
-@export var preparing_state: SimpleState
-@export var ready_state: SimpleState
 
 @export_category("Plugging in Nodes")
-@export var countdown_label: Countdown_Label
-@export var enemy_folder: Node3D
-@export var results_panel : Panel
+@export var slicer:Slicer
+#@export var countdown_label: Countdown_Label
+#@export var enemy_folder: Node3D
+#@export var results_panel : Panel
 
-@export_category("Enemy Spawner")
-# Array of Packed SliceableObject Scenes
-@export var enemy_list: Array[PackedScene]
-@export var spawn_points: Array[Marker3D]
-@export var deterministic:bool = false
-@export var deterministic_selection:int = 0
+#@export_category("Enemy Spawner")
+## Array of Packed SliceableObject Scenes
+#@export var enemy_list: Array[PackedScene]
+#@export var spawn_points: Array[Marker3D]
+#@export var deterministic:bool = false
+#@export var deterministic_selection:int = 0
 
 var selected_enemy: Node3D
 var mouse_moved:bool = false
@@ -65,13 +64,13 @@ func __on_mouse_left() -> void:
 	mouse_moved = true
 	mouse_in_circle = false
 
-func _on_mouse_start_position_mouse_entered() -> void:
-	if currentState == preparing_state:
-		currentState.NextState()
-
-func _on_mouse_start_position_mouse_exited() -> void:
-	if currentState == ready_state:
-		currentState.NextState()
+#func _on_mouse_start_position_mouse_entered() -> void:
+	#if currentState == preparing_state:
+		#currentState.NextState()
+#
+#func _on_mouse_start_position_mouse_exited() -> void:
+	#if currentState == ready_state:
+		#currentState.NextState()
 
 func __on_done_slicing(how_many : int) -> void:
 	current_score += how_many
@@ -83,7 +82,7 @@ func _on_duel_start():
 
 func reset_slicer() -> void:
 	print("Reset Slicer")
-	countdown_label.stop()
+	slicer.countdown_label.stop()
 	currentState.ChangeState(initialState)
 	# don't need to clean up since this is done by the results state
 	# passed and failed runs will run through the results state

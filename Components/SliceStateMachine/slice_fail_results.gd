@@ -4,9 +4,6 @@ extends State
 func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
-	if stateManager.current_score < stateManager.slicer.win_slices:
-		FailState()
-		return
 	stateManager.slicer.results_panel.set_results(stateManager.current_score, stateManager.how_fast, stateManager.win_streak)
 	stateManager.slicer.results_panel.show()
 	# clean up any remaining enemy nodes

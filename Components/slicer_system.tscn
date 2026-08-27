@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://4ejrxgoequh1"]
+
+[ext_resource type="Script" uid="uid://cm67c12i3pvwf" path="res://Components/slicer_system.gd" id="1_m5xob"]
+[ext_resource type="PackedScene" uid="uid://cm3oaq5tva1gh" path="res://Components/SliceStateMachine/slice_state_manager.tscn" id="1_rfrn6"]
+[ext_resource type="PackedScene" uid="uid://dlnk2kmeyb1yd" path="res://Components/SlashLine/SlashLine.tscn" id="2_m5xob"]
+[ext_resource type="Texture2D" uid="uid://dtx3t0kw60ce6" path="res://Assets/ui/SwordClosed.png" id="3_8hwkd"]
+[ext_resource type="Texture2D" uid="uid://duuun4tbcxwca" path="res://Assets/ui/SwordOpen.png" id="4_2gvi5"]
+[ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Components/MouseControl/MouseControl.gd" id="7_8hwkd"]
+[ext_resource type="PackedScene" uid="uid://ddur3yjbqnrj3" path="res://Components/DuelManager/results_panel.tscn" id="7_jhuem"]
+[ext_resource type="Script" uid="uid://cp0opfp1nc6bx" path="res://Sandboxes/AndrewSandbox/DebugDraw.gd" id="8_2gvi5"]
+
+[node name="SlicerSystem" type="Node" unique_id=873014263 node_paths=PackedStringArray("state_manager", "mouse_control", "results_panel")]
+script = ExtResource("1_m5xob")
+state_manager = NodePath("SliceStateManager")
+mouse_control = NodePath("MouseControlCanvas")
+results_panel = NodePath("MouseControlCanvas/ResultsPanel")
+
+[node name="SliceStateManager" parent="." unique_id=1710338953 node_paths=PackedStringArray("mouse_ctrl", "mouse_start_position", "margin_child", "sword_image_rect", "slicer") instance=ExtResource("1_rfrn6")]
+mouse_ctrl = NodePath("../MouseControlCanvas")
+mouse_start_position = NodePath("../MouseControlCanvas/MouseControl/MouseStartPosition")
+slash_line = ExtResource("2_m5xob")
+margin_child = NodePath("../MouseControlCanvas/MouseControl")
+sword_image_rect = NodePath("../MouseControlCanvas/MouseControl/MouseStartPosition/TextureRect")
+sword_closed_image = ExtResource("3_8hwkd")
+sword_open_image = ExtResource("4_2gvi5")
+slicer = NodePath("..")
+
+[node name="MouseControlCanvas" type="CanvasLayer" parent="." unique_id=549195944 node_paths=PackedStringArray("slicer")]
+script = ExtResource("7_8hwkd")
+slicer = NodePath("..")
+
+[node name="MouseControl" type="MarginContainer" parent="MouseControlCanvas" unique_id=1426232428]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("8_2gvi5")
+
+[node name="MouseStartPosition" type="ColorRect" parent="MouseControlCanvas/MouseControl" unique_id=1296350390]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="MouseControlCanvas/MouseControl/MouseStartPosition" unique_id=1816874736]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8hwkd")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ResultsPanel" parent="MouseControlCanvas" unique_id=1233100686 node_paths=PackedStringArray("slice_state_manager") instance=ExtResource("7_jhuem")]
+visible = false
+slice_state_manager = NodePath("../../SliceStateManager")
+
+[connection signal="mouse_entered" from="MouseControlCanvas/MouseControl/MouseStartPosition" to="SliceStateManager" method="__on_mouse_ready"]
+[connection signal="mouse_exited" from="MouseControlCanvas/MouseControl/MouseStartPosition" to="SliceStateManager" method="__on_mouse_left"]
