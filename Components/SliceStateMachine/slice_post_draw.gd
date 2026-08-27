@@ -6,7 +6,6 @@ func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
 	post_draw_delay_timer = 0.0
-	stateManager.results_panel.set_results(stateManager.current_score, stateManager.how_fast, stateManager.win_streak)
 
 func Update(delta) -> void:
 	super.Update(delta)

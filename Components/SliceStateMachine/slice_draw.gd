@@ -25,9 +25,9 @@ func __Exit(newState:SimpleState) -> void:
 	if stateManager.mouse_ctrl.samurai: 
 		stateManager.mouse_ctrl.samurai.sheath_sword()
 
-func FailState() -> void:
-	super.FailState()
-	stateManager.reset_slicer()
+#func FailState() -> void:
+	#super.FailState()
+	#stateManager.reset_slicer()
 
 func Update(delta) -> void:
 	super.Update(delta)

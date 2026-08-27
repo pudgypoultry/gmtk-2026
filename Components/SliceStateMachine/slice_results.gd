@@ -4,6 +4,7 @@ extends State
 func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
+	stateManager.results_panel.set_results(stateManager.current_score, stateManager.how_fast, stateManager.win_streak)
 	stateManager.results_panel.show()
 	# clean up any remaining enemy nodes
 	for n in stateManager.enemy_folder.get_children():

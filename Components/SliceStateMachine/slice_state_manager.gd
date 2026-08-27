@@ -43,10 +43,19 @@ signal reset_machine
 
 func _ready():
 	super._ready()
+	for child in get_children():
+		if child is State:
+			child.set_slicer_ui.connect(set_slicer_visibility)
+			child.stateManager = self
 	reset_machine.connect(initialState._on_go_next)
 	# TESTING HERE
 	_on_duel_start()
-	
+
+func set_slicer_visibility(visable:bool):
+	if visable:
+		margin_child.show()
+	else:
+		margin_child.hide()
 
 func __on_mouse_ready() -> void:
 	mouse_moved = false
@@ -73,11 +82,17 @@ func _on_duel_start():
 	reset_machine.emit()
 
 func reset_slicer() -> void:
+	print("Reset Slicer")
 	countdown_label.stop()
 	currentState.ChangeState(initialState)
-	for n in enemy_folder.get_children():
-		if n is Node3D:
-			n.queue_free()
+	# don't need to clean up since this is done by the results state
+	# passed and failed runs will run through the results state
+	#for n in enemy_folder.get_children():
+		#if n is Node3D:
+			#n.queue_free()
+
+func start_slicer() -> void:
+	currentState.NextState()
 
 func on_state_transition(oldState:SimpleState, newState:SimpleState):
 	super.on_state_transition(oldState, newState)

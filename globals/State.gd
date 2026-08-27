@@ -6,6 +6,14 @@ class_name State
 
 @export_category("Plugging in Nodes")
 @export var error_state:State
+@export var is_slicer_ui_state:bool = true
+signal set_slicer_ui(visable:bool)
 
 func FailState() -> void:
+	print("FailState active")
+	stateManager.win_streak = 0
 	self.ChangeState(error_state)
+
+func __Enter(oldState:SimpleState) -> void:
+	super.__Enter(oldState)
+	set_slicer_ui.emit(is_slicer_ui_state)

@@ -14,8 +14,10 @@
 script = ExtResource("1_cru6g")
 initialState = NodePath("SliceWait")
 
-[node name="SliceWait" type="Node" parent="." unique_id=362146239 node_paths=PackedStringArray("next_state")]
+[node name="SliceWait" type="Node" parent="." unique_id=362146239 node_paths=PackedStringArray("error_state", "next_state")]
 script = ExtResource("9_diiwt")
+error_state = NodePath(".")
+is_slicer_ui_state = false
 next_state = NodePath("../SliceReady")
 
 [node name="SliceReady" type="Node" parent="." unique_id=1880377244 node_paths=PackedStringArray("error_state", "next_state")]
@@ -40,13 +42,15 @@ next_state = NodePath("../SlicePerformance")
 
 [node name="SlicePerformance" type="Node" parent="." unique_id=319609717 node_paths=PackedStringArray("error_state", "next_state")]
 script = ExtResource("15_0yciy")
-error_state = NodePath("../SlicePostDraw")
+error_state = NodePath("../SliceResults")
 next_state = NodePath("../SlicePostDraw")
 
 [node name="SlicePostDraw" type="Node" parent="." unique_id=1852219661 node_paths=PackedStringArray("error_state", "next_state")]
 script = ExtResource("6_q3yow")
 error_state = NodePath("../SliceResults")
+is_slicer_ui_state = false
 next_state = NodePath("../SliceResults")
 
 [node name="SliceResults" type="Node" parent="." unique_id=2060034717]
 script = ExtResource("6_i3dae")
+is_slicer_ui_state = false

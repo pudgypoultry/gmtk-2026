@@ -16,9 +16,9 @@ func __Exit(newState:SimpleState) -> void:
 	stateManager.countdown_label.hide()
 	super.__Exit(newState)
 
-func FailState() -> void:
-	super.FailState()
-	stateManager.reset_slicer()
+#func FailState() -> void:
+	#super.FailState()
+	#stateManager.reset_slicer()
 
 func Update(delta) -> void:
 	super.Update(delta)
