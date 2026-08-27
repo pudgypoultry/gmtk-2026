@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://4ejrxgoequh1" path="res://Components/slicer_system.tscn" id="2_qqcbp"]
 [ext_resource type="PackedScene" uid="uid://ep87helfabo2" path="res://Assets/SlicableEnemy.tscn" id="3_kmgky"]
 [ext_resource type="PackedScene" uid="uid://dww4wp00jtn0h" path="res://Components/CameraSlicer/CameraSlicer.tscn" id="3_qqcbp"]
-[ext_resource type="PackedScene" uid="uid://bagry2yjbykad" path="res://Assets/ui/countdown_label.tscn" id="5_su60e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4306q"]
 sky_top_color = Color(0.286275, 0.411765, 0.823529, 1)
@@ -73,11 +72,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7916012, 0.094413996, -4.2
 [node name="SpawnPoint_03" type="Marker3D" parent="SpawnPoints" unique_id=1984776538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39876676, 0.09441352, -7.703712)
 
-[node name="SlicerSystem" parent="." unique_id=873014263 node_paths=PackedStringArray("camera_slicer", "countdown_label", "enemy_folder", "spawn_points") instance=ExtResource("2_qqcbp")]
+[node name="SlicerSystem" parent="." unique_id=873014263 node_paths=PackedStringArray("camera_slicer", "enemy_folder", "spawn_points") instance=ExtResource("2_qqcbp")]
 camera_slicer = NodePath("../Camera3D/CameraSlicer")
-countdown_label = NodePath("../countdown_label")
 enemy_folder = NodePath("../EnemyFolder")
 enemy_list = Array[PackedScene]([ExtResource("3_kmgky")])
 spawn_points = [NodePath("../SpawnPoints/SpawnPoint_01"), NodePath("../SpawnPoints/SpawnPoint_02"), NodePath("../SpawnPoints/SpawnPoint_03")]
-
-[node name="countdown_label" parent="." unique_id=1044648533 instance=ExtResource("5_su60e")]

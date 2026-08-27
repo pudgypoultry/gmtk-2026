@@ -8,9 +8,11 @@
 [ext_resource type="Script" uid="uid://cmuruwaxgftck" path="res://Components/MouseControl/MouseControl.gd" id="7_8hwkd"]
 [ext_resource type="PackedScene" uid="uid://ddur3yjbqnrj3" path="res://Components/DuelManager/results_panel.tscn" id="7_jhuem"]
 [ext_resource type="Script" uid="uid://cp0opfp1nc6bx" path="res://Sandboxes/AndrewSandbox/DebugDraw.gd" id="8_2gvi5"]
+[ext_resource type="PackedScene" uid="uid://bagry2yjbykad" path="res://Assets/ui/countdown_label.tscn" id="9_8hwkd"]
 
-[node name="SlicerSystem" type="Node" unique_id=873014263 node_paths=PackedStringArray("state_manager", "mouse_control", "results_panel")]
+[node name="SlicerSystem" type="Node" unique_id=873014263 node_paths=PackedStringArray("countdown_label", "state_manager", "mouse_control", "results_panel")]
 script = ExtResource("1_m5xob")
+countdown_label = NodePath("countdown_label")
 state_manager = NodePath("SliceStateManager")
 mouse_control = NodePath("MouseControlCanvas")
 results_panel = NodePath("MouseControlCanvas/ResultsPanel")
@@ -62,6 +64,8 @@ stretch_mode = 4
 [node name="ResultsPanel" parent="MouseControlCanvas" unique_id=1233100686 node_paths=PackedStringArray("slice_state_manager") instance=ExtResource("7_jhuem")]
 visible = false
 slice_state_manager = NodePath("../../SliceStateManager")
+
+[node name="countdown_label" parent="." unique_id=1044648533 instance=ExtResource("9_8hwkd")]
 
 [connection signal="mouse_entered" from="MouseControlCanvas/MouseControl/MouseStartPosition" to="SliceStateManager" method="__on_mouse_ready"]
 [connection signal="mouse_exited" from="MouseControlCanvas/MouseControl/MouseStartPosition" to="SliceStateManager" method="__on_mouse_left"]
