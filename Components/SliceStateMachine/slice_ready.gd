@@ -13,6 +13,7 @@ func __Enter(oldState:SimpleState) -> void:
 	stateManager.how_fast = 0.0
 	stateManager.slicer.results_panel.hide()
 	stateManager.slicer.countdown_label.hide()
+	stateManager.mouse_start_position.show()
 	# instantiate an enemy
 	stateManager.selected_enemy = stateManager.slicer.enemy_list.pick_random().instantiate()
 	# select a random spawn point

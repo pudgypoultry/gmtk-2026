@@ -16,16 +16,6 @@ extends StateManager
 
 @export_category("Plugging in Nodes")
 @export var slicer:Slicer
-#@export var countdown_label: Countdown_Label
-#@export var enemy_folder: Node3D
-#@export var results_panel : Panel
-
-#@export_category("Enemy Spawner")
-## Array of Packed SliceableObject Scenes
-#@export var enemy_list: Array[PackedScene]
-#@export var spawn_points: Array[Marker3D]
-#@export var deterministic:bool = false
-#@export var deterministic_selection:int = 0
 
 var selected_enemy: Node3D
 var mouse_moved:bool = false
@@ -47,8 +37,6 @@ func _ready():
 			child.set_slicer_ui.connect(set_slicer_visibility)
 			child.stateManager = self
 	reset_machine.connect(initialState._on_go_next)
-	# TESTING HERE
-	_on_duel_start()
 
 func set_slicer_visibility(visable:bool):
 	if visable:
@@ -63,14 +51,6 @@ func __on_mouse_ready() -> void:
 func __on_mouse_left() -> void:
 	mouse_moved = true
 	mouse_in_circle = false
-
-#func _on_mouse_start_position_mouse_entered() -> void:
-	#if currentState == preparing_state:
-		#currentState.NextState()
-#
-#func _on_mouse_start_position_mouse_exited() -> void:
-	#if currentState == ready_state:
-		#currentState.NextState()
 
 func __on_done_slicing(how_many : int) -> void:
 	current_score += how_many
@@ -89,9 +69,6 @@ func reset_slicer() -> void:
 	#for n in enemy_folder.get_children():
 		#if n is Node3D:
 			#n.queue_free()
-
-func start_slicer() -> void:
-	currentState.NextState()
 
 func on_state_transition(oldState:SimpleState, newState:SimpleState):
 	super.on_state_transition(oldState, newState)

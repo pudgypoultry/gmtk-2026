@@ -4,9 +4,8 @@ class_name Dialogue_Line_State
 @export_category("Game Rules")
 @export var text:String
 @export var allow_continue:bool
-@export var deterministic_selection:int = -1
-@export var slice_goal:int = 0
 @export var require_slice:bool = false
+@export var slicer_index:int = 0
 
 var current_text:String = ""
 var done_typing:bool = false
@@ -26,7 +25,6 @@ func __Enter(oldState:SimpleState) -> void:
 		stateManager.continue_label.show()
 	else:
 		stateManager.continue_label.hide()
-	stateManager.dialogue_ui_parent.slice_param_update.emit(deterministic_selection, slice_goal)
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
@@ -56,5 +54,5 @@ func Update(delta) -> void:
 	# wait for typing then show slicer if it hasn't been shown
 	# slicer will trigger next state
 	if require_slice and not slice_shown and done_typing:
-		stateManager.dialogue_ui_parent.show_slicer.emit()
+		stateManager.dialogue_ui_parent.show_slicer.emit(slicer_index)
 		slice_shown = true

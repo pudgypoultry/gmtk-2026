@@ -4,9 +4,7 @@ class_name DialogueCtrl
 @onready var dialogue_state_manager: Dialogue_State_Manager = $DialogueStateManager
 
 @warning_ignore("unused_signal")
-signal slice_param_update(enemy_selection:int, slice_goal:int)
-@warning_ignore("unused_signal")
-signal show_slicer()
+signal show_slicer(index:int)
 @warning_ignore("unused_signal")
 signal dialogue_done()
 

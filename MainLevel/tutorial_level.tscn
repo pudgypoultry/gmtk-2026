@@ -6,14 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bt5s1n6um843i" path="res://Assets/samurai/master_static.tscn" id="3_vxmc7"]
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
 [ext_resource type="AudioStream" uid="uid://bvlewybgq4lmf" path="res://Audio/music/game gameloop.wav" id="6_g160d"]
-[ext_resource type="PackedScene" uid="uid://tkut1lxq82o5" path="res://Components/MouseControl/MouseControlCanvas.tscn" id="8_8840f"]
+[ext_resource type="PackedScene" uid="uid://cgb1laif6oh3c" path="res://Assets/static_objects/empty_scene.tscn" id="6_ja55b"]
+[ext_resource type="PackedScene" uid="uid://4ejrxgoequh1" path="res://Components/slicer_system.tscn" id="8_8840f"]
 [ext_resource type="PackedScene" uid="uid://c75ugdqdj75kf" path="res://MainLevel/main_menu_ui.tscn" id="8_g160d"]
 [ext_resource type="PackedScene" uid="uid://b2s3l21p8i0kx" path="res://Assets/ui/tutorial_dialogue.tscn" id="8_ylb82"]
-[ext_resource type="PackedScene" uid="uid://ddur3yjbqnrj3" path="res://Components/DuelManager/results_panel.tscn" id="9_ja55b"]
-[ext_resource type="PackedScene" uid="uid://cm3oaq5tva1gh" path="res://Components/SliceStateMachine/slice_state_manager.tscn" id="10_40hb0"]
-[ext_resource type="PackedScene" uid="uid://cgb1laif6oh3c" path="res://Assets/static_objects/empty_scene.tscn" id="12_1fwb0"]
 [ext_resource type="PackedScene" uid="uid://bnkw3aosoevtr" path="res://Assets/static_objects/bamboo_target.tscn" id="12_40hb0"]
-[ext_resource type="PackedScene" uid="uid://bagry2yjbykad" path="res://Assets/ui/countdown_label.tscn" id="12_hqa05"]
 [ext_resource type="Script" uid="uid://ct6pkbe8uvmje" path="res://Assets/one_time_transform_copy.gd" id="14_hqa05"]
 [ext_resource type="AudioStream" uid="uid://dimqwgd5pjbjj" path="res://Audio/music/AMBIENCE.wav" id="16_h0h12"]
 
@@ -40,7 +37,7 @@ fog_light_energy = 1.19
 fog_sun_scatter = 0.05
 fog_density = 1.0
 
-[node name="TutorialLevel" type="Node3D" unique_id=757367379 node_paths=PackedStringArray("samurai", "master_static", "camera_perspective", "sub_viewport_container", "camera_loc_active_game", "camera_loc_menu", "camera_loc_credits", "camera_loc_settings", "game_theme_player", "ambience_player", "tutorial_dialogue", "main_menu", "mouse_ctrl", "slice_state_manager")]
+[node name="TutorialLevel" type="Node3D" unique_id=757367379 node_paths=PackedStringArray("samurai", "master_static", "camera_perspective", "sub_viewport_container", "camera_loc_active_game", "camera_loc_menu", "camera_loc_credits", "camera_loc_settings", "game_theme_player", "ambience_player", "tutorial_dialogue", "main_menu", "slicer_empty", "slicer_bamboo")]
 script = ExtResource("1_tvqg6")
 samurai = NodePath("Samurai")
 master_static = NodePath("master_static")
@@ -54,8 +51,8 @@ game_theme_player = NodePath("GameThemePlayer")
 ambience_player = NodePath("AmbiencePlayer")
 tutorial_dialogue = NodePath("TutorialDialogue")
 main_menu = NodePath("MainMenu")
-mouse_ctrl = NodePath("MouseControlCanvas")
-slice_state_manager = NodePath("SliceStateManager")
+slicer_empty = NodePath("SlicerSystem_empty")
+slicer_bamboo = NodePath("SlicerSystem_bamboo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2147431309]
 environment = SubResource("Environment_dqdbx")
@@ -93,6 +90,30 @@ transform = Transform3D(0.88665205, -0.24490395, -0.39226285, 2.9997511e-09, 0.8
 [node name="CameraLoc_settings" type="Marker3D" parent="." unique_id=1507451146]
 transform = Transform3D(0.9494254, 0, 0.31399244, 0, 1.0000001, 0, -0.3139924, 0, 0.94942546, -4.8786125, 1.4901527, -19.749296)
 
+[node name="SlicerSystem_empty" parent="." unique_id=873014263 node_paths=PackedStringArray("camera_slicer", "enemy_folder", "samurai", "spawn_points") instance=ExtResource("8_8840f")]
+camera_slicer = NodePath("../SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
+enemy_folder = NodePath("../EnemyFolder")
+samurai = NodePath("../Samurai")
+reaction_time_limit = 1.2
+post_draw_time_limit = 0.5
+win_slices = 0
+loop = false
+show_results = false
+enemy_list = Array[PackedScene]([ExtResource("6_ja55b")])
+spawn_points = [NodePath("../BambooTargetTransform")]
+
+[node name="SlicerSystem_bamboo" parent="." unique_id=546792628 node_paths=PackedStringArray("camera_slicer", "enemy_folder", "samurai", "spawn_points") instance=ExtResource("8_8840f")]
+camera_slicer = NodePath("../SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
+enemy_folder = NodePath("../EnemyFolder")
+samurai = NodePath("../Samurai")
+reaction_time_limit = 0.75
+post_draw_time_limit = 1.5
+win_slices = 8
+loop = false
+show_results = false
+enemy_list = Array[PackedScene]([ExtResource("12_40hb0")])
+spawn_points = [NodePath("../BambooTargetTransform")]
+
 [node name="GameThemePlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
 stream = ExtResource("6_g160d")
 autoplay = true
@@ -105,28 +126,7 @@ visible = false
 [node name="BambooTargetTransform" type="Marker3D" parent="." unique_id=501587294]
 transform = Transform3D(0.16480052, -0.008831372, 0.11297252, 0.03420201, 0.19396922, -0.03472964, -0.10803243, 0.04793675, 0.16134144, 0.38987088, 1, -4.3)
 
-[node name="MouseControlCanvas" parent="." unique_id=549195944 node_paths=PackedStringArray("camera_slicer", "samurai") instance=ExtResource("8_8840f")]
-visible = false
-camera_slicer = NodePath("../SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
-samurai = NodePath("../Samurai")
-
-[node name="ResultsPanel" parent="MouseControlCanvas" unique_id=1233100686 node_paths=PackedStringArray("slice_state_manager") instance=ExtResource("9_ja55b")]
-visible = false
-slice_state_manager = NodePath("../../SliceStateManager")
-
 [node name="EnemyFolder" type="Marker3D" parent="." unique_id=877573326]
-
-[node name="SliceStateManager" parent="." unique_id=1710338953 node_paths=PackedStringArray("mouse_ctrl", "countdown_label", "enemy_folder", "results_panel", "spawn_points") instance=ExtResource("10_40hb0")]
-reaction_time_limit = 5.0
-mouse_ctrl = NodePath("../MouseControlCanvas")
-countdown_label = NodePath("../countdown_label")
-enemy_folder = NodePath("../EnemyFolder")
-results_panel = NodePath("../MouseControlCanvas/ResultsPanel")
-enemy_list = Array[PackedScene]([ExtResource("12_1fwb0"), ExtResource("12_40hb0")])
-spawn_points = [NodePath("../BambooTargetTransform")]
-
-[node name="countdown_label" parent="." unique_id=1044648533 instance=ExtResource("12_hqa05")]
-visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=728141331]
 visible = false
@@ -161,7 +161,5 @@ camera = NodePath("..")
 stream = ExtResource("16_h0h12")
 
 [connection signal="dialogue_done" from="TutorialDialogue" to="." method="_on_tutorial_dialogue_done"]
-[connection signal="show_slicer" from="TutorialDialogue" to="." method="show_slicer"]
-[connection signal="slice_param_update" from="TutorialDialogue" to="." method="_on_tutorial_dialogue_slice_param_update"]
+[connection signal="show_slicer" from="TutorialDialogue" to="." method="_on_tutorial_dialogue_show_slicer"]
 [connection signal="menu_changed" from="MainMenu" to="." method="_on_main_menu_menu_changed"]
-[connection signal="done_slicing" from="MouseControlCanvas" to="." method="on_done_slicing"]

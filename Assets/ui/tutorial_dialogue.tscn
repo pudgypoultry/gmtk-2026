@@ -73,15 +73,14 @@ next_state = NodePath("../Line2")
 [node name="Line2" type="Node" parent="DialogueStateManager" unique_id=957450027 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
 text = "\"Begin before this headache kills me. Let your hand be the blade MOVE YOUR MOUSE TO SLICE\""
-deterministic_selection = 0
 require_slice = true
 next_state = NodePath("../Line3")
 
 [node name="Line3" type="Node" parent="DialogueStateManager" unique_id=1087269327 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
 text = "\"GOOD good! Now do you think your skills can cut down this bamboo instead of just AIR HAHA\""
-deterministic_selection = 1
 require_slice = true
+slicer_index = 1
 next_state = NodePath("../Line4")
 
 [node name="Line4" type="Node" parent="DialogueStateManager" unique_id=14353068 node_paths=PackedStringArray("next_state")]

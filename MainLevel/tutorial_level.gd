@@ -13,14 +13,18 @@ extends Node3D
 @export var ambience_player: AudioStreamPlayer
 @export var tutorial_dialogue: DialogueCtrl
 @export var main_menu: Panel
-@export var mouse_ctrl:MouseControl
-@export var slice_state_manager: StateManager
+@export var slicer_empty:Slicer
+@export var slicer_bamboo:Slicer
 
 enum cameraloc {Play, Menu, Settings, Credits}
 var slice_goal:int = 0
 
 func _ready() -> void:
 	camera_perspective.position = camera_loc_menu.position
+	slicer_empty.slice_fail.connect(on_done_slicing_failure.bind(0))
+	slicer_bamboo.slice_fail.connect(on_done_slicing_failure.bind(1))
+	slicer_empty.slice_pass.connect(on_done_slicing_success.bind(0))
+	slicer_bamboo.slice_pass.connect(on_done_slicing_success.bind(1))
 	
 func _process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("Menu"):
@@ -54,7 +58,6 @@ func move_camera(pos:cameraloc) -> void:
 	tween.tween_property(camera_perspective, "position", loc, 1.0)
 	tween.parallel().tween_property(camera_perspective, "basis", bas, 1.0)
 
-
 func _on_main_menu_menu_changed(state: GlobalVars.MenuChange) -> void:
 	match (state):
 		GlobalVars.MenuChange.Menu:
@@ -71,33 +74,26 @@ func _on_main_menu_menu_changed(state: GlobalVars.MenuChange) -> void:
 			move_camera(cameraloc.Credits)
 		GlobalVars.MenuChange.Quit:
 			get_tree().quit()
-	
-func show_slicer() -> void:
-	game_theme_player.stop()
-	ambience_player.play()
-	mouse_ctrl.show()
 
-func hide_slicer() -> void:
-	mouse_ctrl.clean_up()
-	mouse_ctrl.hide()
+func hide_slicer(index:int) -> void:
 	ambience_player.stop()
 	game_theme_player.play()
-	slice_state_manager.reset_slicer()
+	if index==0: slicer_empty.stop_slicer()
+	if index==1: slicer_bamboo.stop_slicer()
 
-func on_done_slicing(how_many:int) -> void:
-	if how_many >= slice_goal:
-		tutorial_dialogue.Next()
-	else:
-		tutorial_dialogue.Fail()
-	hide_slicer()
+func on_done_slicing_success(_state:SimpleState, index:int) -> void:
+	tutorial_dialogue.Next()
+	hide_slicer(index)
+
+func on_done_slicing_failure(_state:SimpleState, index:int) -> void:
+	tutorial_dialogue.Fail()
+	hide_slicer(index)
 
 func _on_tutorial_dialogue_done() -> void:
 	master_static.play_animation()
 
-func _on_tutorial_dialogue_slice_param_update(enemy_selection: int, goal: int) -> void:
-	if enemy_selection != -1:
-		slice_state_manager.deterministic = true
-		slice_state_manager.deterministic_selection = enemy_selection
-	else:
-		slice_state_manager.deterministic = false
-	self.slice_goal = goal
+func _on_tutorial_dialogue_show_slicer(index: int) -> void:
+	game_theme_player.stop()
+	ambience_player.play()
+	if index == 0: slicer_empty.start_slicer()
+	if index == 1: slicer_bamboo.start_slicer()

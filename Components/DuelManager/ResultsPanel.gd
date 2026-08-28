@@ -17,7 +17,7 @@ func set_results(slices : int, reaction_time : float, win_streak : int):
 func handle_next_fight_pressed():
 	visible = false
 	slice_state_manager.reset_slicer()
-	slice_state_manager.start_slicer()
+	if slice_state_manager.slicer.loop: slice_state_manager._on_duel_start()
 
 
 func handle_quit_pressed():

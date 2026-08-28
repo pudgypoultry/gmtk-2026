@@ -11,10 +11,15 @@ signal set_slicer_ui(visable:bool)
 
 func FailState() -> void:
 	print("FailState active")
-	stateManager.win_streak = 0
-	stateManager.current_score = 0
+	if self is not Dialogue_Line_State: # janky because I didn't plan this out
+		stateManager.win_streak = 0
+		stateManager.current_score = 0
+		stateManager.slicer.slice_fail.emit(self)
+		if stateManager.slicer.samurai:
+			stateManager.slicer.samurai.standing()
 	self.ChangeState(error_state)
 
 func __Enter(oldState:SimpleState) -> void:
 	super.__Enter(oldState)
-	set_slicer_ui.emit(is_slicer_ui_state)
+	if self is not Dialogue_Line_State:
+		set_slicer_ui.emit(is_slicer_ui_state)
