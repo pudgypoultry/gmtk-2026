@@ -15,6 +15,7 @@ extends Node3D
 @export var main_menu: Panel
 @export var slicer_empty:Slicer
 @export var slicer_bamboo:Slicer
+@export var slicer_infinite:Slicer
 
 enum cameraloc {Play, Menu, Settings, Credits}
 var slice_goal:int = 0
@@ -25,7 +26,9 @@ func _ready() -> void:
 	slicer_bamboo.slice_fail.connect(on_done_slicing_failure.bind(1))
 	slicer_empty.slice_pass.connect(on_done_slicing_success.bind(0))
 	slicer_bamboo.slice_pass.connect(on_done_slicing_success.bind(1))
-	
+	#slicer_infinite.slice_pass.connect(on_done_slicing_success.bind(2))
+	#slicer_infinite.slice_fail.connect(on_done_slicing_failure.bind(2))
+
 func _process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("Menu"):
 		#main_menu._on_return_pressed()
@@ -78,8 +81,13 @@ func _on_main_menu_menu_changed(state: GlobalVars.MenuChange) -> void:
 func hide_slicer(index:int) -> void:
 	ambience_player.stop()
 	game_theme_player.play()
-	if index==0: slicer_empty.stop_slicer()
-	if index==1: slicer_bamboo.stop_slicer()
+	match index:
+		0:
+			slicer_empty.stop_slicer()
+		1:
+			slicer_bamboo.stop_slicer()
+		2:
+			slicer_infinite.stop_slicer()
 
 func on_done_slicing_success(_state:SimpleState, index:int) -> void:
 	tutorial_dialogue.Next()
@@ -95,5 +103,15 @@ func _on_tutorial_dialogue_done() -> void:
 func _on_tutorial_dialogue_show_slicer(index: int) -> void:
 	game_theme_player.stop()
 	ambience_player.play()
-	if index == 0: slicer_empty.start_slicer()
-	if index == 1: slicer_bamboo.start_slicer()
+	match index:
+		0:
+			slicer_empty.start_slicer()
+		1:
+			slicer_bamboo.start_slicer()
+		2:
+			slicer_infinite.start_slicer()
+
+
+func _start_infinite_from_signal() -> void:
+	slicer_bamboo.stop_slicer()
+	slicer_infinite.start_slicer()

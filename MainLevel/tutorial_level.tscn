@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqvkbgmp48utj" path="res://Assets/samurai/samurai.tscn" id="4_tvqg6"]
 [ext_resource type="AudioStream" uid="uid://bvlewybgq4lmf" path="res://Audio/music/game gameloop.wav" id="6_g160d"]
 [ext_resource type="PackedScene" uid="uid://cgb1laif6oh3c" path="res://Assets/static_objects/empty_scene.tscn" id="6_ja55b"]
+[ext_resource type="PackedScene" uid="uid://ep87helfabo2" path="res://Assets/SlicableEnemy.tscn" id="8_40hb0"]
 [ext_resource type="PackedScene" uid="uid://4ejrxgoequh1" path="res://Components/slicer_system.tscn" id="8_8840f"]
 [ext_resource type="PackedScene" uid="uid://c75ugdqdj75kf" path="res://MainLevel/main_menu_ui.tscn" id="8_g160d"]
 [ext_resource type="PackedScene" uid="uid://b2s3l21p8i0kx" path="res://Assets/ui/tutorial_dialogue.tscn" id="8_ylb82"]
@@ -37,7 +38,7 @@ fog_light_energy = 1.19
 fog_sun_scatter = 0.05
 fog_density = 1.0
 
-[node name="TutorialLevel" type="Node3D" unique_id=757367379 node_paths=PackedStringArray("samurai", "master_static", "camera_perspective", "sub_viewport_container", "camera_loc_active_game", "camera_loc_menu", "camera_loc_credits", "camera_loc_settings", "game_theme_player", "ambience_player", "tutorial_dialogue", "main_menu", "slicer_empty", "slicer_bamboo")]
+[node name="TutorialLevel" type="Node3D" unique_id=757367379 node_paths=PackedStringArray("samurai", "master_static", "camera_perspective", "sub_viewport_container", "camera_loc_active_game", "camera_loc_menu", "camera_loc_credits", "camera_loc_settings", "game_theme_player", "ambience_player", "tutorial_dialogue", "main_menu", "slicer_empty", "slicer_bamboo", "slicer_infinite")]
 script = ExtResource("1_tvqg6")
 samurai = NodePath("Samurai")
 master_static = NodePath("master_static")
@@ -53,6 +54,7 @@ tutorial_dialogue = NodePath("TutorialDialogue")
 main_menu = NodePath("MainMenu")
 slicer_empty = NodePath("SlicerSystem_empty")
 slicer_bamboo = NodePath("SlicerSystem_bamboo")
+slicer_infinite = NodePath("SlicerSystemInfinite")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2147431309]
 environment = SubResource("Environment_dqdbx")
@@ -114,6 +116,13 @@ show_results = false
 enemy_list = Array[PackedScene]([ExtResource("12_40hb0")])
 spawn_points = [NodePath("../BambooTargetTransform")]
 
+[node name="SlicerSystemInfinite" parent="." unique_id=239771551 node_paths=PackedStringArray("camera_slicer", "enemy_folder", "samurai", "spawn_points") instance=ExtResource("8_8840f")]
+camera_slicer = NodePath("../SubViewportContainer/SubViewport/CameraOrtho/CameraSlicer")
+enemy_folder = NodePath("../EnemyFolder")
+samurai = NodePath("../Samurai")
+enemy_list = Array[PackedScene]([ExtResource("8_40hb0")])
+spawn_points = [NodePath("../BambooTargetTransform")]
+
 [node name="GameThemePlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
 stream = ExtResource("6_g160d")
 autoplay = true
@@ -160,6 +169,7 @@ camera = NodePath("..")
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="." unique_id=833615937]
 stream = ExtResource("16_h0h12")
 
+[connection signal="begin_infinite" from="TutorialDialogue" to="." method="_start_infinite_from_signal"]
 [connection signal="dialogue_done" from="TutorialDialogue" to="." method="_on_tutorial_dialogue_done"]
 [connection signal="show_slicer" from="TutorialDialogue" to="." method="_on_tutorial_dialogue_show_slicer"]
 [connection signal="menu_changed" from="MainMenu" to="." method="_on_main_menu_menu_changed"]
