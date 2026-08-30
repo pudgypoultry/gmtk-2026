@@ -26,6 +26,9 @@ class_name Slicer
 @export var enemy_list: Array[PackedScene]
 @export var spawn_points: Array[Marker3D]
 
+@export_category("Debug")
+@export var sandbox_debug:bool = false
+
 @warning_ignore("unused_signal")
 signal slice_fail(current_state:SimpleState)
 @warning_ignore("unused_signal")
@@ -37,8 +40,8 @@ func start_slicer() -> void:
 func stop_slicer() -> void:
 	state_manager.reset_slicer()
 
-#func _unhandled_input(event):
-	## TESTING
-	#if GlobalVars.DEBUG and event.is_action_pressed("ui_accept"):
-		#state_manager._on_duel_start()
-		#get_viewport().set_input_as_handled()
+func _unhandled_input(event):
+	# TESTING
+	if GlobalVars.DEBUG and sandbox_debug and event.is_action_pressed("ui_accept"):
+		state_manager._on_duel_start()
+		get_viewport().set_input_as_handled()

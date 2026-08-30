@@ -18,8 +18,12 @@ func __Enter(oldState:SimpleState) -> void:
 	stateManager.selected_enemy = stateManager.slicer.enemy_list.pick_random().instantiate()
 	# select a random spawn point
 	var selected_spawn_point: Marker3D = stateManager.slicer.spawn_points.pick_random()
-	stateManager.selected_enemy.position = selected_spawn_point.position
-	stateManager.selected_enemy.basis = selected_spawn_point.basis
+	# move selected enemy to spawn point
+	#stateManager.selected_enemy.position = selected_spawn_point.position
+	#stateManager.selected_enemy.basis = selected_spawn_point.basis
+	# move enemy folder to spawn point
+	stateManager.slicer.camera_slicer.rigidbody_parent.position = selected_spawn_point.position
+	stateManager.slicer.camera_slicer.rigidbody_parent.basis = selected_spawn_point.basis
 	stateManager.slicer.enemy_folder.add_child(stateManager.selected_enemy)
 
 func __Exit(newState:SimpleState) -> void:

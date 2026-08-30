@@ -27,6 +27,7 @@ shape = SubResource("CapsuleShape3D_pxqgl")
 
 [node name="m_mesh_death_01" type="MeshInstance3D" parent="." unique_id=1097911843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7045426, 0)
+layers = 2
 mesh = ExtResource("3_cdpq1")
 
 [node name="SliceBehaviorComponent" type="Node" parent="." unique_id=131793628]

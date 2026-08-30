@@ -77,3 +77,4 @@ camera_slicer = NodePath("../Camera3D/CameraSlicer")
 enemy_folder = NodePath("../EnemyFolder")
 enemy_list = Array[PackedScene]([ExtResource("3_kmgky")])
 spawn_points = [NodePath("../SpawnPoints/SpawnPoint_01"), NodePath("../SpawnPoints/SpawnPoint_02"), NodePath("../SpawnPoints/SpawnPoint_03")]
+sandbox_debug = true
