@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://br434wx0cwhh7" path="res://Assets/menu/main_menu_ui.gd" id="3_0eewt"]
 [ext_resource type="StyleBox" uid="uid://bpctjflshv6b1" path="res://Assets/menu/resources/style_box_line_transparent.tres" id="4_hkd73"]
 [ext_resource type="Script" uid="uid://dm2i1p2p512uw" path="res://MainLevel/VolumeSlider.gd" id="4_j0vo4"]
+[ext_resource type="AudioStream" uid="uid://cvqi6rj3x56b4" path="res://Audio/combat/game slice.wav" id="5_n4ela"]
 [ext_resource type="StyleBox" uid="uid://bgbsev1o17ssp" path="res://Assets/menu/resources/style_box_line.tres" id="5_we60d"]
 [ext_resource type="StyleBox" uid="uid://mq5k3hpalci" path="res://Assets/menu/resources/style_box_vline.tres" id="6_j0vo4"]
 
@@ -145,6 +146,10 @@ ticks_on_borders = true
 ticks_position = 3
 script = ExtResource("4_j0vo4")
 bus_name = "SoundEffects"
+
+[node name="SlicePlayer" type="AudioStreamPlayer" parent="SettingsPannel/VBoxContainer" unique_id=899702733]
+stream = ExtResource("5_n4ela")
+bus = &"SoundEffects"
 
 [node name="Return" type="Button" parent="SettingsPannel" unique_id=61799491]
 layout_mode = 1
@@ -333,5 +338,6 @@ text = "Return"
 [connection signal="pressed" from="MainMenuPannel/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainMenuPannel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MainMenuPannel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="drag_ended" from="SettingsPannel/VBoxContainer/HSlider3" to="." method="_on_sfx_slider_drag_ended"]
 [connection signal="pressed" from="SettingsPannel/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="CreditsPannel/Return" to="." method="_on_return_pressed"]
