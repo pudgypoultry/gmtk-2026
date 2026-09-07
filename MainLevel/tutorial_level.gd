@@ -17,10 +17,17 @@ extends Node3D
 @export var slicer_bamboo:Slicer
 @export var slicer_infinite:Slicer
 
+@export_category("Game Rules")
+@export var error_state_dict = {}
+
 enum cameraloc {Play, Menu, Settings, Credits}
 var slice_goal:int = 0
 
 func _ready() -> void:
+	error_state_dict = {"SliceCountdown" : "That was Shit! Try it again only this time do it right",
+						"SliceWaiting" : "Wait for the countdown to finish before slicing!",
+						"SliceDraw" : "Too Slow!! Try again only this time do it better!",
+						"SliceResults" : "No! Hit the bamboo, not just the air!"}
 	camera_perspective.position = camera_loc_menu.position
 	slicer_empty.slice_fail.connect(on_done_slicing_failure.bind(0))
 	slicer_bamboo.slice_fail.connect(on_done_slicing_failure.bind(1))
@@ -93,8 +100,8 @@ func on_done_slicing_success(_state:SimpleState, index:int) -> void:
 	tutorial_dialogue.Next()
 	hide_slicer(index)
 
-func on_done_slicing_failure(_state:SimpleState, index:int) -> void:
-	tutorial_dialogue.Fail()
+func on_done_slicing_failure(state:SimpleState, index:int) -> void:
+	tutorial_dialogue.Fail(error_state_dict[state.name])
 	hide_slicer(index)
 
 func _on_tutorial_dialogue_done() -> void:

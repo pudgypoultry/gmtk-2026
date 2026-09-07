@@ -12,8 +12,8 @@ signal begin_infinite()
 func Next() -> void:
 	dialogue_state_manager.next_state()
 
-func Fail() -> void:
-	dialogue_state_manager.error_state()
+func Fail(dialogue_text:String) -> void:
+	dialogue_state_manager.error_state(dialogue_text)
 
 func _on_dialogue_state_changed(_oldState: String, newState: String) -> void:
 	if newState == "Line4":

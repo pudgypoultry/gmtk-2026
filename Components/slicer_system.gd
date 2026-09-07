@@ -34,6 +34,10 @@ signal slice_fail(current_state:SimpleState)
 @warning_ignore("unused_signal")
 signal slice_pass(current_state:SimpleState)
 
+func stop_countdown() -> void:
+	countdown_label.stop()
+	countdown_label.hide()
+
 func start_slicer() -> void:
 	state_manager._on_duel_start()
 

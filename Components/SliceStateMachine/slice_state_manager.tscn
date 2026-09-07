@@ -28,7 +28,7 @@ next_state = NodePath("../SliceCountdown")
 
 [node name="SliceCountdown" type="Node" parent="." unique_id=138781680 node_paths=PackedStringArray("error_state", "next_state")]
 script = ExtResource("3_15v0g")
-error_state = NodePath("../SliceFailResults")
+error_state = NodePath("../SliceReady")
 next_state = NodePath("../SliceWaiting")
 
 [node name="SliceWaiting" type="Node" parent="." unique_id=342126874 node_paths=PackedStringArray("error_state", "next_state")]

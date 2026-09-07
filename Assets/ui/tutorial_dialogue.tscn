@@ -72,13 +72,25 @@ next_state = NodePath("../Line2")
 
 [node name="Line2" type="Node" parent="DialogueStateManager" unique_id=957450027 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"Begin before this headache kills me. Let your hand be the blade MOVE YOUR MOUSE TO SLICE\""
+text = "\"Begin before this headache kills me.\""
+allow_continue = true
+next_state = NodePath("../Line5")
+
+[node name="Line5" type="Node" parent="DialogueStateManager" unique_id=343308295 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_kpcjh")
+text = "\"Let your hand be the blade MOVE YOUR MOUSE TO SLICE\""
 require_slice = true
+next_state = NodePath("../Line2_complete")
+
+[node name="Line2_complete" type="Node" parent="DialogueStateManager" unique_id=766618580 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_kpcjh")
+text = "\"GOOD good!\""
+allow_continue = true
 next_state = NodePath("../Line3")
 
 [node name="Line3" type="Node" parent="DialogueStateManager" unique_id=1087269327 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"GOOD good! Now do you think your skills can cut down this bamboo instead of just AIR HAHA\""
+text = "\"Now do you think your skills can cut down this bamboo instead of just AIR HAHA\""
 require_slice = true
 slicer_index = 1
 next_state = NodePath("../Line4")
@@ -86,6 +98,12 @@ next_state = NodePath("../Line4")
 [node name="Line4" type="Node" parent="DialogueStateManager" unique_id=14353068 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
 text = "\"Ouch! You cut me in half!\""
+allow_continue = true
+next_state = NodePath("../Line6")
+
+[node name="Line6" type="Node" parent="DialogueStateManager" unique_id=582624492 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_kpcjh")
+text = "\"[you now must face the wrath of the other students!]\""
 allow_continue = true
 next_state = NodePath("../DialogueDone")
 

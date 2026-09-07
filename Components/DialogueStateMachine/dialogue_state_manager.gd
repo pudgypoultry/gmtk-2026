@@ -29,7 +29,8 @@ func is_visable() -> bool:
 func next_state() -> void:
 	currentState.NextState()
 
-func error_state() -> void:
+func error_state(text:String) -> void:
+	global_error_state.text = text
 	currentState.FailState()
 
 func _unhandled_input(event):

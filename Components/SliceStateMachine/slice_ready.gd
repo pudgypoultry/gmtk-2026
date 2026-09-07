@@ -25,6 +25,8 @@ func __Enter(oldState:SimpleState) -> void:
 	stateManager.slicer.camera_slicer.rigidbody_parent.position = selected_spawn_point.position
 	stateManager.slicer.camera_slicer.rigidbody_parent.basis = selected_spawn_point.basis
 	stateManager.slicer.enemy_folder.add_child(stateManager.selected_enemy)
+	if stateManager.slicer.samurai: 
+		stateManager.slicer.samurai.standing()
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
