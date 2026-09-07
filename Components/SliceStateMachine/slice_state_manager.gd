@@ -38,6 +38,9 @@ func _ready():
 			child.stateManager = self
 	reset_machine.connect(initialState._on_go_next)
 
+func prep_results(panel : Node) -> void:
+	slicer.slice_fail.connect(panel._on_fail)
+
 func set_slicer_visibility(visable:bool):
 	if visable:
 		margin_child.show()

@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://mbwxhb0flgrw" path="res://Assets/menu/resources/ui_theme.tres" id="1_jt164"]
 [ext_resource type="Script" uid="uid://etfwhf7nu7xd" path="res://Components/DuelManager/ResultsPanel.gd" id="2_bv00y"]
+[ext_resource type="Script" uid="uid://cbd7rpmc6xni4" path="res://Components/DuelManager/FailResult.gd" id="3_rc0ph"]
 
 [sub_resource type="FontFile" id="FontFile_xint0"]
 subpixel_positioning = 0
@@ -30,7 +31,7 @@ cache/0/35/0/scale = 1.0
 [sub_resource type="Theme" id="Theme_7u7ll"]
 default_font = SubResource("FontFile_xint0")
 
-[node name="ResultsPanel" type="Panel" unique_id=1233100686]
+[node name="ResultsPanel" type="Panel" unique_id=1233100686 node_paths=PackedStringArray("win_results", "lose_results")]
 anchors_preset = -1
 anchor_left = 0.1
 anchor_top = 0.1
@@ -41,6 +42,8 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("1_jt164")
 script = ExtResource("2_bv00y")
+win_results = NodePath("WinResults")
+lose_results = NodePath("LoseResults")
 
 [node name="WinResults" type="VBoxContainer" parent="." unique_id=1870791297]
 custom_minimum_size = Vector2(250, 250)
@@ -100,7 +103,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "NEXT OPPONENT"
 
-[node name="LoseResults" type="VBoxContainer" parent="." unique_id=496710869]
+[node name="LoseResults" type="VBoxContainer" parent="." unique_id=496710869 node_paths=PackedStringArray("fail_be_patient", "fail_countdown", "fail_draw", "fail_results")]
 visible = false
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 1
@@ -110,6 +113,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+script = ExtResource("3_rc0ph")
+fail_be_patient = NodePath("FailWaitingTentative")
+fail_countdown = NodePath("FailCountdown")
+fail_draw = NodePath("FailDraw")
+fail_results = NodePath("FailResults")
+
+[node name="FailWaitingTentative" type="Label" parent="LoseResults" unique_id=1824563634]
+visible = false
+layout_mode = 2
+text = "(Replace with restarting countdown)
+"
+horizontal_alignment = 1
+
+[node name="FailCountdown" type="Label" parent="LoseResults" unique_id=914491553]
+visible = false
+layout_mode = 2
+text = "You jumped the gun!
+"
+horizontal_alignment = 1
+
+[node name="FailDraw" type="Label" parent="LoseResults" unique_id=1443827435]
+visible = false
+layout_mode = 2
+text = "You weren't quick enough!
+"
+horizontal_alignment = 1
+
+[node name="FailResults" type="Label" parent="LoseResults" unique_id=1704042058]
+visible = false
+layout_mode = 2
+text = "You did not slice the enemy!
+"
+horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="." unique_id=1204657358]
 layout_mode = 1

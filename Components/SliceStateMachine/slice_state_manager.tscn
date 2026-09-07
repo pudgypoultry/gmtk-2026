@@ -13,9 +13,9 @@
 
 [node name="SliceStateManager" type="Node" unique_id=1710338953 node_paths=PackedStringArray("initialState")]
 script = ExtResource("1_cru6g")
-initialState = NodePath("SliceWait")
+initialState = NodePath("SliceSleep")
 
-[node name="SliceWait" type="Node" parent="." unique_id=362146239 node_paths=PackedStringArray("error_state", "next_state")]
+[node name="SliceSleep" type="Node" parent="." unique_id=362146239 node_paths=PackedStringArray("error_state", "next_state")]
 script = ExtResource("9_diiwt")
 error_state = NodePath(".")
 is_slicer_ui_state = false
