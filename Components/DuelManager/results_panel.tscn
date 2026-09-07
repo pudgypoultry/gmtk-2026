@@ -166,6 +166,22 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 25
 text = "Continue"
 
+[node name="ExitToMenu" type="Button" parent="." unique_id=1263973073]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -53.0
+offset_right = 301.0
+grow_vertical = 0
+mouse_filter = 1
+theme_override_colors/font_focus_color = Color(1, 0.7647059, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.7647059, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Exit to Menu"
+
 [node name="Label" type="Label" parent="." unique_id=1397547547]
 layout_mode = 0
 offset_right = 40.0
@@ -173,3 +189,4 @@ offset_bottom = 53.0
 
 [connection signal="pressed" from="WinResults/NextFight" to="." method="handle_next_fight_pressed"]
 [connection signal="pressed" from="Continue" to="." method="handle_next_fight_pressed"]
+[connection signal="pressed" from="ExitToMenu" to="." method="handle_quit_pressed"]
