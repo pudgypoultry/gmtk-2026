@@ -126,6 +126,7 @@ spawn_points = [NodePath("../EnemySpawnPoints/Marker3D"), NodePath("../EnemySpaw
 [node name="GameThemePlayer" type="AudioStreamPlayer" parent="." unique_id=1897125964]
 stream = ExtResource("6_g160d")
 autoplay = true
+bus = &"Music"
 
 [node name="TutorialDialogue" parent="." unique_id=751624776 instance=ExtResource("8_ylb82")]
 visible = false
@@ -168,6 +169,7 @@ camera = NodePath("..")
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="." unique_id=833615937]
 stream = ExtResource("16_h0h12")
+bus = &"Music"
 
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1680820554]
 
