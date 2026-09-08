@@ -10,10 +10,13 @@ class_name Dialogue_State_Manager
 @export var continue_label:Label
 @export var dialogue_ui_parent:DialogueCtrl
 
+var original_continue_text : String = ""
+
 signal dialogueStateChanged(oldState:String, newState:String)
 
 func _ready():
 	super._ready()
+	original_continue_text = continue_label.text
 	# set all error states to the global error state if one is set
 	if global_error_state:
 		for child in get_children():
@@ -41,3 +44,10 @@ func _unhandled_input(event):
 func on_state_transition(oldState:SimpleState, newState:SimpleState):
 	dialogueStateChanged.emit(oldState.name, newState.name)
 	currentState = newState
+
+
+func change_continue_text(new_text : String):
+	continue_label.text = new_text
+
+func reset_continue_text():
+	continue_label.text = original_continue_text

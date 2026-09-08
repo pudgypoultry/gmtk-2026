@@ -18,7 +18,11 @@ anchor_left = 0.598
 anchor_top = 0.625
 anchor_right = 0.967
 anchor_bottom = 0.95
-grow_horizontal = 2
+offset_left = 2.104004
+offset_top = 52.0
+offset_right = 2.104004
+offset_bottom = 52.0
+grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = ExtResource("2_1x5fp")
 
@@ -27,9 +31,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -32.14
 offset_right = 24.911987
-offset_bottom = -20.739975
+offset_bottom = 11.400024
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -50,6 +53,7 @@ text = "Master:"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usr6m")
 theme_override_font_sizes/font_size = 24
+text = "\"Focus. . . and when the time is right, draw your blade.\""
 autowrap_mode = 2
 
 [node name="Continue" type="Label" parent="Dialogue/Content/TextContainer" unique_id=1904128277]
@@ -58,6 +62,7 @@ text = "Press [Space] to continue"
 
 [node name="DialogueStateManager" type="Node" parent="." unique_id=1273816037 node_paths=PackedStringArray("global_error_state", "dialogue_label", "continue_label", "dialogue_ui_parent", "initialState")]
 script = ExtResource("4_kvwh5")
+typing_speed = null
 global_error_state = NodePath("LineError")
 dialogue_label = NodePath("../Dialogue/Content/TextContainer/DialogueText")
 continue_label = NodePath("../Dialogue/Content/TextContainer/Continue")
@@ -66,44 +71,46 @@ initialState = NodePath("Line1")
 
 [node name="Line1" type="Node" parent="DialogueStateManager" unique_id=1368352949 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"Ah good i was beginning to think you werent going to show up.\""
+text = "\"Ah, my most.  .  . determined pupil.\""
 allow_continue = true
 next_state = NodePath("../Line2")
 
 [node name="Line2" type="Node" parent="DialogueStateManager" unique_id=957450027 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"Begin before this headache kills me.\""
+text = "\"Let's finally get the last part of your training over with.\""
 allow_continue = true
 next_state = NodePath("../Line5")
 
 [node name="Line5" type="Node" parent="DialogueStateManager" unique_id=343308295 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"Let your hand be the blade MOVE YOUR MOUSE TO SLICE\""
+text = "\"Focus. . . and when the time is right, draw your blade.\""
 require_slice = true
+change_continue_text = true
+new_continue_text = "(Hover over the symbol and move your mouse at the signal)"
 next_state = NodePath("../Line2_complete")
 
 [node name="Line2_complete" type="Node" parent="DialogueStateManager" unique_id=766618580 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"GOOD good!\""
+text = "\"I'm glad you've finally learned how to draw your sword!\""
 allow_continue = true
 next_state = NodePath("../Line3")
 
 [node name="Line3" type="Node" parent="DialogueStateManager" unique_id=1087269327 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"Now do you think your skills can cut down this bamboo instead of just AIR HAHA\""
+text = "\"Now, perform the bare minimum. Make a clean cut through these bamboo stalks.\""
 require_slice = true
 slicer_index = 1
 next_state = NodePath("../Line4")
 
 [node name="Line4" type="Node" parent="DialogueStateManager" unique_id=14353068 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"Ouch! You cut me in half!\""
+text = "\"OUCH!\""
 allow_continue = true
 next_state = NodePath("../Line6")
 
 [node name="Line6" type="Node" parent="DialogueStateManager" unique_id=582624492 node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_kpcjh")
-text = "\"[you now must face the wrath of the other students!]\""
+text = "\"I'm cut in half real bad. . . STUDENTS! GET HIM!\""
 allow_continue = true
 next_state = NodePath("../DialogueDone")
 
@@ -112,7 +119,7 @@ script = ExtResource("6_lxgqk")
 
 [node name="LineError" type="Node" parent="DialogueStateManager" unique_id=932940641]
 script = ExtResource("7_2ke2h")
-text = "\"That was Shit! Try it again only this time do it right\""
+text = "\"Congratulations on finding a way to mess even this up. Do it right this time.\""
 allow_continue = true
 
 [connection signal="dialogueStateChanged" from="DialogueStateManager" to="." method="_on_dialogue_state_changed"]

@@ -6,6 +6,8 @@ class_name Dialogue_Line_State
 @export var allow_continue:bool
 @export var require_slice:bool = false
 @export var slicer_index:int = 0
+@export var change_continue_text:bool = false
+@export var new_continue_text:String = ""
 
 var current_text:String = ""
 var done_typing:bool = false
@@ -16,6 +18,8 @@ var slice_shown:bool = false
 func __Enter(oldState:SimpleState) -> void:
 	# called when the state is entered
 	super.__Enter(oldState)
+	if change_continue_text:
+		stateManager.change_continue_text(new_continue_text)
 	current_text = ""
 	typing_clock = 0.0
 	current_letter = 0
@@ -23,12 +27,14 @@ func __Enter(oldState:SimpleState) -> void:
 	slice_shown = false
 	if allow_continue:
 		stateManager.continue_label.show()
-	else:
+	elif !change_continue_text:
 		stateManager.continue_label.hide()
 
 func __Exit(newState:SimpleState) -> void:
 	# called when the state is exited
 	slice_shown = false
+	if change_continue_text:
+		stateManager.reset_continue_text()
 	super.__Exit(newState)
 
 func Update(delta) -> void:
